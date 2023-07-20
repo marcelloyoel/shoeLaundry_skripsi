@@ -28,7 +28,9 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        @include('partials.sidebar')
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+            @yield('sidebar')
+        </ul>
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
