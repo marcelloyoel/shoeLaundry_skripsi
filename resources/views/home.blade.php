@@ -5,7 +5,7 @@
 @section('container')
     <h1>Hello World!</h1>
     <p>Ini cuman mau ngetest aja sbenernya bisa ga sih bikin begini</p>
-
+    <p>Halo ini test</p>
     <div class="row">
         @for ($i = 0; $i < 25; $i++)
             <div class="col-sm-4">
