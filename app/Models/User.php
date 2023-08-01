@@ -28,6 +28,7 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+    protected $guarded = ['id'];
     protected $hidden = [
         'password',
         'remember_token',
@@ -41,4 +42,23 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function order()
+    {
+        return $this->hasMany(Order::class);
+    }
+
+    public function laundrySepatu()
+    {
+        return $this->hasOne(LaundrySepatu::class);
+    }
+
+    // public function userGroup()
+    // {
+    //     return $this->hasOne(UserGroup::class);
+    // }
+    public function group()
+    {
+        return $this->belongsTo(Group::class);
+    }
 }

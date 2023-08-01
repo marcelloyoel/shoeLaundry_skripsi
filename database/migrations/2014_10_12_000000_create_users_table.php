@@ -15,11 +15,17 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('username')->unique();
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->rememberToken();
+            $table->string('displayName');
+            $table->string('address')->nullable();
+            $table->integer('status')->default('1');
+            // 1 = user, 2 = laundry, 3 = admin, 4 = superadmin
+            $table->boolean('isLogin')->default('1');
+            //1 = login, 0 = ga lagi login
+            $table->string('phoneNumber');
+            $table->foreignId('group_id');
             $table->timestamps();
         });
     }
