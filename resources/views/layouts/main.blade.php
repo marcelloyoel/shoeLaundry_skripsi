@@ -20,7 +20,16 @@
     <!-- Custom styles for this template-->
     <link href="/template/css/sb-admin-2.min.css" rel="stylesheet">
     <link href="/css/sidebarNew.css" rel="stylesheet">
-
+    <!-- Include CSS styles for DataTables -->
+    <link rel="stylesheet" href="//cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+    {{-- openai --}}
+    {{-- <link rel="stylesheet" href="/vendor/snapappointments/bootstrap-select/dist/css/bootstrap-select.min.css"> --}}
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/css/bootstrap-select.min.css">
+    <script>
+        // Set Bootstrap version manually
+        $.fn.selectpicker.Constructor.BootstrapVersion = '4.5.2';
+    </script>
 </head>
 
 @yield('body')
@@ -33,6 +42,9 @@
 
 <!-- Custom scripts for all pages-->
 <script src="/template/js/sb-admin-2.min.js"></script>
+
+{{-- custom javascript --}}
+<script src="/js/profile.js"></script>
 
 </body>
 

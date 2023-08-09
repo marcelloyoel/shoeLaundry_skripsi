@@ -22,7 +22,7 @@ class UserFactory extends Factory
             'username'  => $this->faker->firstNameMale() . $pembeda++,
             'email'  => $this->faker->email(),
             'password'  => bcrypt('password'),
-            'status'  => 2,
+            'status'  => 1,
             'displayName'  => $this->faker->firstNameMale(),
             'phoneNumber'  => $this->faker->phoneNumber(),
             'group_id'     =>  2

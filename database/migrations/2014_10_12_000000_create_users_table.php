@@ -21,11 +21,12 @@ return new class extends Migration
             $table->string('displayName');
             $table->string('address')->nullable();
             $table->integer('status')->default('1');
-            // 1 = user, 2 = laundry, 3 = admin, 4 = superadmin
+            // 1 = aktif, 2 = ga aktif
             $table->boolean('isLogin')->default('1');
             //1 = login, 0 = ga lagi login
             $table->string('phoneNumber');
-            $table->foreignId('group_id');
+            $table->foreignId('group_id')->default('1');
+            // 1 = buyer, 2 = laundry, 3 = admin, 4 = superadmin
             $table->timestamps();
         });
     }

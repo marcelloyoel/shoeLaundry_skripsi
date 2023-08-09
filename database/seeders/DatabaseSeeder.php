@@ -9,6 +9,8 @@ use App\Models\GroupMenu;
 use App\Models\LaundrySepatu;
 use App\Models\Menu;
 use App\Models\MenuType;
+use App\Models\Order;
+use App\Models\OrderToService;
 use App\Models\Service;
 use App\Models\User;
 use App\Models\UserGroup;
@@ -86,15 +88,69 @@ class DatabaseSeeder extends Seeder
             'bio' => 'Welcome to jejak langkah dimana anda dapat merasakan mencuci sepatu dengan kualitas terbaik. Harga kaki lima, tetapi kualitas bintang lima. Ayo segera daftarkan diri anda!'
         ]);
 
-        User::factory(10)->create();
-        LaundrySepatu::factory(10)->create();
+
+
+        User::factory(25)->create();
+        LaundrySepatu::factory(25)->create();
+
+        User::create([
+            'username'  => 'buyer',
+            'email'  => 'buyer@gmail.com',
+            'password'  => bcrypt('12345'),
+            'status'  => 1,
+            'displayName'  => 'buyerDummy',
+            'phoneNumber'  => '089615736938'
+        ]);
 
         Service::create([
-            'laundrySepatu_id'  => 1,
+            'laundry_sepatu_id'  => 1,
             'serviceName'  => 'Cuci bersih total',
             'serviceSlug'  => 'cuci-bersih-total',
             'servicePrice'  => 75000,
             'serviceDescription'  => 'Disini, sepatu anda akan manjakan dengan sentuhan cucian yang lembut dan bersih. Terbaik deh!',
+        ]);
+        Service::create([
+            'laundry_sepatu_id'  => 1,
+            'serviceName'  => 'Cuci bersih cepat',
+            'serviceSlug'  => 'cuci-bersih-cepat',
+            'servicePrice'  => 45000,
+            'serviceDescription'  => 'Disini, sepatu anda akan dicuci dengan sentuhan cucian yang Cepat. Terbaik deh!',
+        ]);
+        Service::create([
+            'laundry_sepatu_id'  => 1,
+            'serviceName'  => 'Recoloring',
+            'serviceSlug'  => 'recoloring',
+            'servicePrice'  => 175000,
+            'serviceDescription'  => 'Disini, sepatu anda akan diwarnai ulang!',
+        ]);
+        Service::create([
+            'laundry_sepatu_id'  => 1,
+            'serviceName'  => 'Repaint',
+            'serviceSlug'  => 'repaint',
+            'servicePrice'  => 175000,
+            'serviceDescription'  => 'Disini, sepatu anda akan dicat ulang!',
+        ]);
+
+        Order::create([
+            'user_id'   => 30,
+            'laundry_sepatu_id'    => 1,
+            'phoneNumber'       => '089615736938',
+            'address'           => 'Jalan Imam Bonjol 30 No.42 Karang Anyar Tangerang Selatan, Banten. 15323',
+            'merkSepatu'       => 'Nike',
+            'jenisSepatu'       => 'Air Jordan'
+        ]);
+
+        OrderToService::create([
+            'order_id'  => 1,
+            'service_id'    => 1
+        ]);
+        OrderToService::create([
+            'order_id'  => 1,
+            'service_id'    => 2
+        ]);
+        OrderToService::create([
+            'order_id'  => 1,
+            'service_id'    => 3
         ]);
 
         // untuk menu type buyer
@@ -306,6 +362,143 @@ class DatabaseSeeder extends Seeder
         GroupMenu::create([
             'group_id'  => 4,
             'menu_id'   => 10
+        ]);
+
+        //buat laundry dengan nomer 2
+        Service::create([
+            'laundry_sepatu_id'  => 2,
+            'serviceName'  => 'Clear Shoe',
+            'serviceSlug'  => 'clear-shoe',
+            'servicePrice'  => 45000,
+            'serviceDescription'  => 'Disini, sepatu anda akan manjakan dengan sentuhan cucian yang lembut dan bersih. Terbaik deh!',
+        ]);
+        Service::create([
+            'laundry_sepatu_id'  => 2,
+            'serviceName'  => 'Quick Wash',
+            'serviceSlug'  => 'quick-wash',
+            'servicePrice'  => 25000,
+            'serviceDescription'  => 'Disini, sepatu anda akan dicuci dengan sentuhan cucian yang Cepat. Terbaik deh!',
+        ]);
+        Service::create([
+            'laundry_sepatu_id'  => 2,
+            'serviceName'  => 'Recoloring',
+            'serviceSlug'  => 'recoloring-above',
+            'servicePrice'  => 175000,
+            'serviceDescription'  => 'Disini, sepatu anda akan diwarnai ulang!',
+        ]);
+        Service::create([
+            'laundry_sepatu_id'  => 2,
+            'serviceName'  => 'Repaint',
+            'serviceSlug'  => 'repaint-above',
+            'servicePrice'  => 175000,
+            'serviceDescription'  => 'Disini, sepatu anda akan dicat ulang!',
+        ]);
+
+        Order::create([
+            'user_id'   => 30,
+            'laundry_sepatu_id'    => 2,
+            'phoneNumber'       => '089615736938',
+            'address'           => 'Jalan Kompleks Villa Melati Mas Tangerang Selatan, Banten. 15323',
+            'merkSepatu'       => 'Adidas',
+            'jenisSepatu'       => 'Adidas Superstar White'
+        ]);
+
+        OrderToService::create([
+            'order_id'  => 2,
+            'service_id'    => 5
+        ]);
+        OrderToService::create([
+            'order_id'  => 2,
+            'service_id'    => 8
+        ]);
+
+        //buat laundry dengan nomer 3
+        Service::create([
+            'laundry_sepatu_id'  => 3,
+            'serviceName'  => 'Super Clean Wash',
+            'serviceSlug'  => 'super-clean-wash',
+            'servicePrice'  => 105000,
+            'serviceDescription'  => 'Disini, sepatu anda akan manjakan dengan sentuhan cucian yang lembut dan bersih. Terbaik deh!',
+        ]);
+        Service::create([
+            'laundry_sepatu_id'  => 3,
+            'serviceName'  => 'Middle Clean Wash',
+            'serviceSlug'  => 'middle-clean-wash',
+            'servicePrice'  => 25000,
+            'serviceDescription'  => 'Disini, sepatu anda akan dicuci dengan sentuhan cucian yang Cepat. Terbaik deh!',
+        ]);
+        Service::create([
+            'laundry_sepatu_id'  => 3,
+            'serviceName'  => 'Amateur Clean Wash',
+            'serviceSlug'  => 'amateur-clean-wash',
+            'servicePrice'  => 20000,
+            'serviceDescription'  => 'Disini, sepatu anda akan diwarnai ulang!',
+        ]);
+        Service::create([
+            'laundry_sepatu_id'  => 3,
+            'serviceName'  => 'Repaint',
+            'serviceSlug'  => 'repaint-end',
+            'servicePrice'  => 175000,
+            'serviceDescription'  => 'Disini, sepatu anda akan dicat ulang!',
+        ]);
+        Order::create([
+            'user_id'   => 30,
+            'laundry_sepatu_id'    => 3,
+            'phoneNumber'       => '089615736938',
+            'address'           => 'Jalan Metro Pondok Indah, Jakarta Selatan, Jakarta. 15323',
+            'merkSepatu'       => 'Airwalk',
+            'jenisSepatu'       => 'Airwalk Air Fresh Bump 3X5 Super'
+        ]);
+        OrderToService::create([
+            'order_id'  => 3,
+            'service_id'    => 9
+        ]);
+        OrderToService::create([
+            'order_id'  => 3,
+            'service_id'    => 10
+        ]);
+
+        //another buyer
+        User::create([
+            'username'  => 'elonmusk',
+            'email'  => 'elon@gmail.com',
+            'password'  => bcrypt('12345'),
+            'status'  => 1,
+            'displayName'  => 'Elon Musk',
+            'phoneNumber'  => '089615736932'
+        ]);
+        Order::create([
+            'user_id'   => 31,
+            'laundry_sepatu_id'    => 1,
+            'phoneNumber'       => '089618736938',
+            'address'           => 'BCA Finance Pondok Indah',
+            'merkSepatu'       => 'Fogo',
+            'jenisSepatu'       => 'FOGO Super Running 2053'
+        ]);
+
+        OrderToService::create([
+            'order_id'  => 4,
+            'service_id'    => 1
+        ]);
+        OrderToService::create([
+            'order_id'  => 4,
+            'service_id'    => 2
+        ]);
+        User::create([
+            'username'  => 'mrbeast',
+            'email'  => 'beast@gmail.com',
+            'password'  => bcrypt('12345'),
+            'status'  => 1,
+            'displayName'  => 'Mr. Beast',
+            'phoneNumber'  => '089612736932'
+        ]);
+        User::create([
+            'username'  => 'zaynmalik',
+            'email'  => 'zayn@gmail.com',
+            'password'  => bcrypt('12345'),
+            'status'  => 1,
+            'displayName'  => 'Zayn Malik',
+            'phoneNumber'  => '089615736932'
         ]);
     }
 }
