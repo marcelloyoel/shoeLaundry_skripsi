@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\LaundrySepatu;
 use App\Http\Requests\StoreLaundrySepatuRequest;
 use App\Http\Requests\UpdateLaundrySepatuRequest;
+use App\Models\Order;
+use Illuminate\Support\Facades\Auth;
 
 class LaundrySepatuController extends Controller
 {
@@ -15,7 +17,20 @@ class LaundrySepatuController extends Controller
      */
     public function index()
     {
-        //
+        // $this->authorize('view-orders');
+        // $user = Auth::user();
+        // // dd($user);
+        // $laundrySepatu = $user->laundrySepatu;
+        // // dd($laundrySepatu);
+        // if ($laundrySepatu) {
+        //     $orders = Order::where('laundry_sepatu_id', $laundrySepatu->id)->get();
+        //     // dd($orders);
+        //     return view('laundry.orderlist.index', [
+        //         'title' => 'Order List',
+        //         'orders' => $orders
+        //     ]);
+        // }
+        // return "bukan laundry ini mah";
     }
 
     /**

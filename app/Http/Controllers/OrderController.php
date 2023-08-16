@@ -52,6 +52,7 @@ class OrderController extends Controller
      */
     public function show(Order $order)
     {
+        // $this->authorize('update-orders');
         $orderToServices = $order->orderToService;
         $services = [];
 
@@ -124,7 +125,68 @@ class OrderController extends Controller
      */
     public function edit(Order $order)
     {
-        //
+        $orderToServices = $order->orderToService;
+        $services = [];
+
+        // Loop through the related OrderToService records and get the ServiceName
+        foreach ($orderToServices as $orderToService) {
+            // Access the related Service and get the serviceName attribute
+            $servicesNih = $orderToService->service;
+
+            // Add the serviceName to the array
+            $services[] = $servicesNih;
+        }
+
+        // Assuming you have an instance of the LaundrySepatu model
+        // $laundrySepatu = $order->laundrySepatu;
+        // dd($order->laundrySepatu->service);
+        // Get the related services
+        // $relatedServices = $laundrySepatu->services;
+
+        // // Initialize an array to store service names
+        // $allServices = [];
+
+        // // Loop through the related services and get the service names
+        // foreach ($relatedServices as $service) {
+        //     $allServices[] = $service->serviceName;
+        // }
+
+        // Get the related LaundrySepatu instance for the order
+        $laundrySepatu = [];
+        $laundrySepatu = $order->laundrySepatu->service;
+        // dd($laundrySepatu);
+
+        // Check if a LaundrySepatu instance exists for the order
+        // if ($laundrySepatu) {
+        //     // Get the related services for the LaundrySepatu instance
+        //     $relatedServices = $laundrySepatu->service;
+
+        //     // Initialize an array to store service names
+        //     $serviceNames = [];
+
+        //     // Loop through the related services and get the service names
+        //     foreach ($relatedServices as $service) {
+        //         $serviceNames[] = $service->serviceName;
+        //     }
+        //     dd($serviceNames);
+
+        //     // Now $serviceNames contains the names of services related to the given Order's LaundrySepatu
+        // }
+        // dd($orderToService->service);
+        $total = 0;
+        foreach ($orderToServices as $orderToService) {
+            // Access the related Service and get the serviceName attribute
+            $servicesNih = $orderToService->service;
+            $total += $servicesNih->servicePrice;
+        }
+
+        return view('laundry.orderlist.detail', [
+            'order' => $order,
+            'title' => 'View Order',
+            'services'  => $services,
+            'allService' => $laundrySepatu,
+            'total'     => $total
+        ]);
     }
 
     /**
@@ -136,7 +198,10 @@ class OrderController extends Controller
      */
     public function update(UpdateOrderRequest $request, Order $order)
     {
-        //
+        $this->authorize('update', $order);
+        dd($request->group_id);
+        // Order::where('id', $order->id)->update($request->status);
+        return redirect('/profile')->with('update', 'Data berhasil diupdate!');
     }
 
     /**

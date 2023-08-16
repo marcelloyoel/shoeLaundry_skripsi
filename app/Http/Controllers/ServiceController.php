@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Service;
 use App\Http\Requests\StoreServiceRequest;
 use App\Http\Requests\UpdateServiceRequest;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ServiceController extends Controller
 {
@@ -15,7 +17,16 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        //
+        $user = Auth::user();
+        $laundrySepatu = $user->laundrySepatu;
+        if ($laundrySepatu) {
+            $services = Service::where('laundry_sepatu_id', $laundrySepatu->id)->get();
+            // dd($services);
+            return view('laundry.servicelist.servicelist', [
+                'title' => 'Service List',
+                'services'  => $services
+            ]);
+        }
     }
 
     /**
@@ -25,7 +36,9 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        //
+        return view('laundry.servicelist.addservice', [
+            'title' => 'Add Service'
+        ]);
     }
 
     /**
@@ -34,9 +47,25 @@ class ServiceController extends Controller
      * @param  \App\Http\Requests\StoreServiceRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreServiceRequest $request)
+    public function store(Request $request)
     {
-        //
+        $user = Auth::user();
+        $laundry = $user->laundrySepatu;
+        $laundryid = $laundry->id;
+
+        $validatedData = $request->validate([
+            'serviceName' => ['required'],
+            'serviceSlug' => ['unique:services', 'required'],
+            'status' => ['required'],
+            'servicePrice' => ['nullable'],
+            'serviceDescription' => ['required'],
+            'servicePicture' => ['nullable']
+        ]);
+        // dd($validatedData);
+        $validatedData['laundry_sepatu_id'] = $laundryid;
+
+        Service::create($validatedData);
+        return redirect('/laundryservice')->with('new', 'Data berhasil ditambahkan!');
     }
 
     /**
@@ -45,7 +74,7 @@ class ServiceController extends Controller
      * @param  \App\Models\Service  $service
      * @return \Illuminate\Http\Response
      */
-    public function show(Service $service)
+    public function show(Service $laundryservice)
     {
         //
     }
@@ -53,34 +82,50 @@ class ServiceController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Service  $service
+     * @param  \App\Models\Service  $laundryservice
      * @return \Illuminate\Http\Response
      */
-    public function edit(Service $service)
+    public function edit(Service $laundryservice)
     {
-        //
+        // dd($laundryservice);
+
+        return view('laundry.servicelist.editservice', [
+            'title' => 'Edit Service',
+            'service'   => $laundryservice
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \App\Http\Requests\UpdateServiceRequest  $request
-     * @param  \App\Models\Service  $service
+     * @param  \App\Models\Service  $laundryservice
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateServiceRequest $request, Service $service)
+    public function update(Request $request, Service $laundryservice)
     {
-        //
+        // dd('hello');
+        $rules = [
+            'serviceName'   => ['required'],
+            'status'   => ['required'],
+            'servicePrice'   => ['required'],
+            'serviceDescription'   => ['required']
+        ];
+        $validatedData = $request->validate($rules);
+        $validatedData['serviceSlug'] = $laundryservice->serviceSlug;
+        Service::where('id', $laundryservice->id)->update($validatedData);
+        return redirect('/laundryservice')->with('update', 'Data berhasil diupdate!');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Service  $service
+     * @param  \App\Models\Service  $laundryservice
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Service $service)
+    public function destroy(Service $laundryservice)
     {
-        //
+        Service::destroy($laundryservice->id);
+        return redirect('/laundryservice')->with('delete', 'Data berhasil dihapus!');
     }
 }

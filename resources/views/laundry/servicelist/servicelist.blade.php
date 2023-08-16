@@ -4,74 +4,67 @@
 @endsection
 @section('container')
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Profiles</h1>
+    <h1 class="h3 mb-2 text-gray-800">Service List</h1>
     <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
         For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official
             DataTables documentation</a>.</p>
-    @if (session()->has('delete'))
-        <div class="alert alert-success" role="alert">
-            {{ session('delete') }}
-        </div>
-    @elseif (session()->has('update'))
+
+    @if (session()->has('update'))
         <div class="alert alert-success" role="alert">
             {{ session('update') }}
         </div>
-    @elseif (session()->has('success'))
+    @elseif (session()->has('delete'))
         <div class="alert alert-success" role="alert">
-            {{ session('success') }}
+            {{ session('delete') }}
+        </div>
+    @elseif (session()->has('new'))
+        <div class="alert alert-success" role="alert">
+            {{ session('new') }}
         </div>
     @endif
-
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">User profile's</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Service List</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                @if (Auth::user()->group_id == 4)
-                    <div class="d-flex justify-content-end">
-                        <a href="profile/create" class="btn btn-primary mb-3">Add New Profile</a>
-                    </div>
-                @endif
+                <div class="d-flex justify-content-end">
+                    <a href="laundryservice/create" class="btn btn-primary mb-3">Add New Service</a>
+                </div>
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table table-bordered display" id="myTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                    <th>User's Id</th>
-                                    <th>Username</th>
-                                    <th>Role</th>
+                                    <th>Service's Id</th>
+                                    <th>Service Name</th>
+                                    <th>Price</th>
                                     <th>Status</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($users as $user)
+                                @foreach ($services as $service)
                                     <tr>
-                                        <td class="sorting_1">{{ $user->id }}</td>
-                                        <td>{{ $user->username }}</td>
-                                        <td>{{ $user->group->groupName }}</td>
-                                        <td></td>
+                                        <td class="sorting_1">{{ $service->id }}</td>
+                                        <td>{{ $service->serviceName }}</td>
+                                        {{-- <td>{{ $service->laundrySepatu['laundrySepatuName'] }}</td> --}}
+                                        <td>{{ $service->servicePrice }}</td>
+                                        <td>
+                                            @if ($service->status == true)
+                                                {{ 'Active' }}
+                                            @else
+                                                {{ 'Non-Active' }}
+                                            @endif
+                                        </td>
                                         <td class="text-center">
-                                            {{-- <div class="btn btn-warning btn-circle">
-                                                <a href="">
-                                                    <i class="fa-pencil" aria-hidden="true"></i>
-                                                </a>
-                                            </div> --}}
-                                            <a href="/profile/{{ $user->id }}/edit"
+                                            <a href="/laundryservice/{{ $service->id }}/edit"
                                                 class="btn btn-warning btn-circle mx-2">
-                                                <i class="far fa-edit"></i>
+                                                <i class="fa fa-edit" aria-hidden="true"></i>
                                             </a>
-                                            {{-- <div class="btn btn-danger btn-circle">
-                                                <a href="">
-                                                    <i class="fa-solid fa-trash"></i>
-                                                </a>
-                                            </div> --}}
-                                            {{-- <a href="" class="btn btn-danger btn-circle">
-                                                <i class="fas fa-trash"></i>
-                                            </a> --}}
-                                            <form action="/profile/{{ $user->id }}" method="POST" class="d-inline">
+                                            <form action="/laundryservice/{{ $service->id }}" method="POST"
+                                                class="d-inline">
                                                 @method('delete')
                                                 @csrf
                                                 <button class="btn btn-danger btn-circle" type="submit"

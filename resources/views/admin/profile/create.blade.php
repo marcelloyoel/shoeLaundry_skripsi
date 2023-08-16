@@ -5,7 +5,7 @@
 @section('container')
     <h2>Create Account</h2>
     <hr>
-    <form method="POST" action="/admin/profile" enctype="multipart/form-data">
+    <form method="POST" action="/profile" enctype="multipart/form-data">
         @csrf
         <div class="form-row">
             <div class="form-group col-md-6">
@@ -81,7 +81,7 @@
             </div>
         </div>
         <div class="d-flex justify-content-center">
-            <button type="submit" class="btn btn-primary my-3">Update Profile</button>
+            <button type="submit" class="btn btn-primary my-3">Add Profile</button>
         </div>
     </form>
 @endsection

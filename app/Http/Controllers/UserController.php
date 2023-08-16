@@ -56,7 +56,7 @@ class UserController extends Controller
         // dd($validatedData);
 
         User::create($validatedData);
-        return redirect('admin/profile')->with('success', 'Data berhasil ditambahkan!');
+        return redirect('/profile')->with('success', 'Data berhasil ditambahkan!');
     }
 
     /**
@@ -104,7 +104,7 @@ class UserController extends Controller
         ];
         $validatedData = $request->validate($rules);
         User::where('id', $profile->id)->update($validatedData);
-        return redirect('admin/profile')->with('update', 'Data berhasil diupdate!');
+        return redirect('/profile')->with('update', 'Data berhasil diupdate!');
     }
 
     /**
@@ -116,6 +116,6 @@ class UserController extends Controller
     public function destroy(User $profile)
     {
         User::destroy($profile->id);
-        return redirect('admin/profile')->with('delete', 'Data berhasil dihapus!');
+        return redirect('/profile')->with('delete', 'Data berhasil dihapus!');
     }
 }

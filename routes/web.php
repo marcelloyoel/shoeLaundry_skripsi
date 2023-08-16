@@ -1,10 +1,16 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LaundrySepatuController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\OrderLaundryController;
+use App\Http\Controllers\OrderUserController;
+use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\UpdateController;
 use App\Http\Controllers\UserController;
+use App\Models\LaundrySepatu;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,10 +28,39 @@ Route::get('/', [LoginController::class, 'index']);
 Route::get('/register', [LoginController::class, 'register']);
 Route::get('/forget', [LoginController::class, 'forget']);
 
-Route::get('/home', [HomeController::class, 'index']);
+// Route::get('/home', [HomeController::class, 'index']);
+// // Route::get('/home/laundry', [MenuController::class, 'homeLaundry'])->middleware('auth');
+// Route::get('laundry/{id}', [MenuController::class, 'homeLaundry'])->middleware('auth');
 
 Route::post('/login', [LoginController::class, 'authenticate']);
+// Route::post('/logout', [LoginController::class, 'logout']);
 
-Route::resource('/admin/profile', UserController::class)->middleware('auth');
+// Route::resource('/profile', UserController::class)->middleware('auth');
+// Route::resource('/order', OrderController::class)->middleware('auth');
+// Route::resource('/laundrySepatu', LaundrySepatuController::class)->middleware('auth');
+// Route::resource('/laundryorder', OrderLaundryController::class)->middleware('auth');
+// Route::resource('/laundryservice', ServiceController::class)->middleware('auth');
 
-Route::resource('/admin/order', OrderController::class)->middleware('auth');
+Route::group(['middleware' => 'auth'], function () {
+    Route::post('/logout', [LoginController::class, 'logout']);
+    Route::get('/home', [HomeController::class, 'index']);
+
+    // Route::get('/editprofile', [UpdateController::class, 'index']);
+    // Route::post('/profileEdit', [UpdateController::class, 'update']);
+    Route::resource('/profile', UserController::class)->middleware('auth');
+
+    Route::group(['middleware'  => 'buyer'], function () {
+        // Route::get('/home/laundry', [MenuController::class, 'homeLaundry'])->middleware('auth');
+        Route::get('laundry/{id}', [MenuController::class, 'homeLaundry'])->middleware('auth');
+        Route::resource('orderlist', OrderUserController::class)->middleware('auth');
+    });
+
+    Route::group(['middleware'  => 'laundrySepatu'], function () {
+        Route::resource('/laundryorder', OrderLaundryController::class)->middleware('auth');
+        Route::resource('/laundryservice', ServiceController::class)->middleware('auth');
+    });
+
+    Route::group(['middleware'  => 'admin'], function () {
+        Route::resource('/order', OrderController::class)->middleware('auth');
+    });
+});

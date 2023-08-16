@@ -8,6 +8,12 @@
     <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
         For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official
             DataTables documentation</a>.</p>
+
+    @if (session()->has('update'))
+        <div class="alert alert-success" role="alert">
+            {{ session('update') }}
+        </div>
+    @endif
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
@@ -50,8 +56,9 @@
                                             @endif
                                         </td>
                                         <td class="text-center">
-                                            <a href="/order/{{ $order->id }}" class="btn btn-primary btn-circle mx-2">
-                                                <i class="fa fa-eye" aria-hidden="true"></i>
+                                            <a href="/laundryorder/{{ $order->id }}/edit"
+                                                class="btn btn-warning btn-circle mx-2">
+                                                <i class="fa fa-edit" aria-hidden="true"></i>
                                             </a>
                                         </td>
                                     </tr>

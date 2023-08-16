@@ -9,16 +9,20 @@
     <div class="row">
         @foreach ($laundries as $laundry)
             <div class="col-sm-4">
-                <div class="card mt-5" style="width: 18rem;">
+                <div class="card mt-3" style="width: 18rem;">
+                    <img src="..." class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">{{ $laundry->laundrySepatuName }}</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                        <p class="card-text">{{ $laundry->bio }}</p>
-                        {{-- <a href="#" class="card-link">Card link</a>
-                        <a href="#" class="card-link">Another link</a> --}}
+                        <p class="card-text">{{ Str::words($laundry->bio, 20, '...') }}</p>
+                        <a href="laundry/{{ $laundry->id }}" class="btn btn-primary">Laundry Detail</a>
                     </div>
                 </div>
             </div>
         @endforeach
+    </div>
+    <div class="row my-5">
+        <div class="col-sm-12  d-flex justify-content-center">
+            {{ $laundries->links() }}
+        </div>
     </div>
 @endsection

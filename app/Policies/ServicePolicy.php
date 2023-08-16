@@ -53,7 +53,10 @@ class ServicePolicy
      */
     public function update(User $user, Service $service)
     {
-        //
+        // dd($user->toArray(), $service->toArray());
+        // dd($user->laundrySepatu->service->contains($service));
+        // return $user->laundrySepatu->service->contains($service);
+        // return $user->laundrySepatu->service->laundry_sepatu_id == $service->laundry_sepatu_id;
     }
 
     /**

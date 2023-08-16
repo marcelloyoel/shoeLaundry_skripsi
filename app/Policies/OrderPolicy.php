@@ -53,7 +53,7 @@ class OrderPolicy
      */
     public function update(User $user, Order $order)
     {
-        //
+        return dd($user->laundrySepatu && $user->laundrySepatu->id === $order->laundry_sepatu_id);
     }
 
     /**

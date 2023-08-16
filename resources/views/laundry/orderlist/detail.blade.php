@@ -5,7 +5,7 @@
 @section('container')
     <h2>Order Detail</h2>
     <hr>
-    <form method="POST" action="/admin/order/{{ $order->id }}" enctype="multipart/form-data">
+    <form method="POST" action="/laundryorder/{{ $order->id }}" enctype="multipart/form-data">
         @method('put')
         @csrf
         <div class="form-row">
@@ -69,7 +69,7 @@
             </div>
             <div class="form-group col-md-6">
                 <label for="status">Status</label>
-                <select class="form-control" id="group_id" name="group_id" disabled>
+                <select class="form-control" id="group_id" name="group_id">
                     <option value="1" {{ $order->status == 1 ? 'selected' : '' }}>Waiting</option>
                     <option value="2" {{ $order->status == 2 ? 'selected' : '' }}>Accepted</option>
                     <option value="3" {{ $order->status == 3 ? 'selected' : '' }}>Processing</option>
@@ -78,10 +78,8 @@
                 </select>
             </div>
         </div>
-        <div class="form-row mt-4">
-            <div class="col-12 ngetest">
-                <button type="button" onclick="window.history.back()" id="btnSubmit" class="btn btn-primary">Back</button>
-            </div>
+        <div class="d-flex justify-content-center mt-4">
+            <button type="submit" class="btn btn-primary my-3">Update Order</button>
         </div>
     </form>
 @endsection
