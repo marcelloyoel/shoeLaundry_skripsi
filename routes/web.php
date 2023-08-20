@@ -52,7 +52,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::group(['middleware'  => 'buyer'], function () {
         // Route::get('/home/laundry', [MenuController::class, 'homeLaundry'])->middleware('auth');
         Route::get('laundry/{id}', [MenuController::class, 'homeLaundry'])->middleware('auth');
-        Route::resource('orderlist', OrderUserController::class)->middleware('auth');
+
     });
 
     Route::group(['middleware'  => 'laundrySepatu'], function () {
