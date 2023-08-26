@@ -7,6 +7,7 @@ use App\Http\Controllers\MenuController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\OrderLaundryController;
 use App\Http\Controllers\OrderUserController;
+use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\UpdateController;
 use App\Http\Controllers\UserController;
@@ -25,13 +26,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [LoginController::class, 'index']);
-Route::get('/register', [LoginController::class, 'register']);
+// Route::get('/register', [LoginController::class, 'register']);
+// Route::post('/registerUser', [LoginController::class, 'store']);
 Route::get('/forget', [LoginController::class, 'forget']);
-
 // Route::get('/home', [HomeController::class, 'index']);
 // // Route::get('/home/laundry', [MenuController::class, 'homeLaundry'])->middleware('auth');
 // Route::get('laundry/{id}', [MenuController::class, 'homeLaundry'])->middleware('auth');
-
+Route::resource('/register', RegisterController::class);
 Route::post('/login', [LoginController::class, 'authenticate']);
 // Route::post('/logout', [LoginController::class, 'logout']);
 
@@ -44,7 +45,6 @@ Route::post('/login', [LoginController::class, 'authenticate']);
 Route::group(['middleware' => 'auth'], function () {
     Route::post('/logout', [LoginController::class, 'logout']);
     Route::get('/home', [HomeController::class, 'index']);
-
     // Route::get('/editprofile', [UpdateController::class, 'index']);
     // Route::post('/profileEdit', [UpdateController::class, 'update']);
     Route::resource('/profile', UserController::class)->middleware('auth');
