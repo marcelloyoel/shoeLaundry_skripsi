@@ -6,7 +6,7 @@ use App\Models\Group;
 use App\Models\User;
 use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
 {
@@ -52,7 +52,7 @@ class RegisterController extends Controller
             'group_id'  => ['required'],
             'password' => ['required'],
         ]);
-        // $validatedData['password'] = bcrypt('12345');
+        $validatedData['password'] = Hash::make($request->input('password'));
         User::create($validatedData);
         // dd('test2');
         return redirect('/');
