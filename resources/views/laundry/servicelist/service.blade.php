@@ -12,30 +12,15 @@
         </div>
         <div class="col-sm-6 bagianKanan">
             <div class="row my-3">
-                <h4><strong>{{ $laundry->laundrySepatuName }}</strong></h4>
+                <h4><strong>{{ $service->serviceName }}</strong></h4>
             </div>
             <div class="row my-3">
-                <h6><Strong>Description</Strong></h6>
-                <p>{{ $laundry->bio }}</p>
+                <p><Strong>Description : </Strong></p>
+                <p>{{ $service->serviceDescription}}</p>
             </div>
             <div class="row my-3">
-                <h6><Strong>Contact</Strong>: {{ Auth::user()->phoneNumber }}</h6>
-            </div>
-            <div class="row my-3">
-                <h6><Strong>Distance</Strong>: Nanti isi yak</h6>
-            </div>
-            <div class="row my-3">
-                <h6><Strong>Services</Strong></h6>
-                @foreach ($services as $service)
-                    {{-- <h5>{{ $service->id }}</h5> --}}
-                    <div>
-                        <a href="/service/{{$service->id}}">
-                            <button class="serviceBtn">
-                            <h6>{{ $service->serviceName }}</h6>
-                        </a>
-                    </div>
-                 @endforeach
+                <p><Strong>Price : </Strong></p>
+                <p>{{ $service->servicePrice}}</p>
             </div>
         </div>
-    </div>
 @endsection
