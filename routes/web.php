@@ -52,11 +52,13 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::group(['middleware'  => 'buyer'], function () {
         // Route::get('/home/laundry', [MenuController::class, 'homeLaundry'])->middleware('auth');
+        Route::get('serviceBuyer/{id}', [MenuController::class, 'serviceLaundryBuyer'])->middleware('auth');
         Route::get('laundry/{id}', [MenuController::class, 'homeLaundry'])->middleware('auth');
         Route::resource('orderlist', OrderUserController::class)->middleware('auth');
     });
 
     Route::group(['middleware'  => 'laundrySepatu'], function () {
+        Route::get('service/{id}', [MenuController::class, 'serviceLaundry'])->middleware('auth');
         Route::resource('/laundryorder', OrderLaundryController::class)->middleware('auth');
         Route::resource('/laundryservice', ServiceController::class)->middleware('auth');
     });

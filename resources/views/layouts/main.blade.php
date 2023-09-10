@@ -18,7 +18,7 @@
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="/template/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="/template/css/sb-admin-2.css" rel="stylesheet">
     <link href="/css/sidebarNew.css" rel="stylesheet">
     <!-- Include CSS styles for DataTables -->
     <link rel="stylesheet" href="//cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
