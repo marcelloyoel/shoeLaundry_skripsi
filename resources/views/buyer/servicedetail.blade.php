@@ -16,11 +16,19 @@
             </div>
             <div class="row my-3">
                 <p><Strong>Description : </Strong></p>
-                <p>{{ $service->serviceDescription}}</p>
+                <p>{{ $service->serviceDescription }}</p>
+            </div>
+            <div class="row my-3">
+                <p><Strong>Service Slug : </Strong></p>
+                <p>{{ $service->serviceSlug }}</p>
             </div>
             <div class="row my-3">
                 <p><Strong>Price : </Strong></p>
-                <p>{{ $service->servicePrice}}</p>
+                <p>{{ $service->servicePrice }}</p>
+            </div>
+            <div class="row my-3">
+                <a href="#" class="btn btn-primary">Buy Now</a>
+                <a href="#" class="btn btn-primary ml-4">Add to Cart</a>
             </div>
         </div>
 @endsection
