@@ -25,7 +25,12 @@
                 <h6><Strong>Distance</Strong>: Nanti isi yak</h6>
             </div>
             <div class="row my-3">
-                <h6><Strong>Services</Strong>: {{ 'nanti diisi yak' }}</h6>
+                <h6><Strong>Services</Strong></h6>
+                @foreach ($services as $service)
+                    <div>
+                        <a href="service/{{ $service->id }}" class="btn"> {{ $service->serviceName }} </a>
+                    </div>
+                @endforeach
             </div>
         </div>
     </div>
