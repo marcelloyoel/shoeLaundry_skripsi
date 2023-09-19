@@ -16,11 +16,12 @@
             </div>
             <div class="row my-3">
                 <p><Strong>Description : </Strong></p>
-                <p>{{ $service->serviceDescription}}</p>
+                <p>{{ $service->serviceDescription }}</p>
             </div>
             <div class="row my-3">
                 <p><Strong>Price : </Strong></p>
-                <p>{{ $service->servicePrice}}</p>
+                <p>{{ $service->servicePrice }}</p>
             </div>
         </div>
+    </div>
 @endsection
