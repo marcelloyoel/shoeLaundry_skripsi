@@ -18,7 +18,7 @@
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="/template/css/sb-admin-2.css" rel="stylesheet">
+    <link href="/template/css/sb-admin-2.min.css" rel="stylesheet">
 
 </head>
 
@@ -30,90 +30,47 @@
             <div class="card-body p-0">
                 <!-- Nested Row within Card Body -->
                 <div class="row">
-                    <div class="col-lg-5 d-none d-lg-block"><img src={{url('storage/image/LogoWeb.jpg')}}></div>
+                    <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
                     <div class="col-lg-7">
                         <div class="p-5">
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
                             </div>
-                            <form method="POST" action="/registeruser" enctype="multipart/form-data">
-                                @csrf
-                                <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                        <label for="username">Username</label>
-                                        <input type="text" class="form-control @error('username') is-invalid @enderror" id="username"
-                                            value="{{ old('username') }}" name="username" required autofocus>
-                                        @error('username')
-                                            <div class="invalid-feedback mb-2">
-                                                {{ $message }}
-                                            </div>
-                                        @enderror
+                            <form class="user">
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="text" class="form-control form-control-user"
+                                            id="exampleFirstName" placeholder="First Name">
                                     </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="displayName">Display Name</label>
-                                        <input type="displayName" class="form-control @error('displayName') is-invalid @enderror" id="displayName"
-                                            value="{{ old('displayName') }}" name="displayName" required>
-                                        @error('displayName')
-                                            <div class="invalid-feedback mb-2">
-                                                {{ $message }}
-                                            </div>
-                                        @enderror
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control form-control-user"
+                                            id="exampleLastName" placeholder="Last Name">
                                     </div>
                                 </div>
-                                <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                        <label for="address">Address</label>
-                                        <textarea class="form-control @error('address') is-invalid @enderror" id="address" rows="3" name="address">{{ old('address') }}</textarea>
-                                        @error('address')
-                                            <div class="invalid-feedback mb-2">
-                                                {{ $message }}
-                                            </div>
-                                        @enderror
+                                <div class="form-group">
+                                    <input type="email" class="form-control form-control-user" id="exampleInputEmail"
+                                        placeholder="Email Address">
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="password" class="form-control form-control-user"
+                                            id="exampleInputPassword" placeholder="Password">
                                     </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="email">Email</label>
-                                        <input type="email" class="form-control @error('email') is-invalid @enderror" id="email"
-                                            value="{{ old('email') }}" name="email">
-                                        @error('email')
-                                            <div class="invalid-feedback mb-2">
-                                                {{ $message }}
-                                            </div>
-                                        @enderror
+                                    <div class="col-sm-6">
+                                        <input type="password" class="form-control form-control-user"
+                                            id="exampleRepeatPassword" placeholder="Repeat Password">
                                     </div>
                                 </div>
-                                <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                        <label for="phoneNumber">Phone Number</label>
-                                        <input type="text" class="form-control @error('phoneNumber') is-invalid @enderror" id="phoneNumber"
-                                            value="{{ old('phoneNumber') }}" name="phoneNumber">
-                                        @error('phoneNumber')
-                                            <div class="invalid-feedback mb-2">
-                                                {{ $message }}
-                                            </div>
-                                        @enderror
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="exampleFormControlSelect1">Status</label>
-                                        <select class="form-control" id="exampleFormControlSelect1" name="status">
-                                            <option value="1">Active</option>
-                                            <option value="2">Non-Active</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-row">
-                                    <div class="form-group col-md-12">
-                                        <label for="group_id">Role</label>
-                                        <select class="form-control" id="group_id" name="group_id">
-                                            <option value="1">Buyer</option>
-                                            <option value="2">Laundry</option>
-                                            <option value="3">Admin</option>
-                                            <option value="4">Super Admin</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="d-flex justify-content-center">
-                                    <button type="submit" class="btn btn-primary my-3">Add Profile</button>
-                                </div>
+                                <a href="login.html" class="btn btn-primary btn-user btn-block">
+                                    Register Account
+                                </a>
+                                <hr>
+                                <a href="index.html" class="btn btn-google btn-user btn-block">
+                                    <i class="fab fa-google fa-fw"></i> Register with Google
+                                </a>
+                                <a href="index.html" class="btn btn-facebook btn-user btn-block">
+                                    <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
+                                </a>
                             </form>
                             <hr>
                             <div class="text-center">

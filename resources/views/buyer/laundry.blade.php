@@ -28,12 +28,7 @@
             </div>
             <div class="row my-3">
                 <h6><Strong>Services</Strong></h6>
-                @foreach ($services as $service)
-                    <div>
-                        {{-- <a>A</a> --}}
-                        <a href="/serviceBuyer/{{ $service->id }}" class="btn"> {{ $service->serviceName }} </a>
-                    </div>
-                @endforeach
+                <p>{{ $laundry->bio }}</p>
             </div>
         </div>
     </div>

@@ -7,7 +7,6 @@ use App\Http\Controllers\MenuController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\OrderLaundryController;
 use App\Http\Controllers\OrderUserController;
-use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\UpdateController;
 use App\Http\Controllers\UserController;
@@ -28,7 +27,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [LoginController::class, 'index']);
 Route::get('/register', [LoginController::class, 'register']);
 Route::get('/forget', [LoginController::class, 'forget']);
-Route::resource('/registeruser', RegisterController::class);
+
 // Route::get('/home', [HomeController::class, 'index']);
 // // Route::get('/home/laundry', [MenuController::class, 'homeLaundry'])->middleware('auth');
 // Route::get('laundry/{id}', [MenuController::class, 'homeLaundry'])->middleware('auth');
@@ -52,13 +51,11 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::group(['middleware'  => 'buyer'], function () {
         // Route::get('/home/laundry', [MenuController::class, 'homeLaundry'])->middleware('auth');
-        Route::get('serviceBuyer/{id}', [MenuController::class, 'serviceLaundryBuyer'])->middleware('auth');
         Route::get('laundry/{id}', [MenuController::class, 'homeLaundry'])->middleware('auth');
         Route::resource('orderlist', OrderUserController::class)->middleware('auth');
     });
 
     Route::group(['middleware'  => 'laundrySepatu'], function () {
-        Route::get('service/{id}', [MenuController::class, 'serviceLaundry'])->middleware('auth');
         Route::resource('/laundryorder', OrderLaundryController::class)->middleware('auth');
         Route::resource('/laundryservice', ServiceController::class)->middleware('auth');
     });
