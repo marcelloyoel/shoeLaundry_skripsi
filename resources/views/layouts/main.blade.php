@@ -21,7 +21,7 @@
     <link href="/template/css/sb-admin-2.css" rel="stylesheet">
     <link href="/css/sidebarNew.css" rel="stylesheet">
     <!-- Include CSS styles for DataTables -->
-    <link rel="stylesheet" href="//cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="//cdn.datatables.net/1.13.6/css/jquery.dataTables.css">
     {{-- openai --}}
     {{-- <link rel="stylesheet" href="/vendor/snapappointments/bootstrap-select/dist/css/bootstrap-select.min.css"> --}}
     <link rel="stylesheet"

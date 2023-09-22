@@ -1,14 +1,15 @@
 <!-- Sidebar - Brand -->
-<a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+<a class="sidebar-brand d-flex align-items-center justify-content-left">
     <div class="sidebar-brand-icon">
-        <i class="fas fa-house-user"></i>
+        {{-- <i class="fas fa-house-user"></i> --}}
+        <img src={{url('storage/image/LogoWeb.jpg')}}>
     </div>
-    <div class="sidebar-brand-text mx-2">Shoe Laundry</div>
+    <div class="sidebar-brand-text">Nyepatu</div>
 </a>
 
 <!-- Divider -->
 <hr class="sidebar-divider">
-@if (Auth::user()->group_id == 1 || Auth::user()->group_id == 4)
+@if (Auth::user()->group_id == 1)
     <!-- Heading User -->
     <div class="sidebar-heading">
         User
@@ -39,14 +40,14 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">User Transaction:</h6>
                 <a class="collapse-item" href="buttons.html">Shopping Cart</a>
-                <a class="collapse-item" href="/orderlist">Order List</a>
+                <a class="collapse-item" href="/orderList">Order List</a>
             </div>
         </div>
     </li>
     <!-- Divider -->
     <hr class="sidebar-divider">
 @endif
-@if (Auth::user()->group_id == 2 || Auth::user()->group_id == 4)
+@if (Auth::user()->group_id == 2)
     <!-- Heading Laundry Sepatu -->
     <div class="sidebar-heading">
         Laundry Sepatu
