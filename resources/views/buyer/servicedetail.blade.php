@@ -31,4 +31,5 @@
                 <a href="#" class="btn btn-primary ml-4">Add to Cart</a>
             </div>
         </div>
+    </div>
 @endsection
