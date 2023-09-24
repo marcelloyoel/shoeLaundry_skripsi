@@ -85,7 +85,7 @@
                                         {{ Auth::user()->displayName }}
                                     @endif
                                 </span>
-                                <img class="img-profile rounded-circle" src={{url('storage/image/User-Profile-PNG-Image.png')}}>
+                                <img class="img-profile rounded-circle" src="image/User-Profile-PNG-Image.png">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"

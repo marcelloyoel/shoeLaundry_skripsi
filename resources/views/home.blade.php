@@ -10,7 +10,7 @@
         @foreach ($laundries as $laundry)
             <div class="col-sm-3">
                 <div class="card mt-3" style="width: 18rem;">
-                    <img src={{url('storage/image/shopimagedummy.png')}} class="card-img-top">
+                    <img src="image/shopimagedummy.png" class="card-img-top">
                     <div class="card-body">
                         <h5 class="card-title">{{ $laundry->laundrySepatuName }}</h5>
                         <p class="card-text">{{ Str::words($laundry->bio, 6, '...') }}</p>
