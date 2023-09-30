@@ -584,10 +584,19 @@ pre code {
 
 .row {
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   margin-right: -0.75rem;
   margin-left: -0.75rem;
 }
+
+.rowhori {
+    display: flex;
+    flex-direction: row;
+    /* flex-wrap: wrap; */
+    margin-right: -0.75rem;
+    margin-left: -0.75rem;
+  }
 
 .no-gutters {
   margin-right: 0;

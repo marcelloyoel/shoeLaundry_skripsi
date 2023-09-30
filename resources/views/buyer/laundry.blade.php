@@ -19,24 +19,29 @@
                 <p>{{ $laundry->bio }}</p>
             </div>
             <div class="row my-3">
+                <h6><Strong>Alamat</Strong></h6>
+                {{-- <br> --}}
+                <p>{{ $laundry->alamat }}</p>
+            </div>
+            <div class="row my-3">
                 <h6><Strong>Contact</Strong></h6>
-                <p>{{ $laundry->bio }}</p>
+                <p>{{ $laundry->kontak }}</p>
             </div>
             <div class="row my-3">
                 <h6><Strong>Distance</Strong></h6>
-                <p>{{ $laundry->bio }}</p>
+                <p>{{ $laundry->jarak }}</p>
             </div>
             <div class="row my-3">
                 <h6><Strong>Services</Strong></h6>
-                @foreach ($services as $service)
                 {{-- <h5>{{ $service->id }}</h5> --}}
-                <div>
-                    <a href="/serviceDetail/{{$service->id}}">
-                        <button class="serviceBtn">
-                        <h6>{{ $service->serviceName }}</h6>
-                    </a>
+                <div class="rowhori my-3">
+                    @foreach ($services as $service)
+                        <a href="/serviceDetail/{{$service->id}}">
+                            <button class="serviceBtn">
+                            <h6>{{ $service->serviceName }}</h6>
+                        </a>
+                    @endforeach
                 </div>
-             @endforeach
             </div>
         </div>
     </div>
