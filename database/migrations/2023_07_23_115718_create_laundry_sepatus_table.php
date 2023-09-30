@@ -20,6 +20,9 @@ return new class extends Migration
             $table->string('laundrySepatuSlug')->unique();
             $table->text('bio');
             $table->string('picture')->nullable();
+            $table->string('kontak');
+            $table->string('alamat');
+            $table->string('jarak');
             $table->timestamps();
         });
     }

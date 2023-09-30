@@ -85,13 +85,17 @@ class DatabaseSeeder extends Seeder
             'user_id'   => 4,
             'laundrySepatuName' => 'Jejak Langkah',
             'laundrySepatuSlug' => 'jejak-langkah',
-            'bio' => 'Welcome to jejak langkah dimana anda dapat merasakan mencuci sepatu dengan kualitas terbaik. Harga kaki lima, tetapi kualitas bintang lima. Ayo segera daftarkan diri anda!'
+            'bio' => 'Welcome to jejak langkah dimana anda dapat merasakan mencuci sepatu dengan kualitas terbaik. Harga kaki lima, tetapi kualitas bintang lima. Ayo segera daftarkan diri anda!',
+            'picture' => '',
+            'kontak' => '081211112222',
+            'alamat' => 'Jalan Sutera 7 no 12',
+            'jarak' => '200 m'
         ]);
 
 
 
         User::factory(25)->create();
-        LaundrySepatu::factory(25)->create();
+        // LaundrySepatu::factory(25)->create();
 
         User::create([
             'username'  => 'buyer',

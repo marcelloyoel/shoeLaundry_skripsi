@@ -12,8 +12,11 @@
                 <div class="card mt-3" style="width: 18rem;">
                     <img src="image/shopimagedummy.png" class="card-img-top">
                     <div class="card-body">
-                        <h5 class="card-title">{{ $laundry->laundrySepatuName }}</h5>
-                        <p class="card-text">{{ Str::words($laundry->bio, 6, '...') }}</p>
+                        <h5 class="card-title" style="font-weight: bold">{{ $laundry->laundrySepatuName }}</h5>
+                        {{-- <p class="card-text">{{ Str::words($laundry->bio, 6, '...') }}</p> --}}
+                        <h6 class="card-text">{{ $laundry->alamat }}</h6>
+                        <h6 class="card-text">{{ $laundry->kontak }}</h6>
+                        <h6 class="card-text">{{ $laundry->jarak }}</h6>
                         <a href="laundry/{{ $laundry->id }}" class="btn btn-primary">Laundry Detail</a>
                     </div>
                 </div>
