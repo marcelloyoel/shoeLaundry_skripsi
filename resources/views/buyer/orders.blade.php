@@ -4,7 +4,7 @@
 @endsection
 @section('container')
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Order List</h1>
+    <h1 class="h3 mb-2 text-gray-800">Order List</h1> 
     @if (session()->has('update'))
         <div class="alert alert-success" role="alert">
             {{ session('update') }}
