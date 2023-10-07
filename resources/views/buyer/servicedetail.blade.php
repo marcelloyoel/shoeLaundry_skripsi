@@ -24,4 +24,10 @@
             </div>
         </div>
     </div>
+    <div class="row mt-4">
+        <div class="col-12 ngetest">
+            <button type="button" onclick="window.history.back()" id="btnAddToCart" class="btn btn-primary">Add This To
+                Cart</button>
+        </div>
+    </div>
 @endsection
