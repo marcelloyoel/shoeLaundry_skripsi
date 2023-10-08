@@ -5,10 +5,6 @@
 @section('container')
     <!-- Page Heading -->
     <h1 class="h3 mb-2 text-gray-800">Order List</h1>
-    <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
-        For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official
-            DataTables documentation</a>.</p>
-
     @if (session()->has('update'))
         <div class="alert alert-success" role="alert">
             {{ session('update') }}
@@ -43,17 +39,25 @@
                                         <td>{{ $order->laundrySepatu->laundrySepatuName }}</td>
                                         <td>{{ $order->created_at->addWeek()->format('Y-m-d') }}</td>
                                         <td>
-                                            @if ($order->status == 1)
-                                                {{ 'Waiting' }}
-                                            @elseif ($order->status == 2)
-                                                {{ 'Accepted' }}
-                                            @elseif ($order->status == 3)
-                                                {{ 'Process' }}
-                                            @elseif ($order->status == 4)
-                                                {{ 'Done' }}
-                                            @elseif ($order->status == 5)
-                                                {{ 'Rejected' }}
-                                            @endif
+                                        @if ($order->status == 1)
+                                            {{ 'Waiting' }}
+                                        @elseif ($order->status == 2)
+                                            {{ 'Accepted' }}
+                                        @elseif ($order->status == 3)
+                                            {{ 'Brushing Sole' }}
+                                        @elseif ($order->status == 4)
+                                            {{ 'Brushing Insole and Shoelace' }}
+                                        @elseif ($order->status == 5)
+                                            {{ 'Removing Stains' }}
+                                        @elseif ($order->status == 6)
+                                            {{ 'Quality Control' }}
+                                        @elseif ($order->status == 7)
+                                            {{ 'Awaiting Pickup' }}
+                                        @elseif ($order->status == 8)
+                                            {{ 'Finished' }}
+                                        @elseif ($order->status == 9)
+                                            {{ 'Rejected' }}
+                                        @endif
                                         </td>
                                         <td class="text-center">
                                             <a href="/laundryorder/{{ $order->id }}/edit"
