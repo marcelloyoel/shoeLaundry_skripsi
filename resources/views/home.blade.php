@@ -10,10 +10,14 @@
         @foreach ($laundries as $laundry)
             <div class="col-sm-3">
                 <div class="card mt-3" style="width: 18rem;">
-                    <img src={{url('storage/image/shopimagedummy.png')}} class="card-img-top">
+                    <img src="image/shopimagedummy.png" class="card-img-top">
+                    {{-- <img src={{url('storage/image/shopimagedummy.png')}} class="card-img-top"> --}}
                     <div class="card-body">
-                        <h5 class="card-title">{{ $laundry->laundrySepatuName }}</h5>
-                        <p class="card-text">{{ Str::words($laundry->bio, 6, '...') }}</p>
+                        <h5 class="card-title" style="font-weight: bold">{{ $laundry->laundrySepatuName }}</h5>
+                        <p class="card-text">📌 : {{ Str::words($laundry->Address, 6, '...') }}</p>
+                        {{-- <h6 class="card-text">📌 : {{ $laundry->Address }}</h6> --}}
+                        <h6 class="card-text">☎ : {{ $laundry->Contact }}</h6>
+                        <h6 class="card-text">📍 : {{ $laundry->distance }}</h6>
                         <a href="laundry/{{ $laundry->id }}" class="btn btn-primary">Laundry Detail</a>
                     </div>
                 </div>

@@ -18,16 +18,17 @@ class HomeController extends Controller
             // $services = Service::where('laundry_sepatu_id', $laundry->id)->get();
             return view('home', [
                 'title' => 'Halaman Home',
-                'laundries' => LaundrySepatu::simplePaginate(12),
+                'laundries' => LaundrySepatu::simplePaginate(8),
                 // 'services' => $services
             ]);
         } else if (Auth::user()->group_id == 2) {
             $user = Auth::user();
-            $laundry = $user->laundrySepatu;
-            $services = Service::where('laundry_sepatu_id', $laundry->id)->get();
+            // $laundry = $user->laundrySepatu;
+            // dd('laundry_sepatu_id');
+            $services = Service::where('laundry_sepatu_id', $user->id)->get();
             return view('homeLaundry', [
                 'title' => 'Halaman Home',
-                'laundry'   => $laundry,
+                'laundry'   => $user,
                 'services' => $services
             ]);
         } else {

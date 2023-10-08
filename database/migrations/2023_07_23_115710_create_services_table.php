@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('laundry_sepatu_id');
             $table->string('serviceName');
-            $table->string('serviceSlug')->unique();
+            $table->string('serviceSlug');
             $table->boolean('status')->default(true);
             //false = tidak aktif, true = aktif
             $table->integer('servicePrice');
