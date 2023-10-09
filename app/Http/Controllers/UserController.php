@@ -104,7 +104,7 @@ class UserController extends Controller
         ];
         $validatedData = $request->validate($rules);
         User::where('id', $profile->id)->update($validatedData);
-        return redirect('/profile')->with('update', 'Data berhasil diupdate!');
+        return redirect('/home')->with('update', 'Data berhasil diupdate!');
     }
 
     /**
