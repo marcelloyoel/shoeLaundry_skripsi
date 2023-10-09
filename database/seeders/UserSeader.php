@@ -49,7 +49,7 @@ class UserSeader extends Seeder
             'password'  => bcrypt('12345'),
             'status'  => 2,
             'displayName'  => 'Jelang BSD',
-            'phoneNumber'  => '089615736938',
+            'phoneNumber'  => '085770880822',
             'group_id'     =>  2
         ]);
         User::create([
@@ -91,7 +91,7 @@ class UserSeader extends Seeder
             'password'  => bcrypt('12345'),
             'status'  => 2,
             'displayName'  => 'ShoePorter',
-            'phoneNumber'  => '089615736938',
+            'phoneNumber'  => '087880057656',
             'group_id'     =>  2
         ]);
         User::create([
@@ -100,7 +100,88 @@ class UserSeader extends Seeder
             'password'  => bcrypt('12345'),
             'status'  => 2,
             'displayName'  => 'Sneakers Syndicate',
+            'phoneNumber'  => '087878649308',
+            'group_id'     =>  2
+        ]);
+        User::create([
+            'username'  => 'solecase',
+            'email'  => 'solecase@gmail.com',
+            'password'  => bcrypt('12345'),
+            'status'  => 2,
+            'displayName'  => 'Solecase',
+            'phoneNumber'  => '08812234445',
+            'group_id'     =>  2
+        ]);
+        User::create([
+            'username'  => 'laundryshoe.id',
+            'email'  => 'laundryshoe.id@gmail.com',
+            'password'  => bcrypt('12345'),
+            'status'  => 2,
+            'displayName'  => 'Laundryshoe.id',
+            'phoneNumber'  => '082140003484',
+            'group_id'     =>  2
+        ]);
+        User::create([
+            'username'  => 'mozdeo',
+            'email'  => 'mozdeo@gmail.com',
+            'password'  => bcrypt('12345'),
+            'status'  => 2,
+            'displayName'  => 'Modzeo',
+            'phoneNumber'  => '08118888001',
+            'group_id'     =>  2
+        ]);
+        User::create([
+            'username'  => 'dinoshoes',
+            'email'  => 'dinoshoes@gmail.com',
+            'password'  => bcrypt('12345'),
+            'status'  => 2,
+            'displayName'  => 'Dinoshoes',
+            'phoneNumber'  => '081807000686',
+            'group_id'     =>  2
+        ]);
+        User::create([
+            'username'  => 'sucishoelab',
+            'email'  => 'sucishoelab@gmail.com',
+            'password'  => bcrypt('12345'),
+            'status'  => 2,
+            'displayName'  => 'Suci Shoelab',
+            'phoneNumber'  => '081212480288',
+            'group_id'     =>  2
+        ]);
+        User::create([
+            'username'  => 'shufix',
+            'email'  => 'shufix@gmail.com',
+            'password'  => bcrypt('12345'),
+            'status'  => 2,
+            'displayName'  => 'ShuFix',
             'phoneNumber'  => '089615736938',
+            'group_id'     =>  2
+        ]);
+        User::create([
+            'username'  => 'cleanpatu',
+            'email'  => 'cleanpatu@gmail.com',
+            'password'  => bcrypt('12345'),
+            'status'  => 2,
+            'displayName'  => 'Cleanpatu',
+            'phoneNumber'  => '081574370667',
+            'group_id'     =>  2
+        ]);
+        User::create([
+            'username'  => 'thecleanbar',
+            'email'  => 'thecleanbar@gmail.com',
+            'password'  => bcrypt('12345'),
+            'status'  => 2,
+            'displayName'  => 'The Clean Bar',
+            'phoneNumber'  => '087885156677',
+            'group_id'     =>  2
+        ]);
+        User::create([
+            'username'  => 'cleanavenue',
+            'email'  => 'cleanavenue@gmail.com',
+            'password'  => bcrypt('12345'),
+            'status'  => 2,
+            'displayName'  => 'Clean Avenue',
+            'phoneNumber'  => '081281063662',
             'group_id'     =>  2
         ]);
     }

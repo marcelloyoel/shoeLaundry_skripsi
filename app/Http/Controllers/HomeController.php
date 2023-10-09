@@ -22,13 +22,13 @@ class HomeController extends Controller
                 // 'services' => $services
             ]);
         } else if (Auth::user()->group_id == 2) {
+            // dd($laundry->id);
             $user = Auth::user();
-            // $laundry = $user->laundrySepatu;
-            // dd('laundry_sepatu_id');
-            $services = Service::where('laundry_sepatu_id', $user->id)->get();
+            $laundry = $user->laundrySepatu;
+            $services = Service::where('laundry_sepatu_id', $laundry->id)->get();
             return view('homeLaundry', [
                 'title' => 'Halaman Home',
-                'laundry'   => $user,
+                'laundry'   => $laundry,
                 'services' => $services
             ]);
         } else {

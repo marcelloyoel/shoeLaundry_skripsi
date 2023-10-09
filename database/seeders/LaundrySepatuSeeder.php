@@ -30,7 +30,7 @@ class LaundrySepatuSeeder extends Seeder
         ]);
 
         LaundrySepatu::create([
-            'user_id'   => 4,
+            'user_id'   => 34,
             'laundrySepatuName' => 'ShoePorter',
             'laundrySepatuSlug' => 'Hey! I\'m 100% Clean and Fresh',
             'bio' => 'Premium Shoe Laundry - Tempat Terdekat Cuci Sepatu Alam Sutera, Serpong, BSD, Pamulang, Tangerang',
@@ -41,7 +41,7 @@ class LaundrySepatuSeeder extends Seeder
         ]);
 
         LaundrySepatu::create([
-            'user_id'   => 4,
+            'user_id'   => 35,
             'laundrySepatuName' => 'Sneakers Syndicate',
             'laundrySepatuSlug' => 'Taking Clean To Another Level',
             'bio' => 'SA\'s Exclusive Sneaker & Streetwear Marketplace',
@@ -52,7 +52,7 @@ class LaundrySepatuSeeder extends Seeder
         ]);
 
         LaundrySepatu::create([
-            'user_id'   => 4,
+            'user_id'   => 36,
             'laundrySepatuName' => 'Solecase',
             'laundrySepatuSlug' => 'Premium Shoe & Bag Laundry',
             'bio' => 'Solecase Alam Sutera | Jasa Cuci Premium Untuk Sepatu dan Tas',
@@ -63,7 +63,7 @@ class LaundrySepatuSeeder extends Seeder
         ]);
 
         LaundrySepatu::create([
-            'user_id'   => 4,
+            'user_id'   => 37,
             'laundrySepatuName' => 'Laundryshoe.id',
             'laundrySepatuSlug' => 'Solusi Tepat Cuci Sepatu Tas Topi Dompet Tanpa Buang Waktu. Free PickUp!',
             'bio' => 'Solusi Tepat Cuci Sepatu Tas Topi Dompet Tanpa Buang Waktu. Free PickUp!',
@@ -74,7 +74,7 @@ class LaundrySepatuSeeder extends Seeder
         ]);
 
         LaundrySepatu::create([
-            'user_id'   => 4,
+            'user_id'   => 38,
             'laundrySepatuName' => 'Mozdeo',
             'laundrySepatuSlug' => 'Make Simple With Mozdeo',
             'bio' => 'Mozdeo adalah usaha yang bergerak dibidang jasa pencucian khusus tas & sepatu',
@@ -85,7 +85,7 @@ class LaundrySepatuSeeder extends Seeder
         ]);
 
         LaundrySepatu::create([
-            'user_id'   => 4,
+            'user_id'   => 39,
             'laundrySepatuName' => 'Dinoshoes',
             'laundrySepatuSlug' => 'Premium Laundry Shoes, Helmet, Bag & Free Pick Up',
             'bio' => 'Premium Laundry Shoes, Helmet, Bag & Free Pick Up',
@@ -96,7 +96,7 @@ class LaundrySepatuSeeder extends Seeder
         ]);
 
         LaundrySepatu::create([
-            'user_id'   => 4,
+            'user_id'   => 40,
             'laundrySepatuName' => 'SUCI Shoelab',
             'laundrySepatuSlug' => 'Solusi Semua Sepatumu',
             'bio' => 'SUCI Shoelab adalah gerai cuci sepatu berlokasi di BSD City, Tangerang Selatan',
@@ -107,7 +107,7 @@ class LaundrySepatuSeeder extends Seeder
         ]);
 
         LaundrySepatu::create([
-            'user_id'   => 4,
+            'user_id'   => 41,
             'laundrySepatuName' => 'ShuFix',
             'laundrySepatuSlug' => 'Cuci Sepatu - Cuci Tas - Cuci Koper',
             'bio' => 'Cuci Sepatu - Cuci Tas - Cuci Koper',
@@ -118,7 +118,7 @@ class LaundrySepatuSeeder extends Seeder
         ]);
 
         LaundrySepatu::create([
-            'user_id'   => 4,
+            'user_id'   => 42,
             'laundrySepatuName' => 'Cleanpatu',
             'laundrySepatuSlug' => 'Deep Shoe treatment and bag cleaning',
             'bio' => 'Our services try to keep everything clean and looks good',
@@ -129,7 +129,7 @@ class LaundrySepatuSeeder extends Seeder
         ]);
 
         LaundrySepatu::create([
-            'user_id'   => 4,
+            'user_id'   => 43,
             'laundrySepatuName' => 'The Clean Bar',
             'laundrySepatuSlug' => 'The First Fast Shoes and Bag Cleaning in the Mall. BSD Plaza',
             'bio' => 'Kami menawarkan jasa cuci sepatu, tas, koper, dompet dan lainnya untuk kamu yang sibuk bekerja',
@@ -140,7 +140,7 @@ class LaundrySepatuSeeder extends Seeder
         ]);
 
         LaundrySepatu::create([
-            'user_id'   => 4,
+            'user_id'   => 44,
             'laundrySepatuName' => 'Clean Avenue',
             'laundrySepatuSlug' => 'Clean Avenue - Toko Reparasi Sepatu',
             'bio' => 'Clean Avenue - Toko Reparasi Sepatu',
