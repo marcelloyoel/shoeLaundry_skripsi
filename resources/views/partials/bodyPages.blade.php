@@ -103,8 +103,7 @@
                                     Activity Log
                                 </a> --}}
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal"
-                                    data-target="#logoutModal">
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>
@@ -187,4 +186,8 @@
     {{-- openai --}}
     {{-- <script src="/vendor/snapappointments/bootstrap-select/dist/js/bootstrap-select.min.js"></script> --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/js/bootstrap-select.min.js"></script>
+    @if (isset($javascript))
+        <script src="/js/{{ $javascript }}"></script>
+    @endif
+
 </body>

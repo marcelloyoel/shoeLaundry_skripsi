@@ -25,9 +25,25 @@
         </div>
     </div>
     <div class="row mt-4">
+        <?php
+        echo "<script>
+                                                                                var authId = " .
+            Auth::id() .
+            ";
+                                                                                var servicePrice = '" .
+            $service->servicePrice .
+            "';
+                                                                    var service = '" .
+            json_encode($service) .
+            "';
+                                                                                </script>";
+        ?>
         <div class="col-12 ngetest">
-            <button type="button" onclick="window.history.back()" id="btnAddToCart" class="btn btn-primary">Add This To
+            <button type="button" onclick="addToCart()" id="btnAddToCart" class="btn btn-primary">Add This To
                 Cart</button>
+        </div>
+        <div class="col-12 ngetest">
+            <a href="/cart">show cart</a>
         </div>
     </div>
 @endsection

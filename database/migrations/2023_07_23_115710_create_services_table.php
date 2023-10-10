@@ -20,7 +20,8 @@ return new class extends Migration
             $table->string('serviceSlug')->unique();
             $table->boolean('status')->default(true);
             //false = tidak aktif, true = aktif
-            $table->integer('servicePrice');
+            // $table->integer('servicePrice');
+            $table->decimal('servicePrice', 15, 2);
             $table->text('serviceDescription');
             $table->string('servicePicture')->nullable();
             $table->timestamps();

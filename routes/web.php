@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LaundrySepatuController;
 use App\Http\Controllers\LoginController;
@@ -54,13 +55,14 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('laundry/{id}', [MenuController::class, 'homeLaundry'])->middleware('auth');
         Route::get('serviceDetail/{id}', [MenuController::class, 'serviceLaundryBuyer'])->middleware('auth');
         Route::resource('orderList', OrderUserController::class)->middleware('auth');
+        Route::get('cart', [CartController::class, 'showCart'])->middleware('auth');
+        Route::post('/addToCart', [CartController::class, 'addToCart']);
     });
 
     Route::group(['middleware'  => 'laundrySepatu'], function () {
         Route::resource('/laundryorder', OrderLaundryController::class)->middleware('auth');
         Route::resource('/laundryservice', ServiceController::class)->middleware('auth');
         Route::get('service/{id}', [MenuController::class, 'serviceLaundry'])->middleware('auth');
-
     });
 
     Route::group(['middleware'  => 'admin'], function () {

@@ -39,7 +39,7 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">User Transaction:</h6>
-                <a class="collapse-item" href="buttons.html">Shopping Cart</a>
+                <a class="collapse-item" href="/cart">Shopping Cart</a>
                 <a class="collapse-item" href="/orderList">Order List</a>
             </div>
         </div>
