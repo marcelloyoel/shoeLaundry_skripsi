@@ -91,7 +91,7 @@ class CartController extends Controller
         $items = Cart::getContent();
         $isEmpty = Cart::isEmpty();
         $databaseCart = DB::table('carts')->get();
-        return view('buyer.cartList', [
+        return view('buyer.shoppingcart', [
             'title' => 'Shopping Cart',
             'items'   => $items,
             'isEmpty'   => $isEmpty,
