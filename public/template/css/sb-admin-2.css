@@ -589,6 +589,14 @@ pre code {
   margin-left: -0.75rem;
 }
 
+.row1 {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-right: -0.75rem;
+    margin-left: -0.75rem;
+  }
+
 .no-gutters {
   margin-right: 0;
   margin-left: 0;
@@ -4488,6 +4496,7 @@ input[type="button"].btn-block {
   display: flex;
   flex-direction: column;
   min-width: 0;
+  max-width: 100%;
   word-wrap: break-word;
   background-color: #fff;
   background-clip: border-box;
@@ -4603,6 +4612,10 @@ input[type="button"].btn-block {
 .card-img-top {
   border-top-left-radius: calc(0.35rem - 1px);
   border-top-right-radius: calc(0.35rem - 1px);
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 70%;
+  max-height: 70%;
 }
 
 .card-img,
@@ -5810,6 +5823,15 @@ a.close.disabled {
   width: 50px;
   height: 50px;
   overflow: scroll;
+}
+
+.serviceBtn {
+    border: none;
+    background-color: inherit;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
 }
 
 @media (min-width: 576px) {
@@ -10460,8 +10482,15 @@ a:focus {
   z-index: 1;
 }
 
-.sidebar .sidebar-brand .sidebar-brand-icon i {
-  font-size: 2rem;
+.sidebar .sidebar-brand .sidebar-brand-icon {
+    /* background-color: #000; */
+    /* max-height: 50%; */
+    max-width: 50%;
+}
+
+.sidebar .sidebar-brand .sidebar-brand-icon img {
+    max-height: 105%;
+    max-width: 50%;
 }
 
 .sidebar .sidebar-brand .sidebar-brand-text {
@@ -10861,19 +10890,19 @@ a:focus {
 }
 
 .bg-login-image {
-  background: url("https://source.unsplash.com/K4mSJ7kc0As/600x800");
+  background: url("{{ asset('storage/public/image/LogoWeb.jpg') }}");
   background-position: center;
   background-size: cover;
 }
 
 .bg-register-image {
-  background: url("https://source.unsplash.com/Mv9hjnEUHR4/600x800");
+  background: url("/public/template/img/LogoWeb.jpg");
   background-position: center;
   background-size: cover;
 }
 
 .bg-password-image {
-  background: url("https://source.unsplash.com/oWTW-jNGl9I/600x800");
+  background: url("/public/template/img/LogoWeb.jpg");
   background-position: center;
   background-size: cover;
 }

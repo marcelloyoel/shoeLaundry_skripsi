@@ -12,42 +12,15 @@
         </div>
         <div class="col-sm-6 bagianKanan">
             <div class="row my-3">
-                <h4><strong>{{ $laundry->laundrySepatuName }}</strong></h4>
+                <h4><strong>{{ $service->serviceName }}</strong></h4>
             </div>
-            <div class="row1 my-3">
-                <h6><Strong>Slug</Strong>:</h6>
-                <h6>{{ $laundry->laundrySepatuSlug }}</h6>
+            <div class="row my-3">
+                <p><Strong>Description : </Strong></p>
+                <p>{{ $service->serviceDescription}}</p>
             </div>
-            <div class="row1 my-3">
-                <h6><Strong>Description</Strong>:</h6>
-                <h6>{{ $laundry->bio }}</h6>
-            </div>
-            <div class="row1 my-3">
-                <h6><Strong>Contact</Strong>:</h6>
-                <h6>{{ $laundry->Contact }}</h6>
-            </div>
-            <div class="row1 my-3">
-                <h6><Strong>Distance</Strong>:</h6>
-                <h6>{{ $laundry->distance }}</h6>
-            </div>
-            <div class="row1 my-3">
-                <h6><Strong>Address</Strong>:</h6>
-                <h6>{{ $laundry->Address }}</h6>
-            </div>
-            <div class="row1 my-3">
-                <h6><Strong>Services</Strong></h6>
-                <div class="rowhori my-3">
-                    @foreach ($services as $service)
-                        {{-- <h5>{{ $service->id }}</h5> --}}
-                        <div>
-                            <a href="/service/{{$service->id}}">
-                                <button class="serviceBtn">
-                                <h6>{{ $service->serviceName }}</h6>
-                            </a>
-                        </div>
-                    @endforeach
-                </div>
+            <div class="row my-3">
+                <p><Strong>Price : </Strong></p>
+                <p>{{ $service->servicePrice}}</p>
             </div>
         </div>
-    </div>
 @endsection

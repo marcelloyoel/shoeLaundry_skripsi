@@ -11,42 +11,24 @@
             </div>
         </div>
         <div class="col-sm-6 bagianKanan">
+            <div class="row1 my-3">
+                <h4><strong>{{ $service->serviceName }}</strong></h4>
+            </div>
+            <div class="row1 my-3">
+                <h6><Strong>Description : </Strong></h6>
+                <h6>{{ $service->serviceDescription }}</h6>
+            </div>
+            <div class="row1 my-3">
+                <h6><Strong>Service Slug : </Strong></h6>
+                <h6>{{ $service->serviceSlug }}</h6>
+            </div>
+            <div class="row1 my-3">
+                <h6><Strong>Price : </Strong></h6>
+                <h6>{{ $service->servicePrice }}</h6>
+            </div>
             <div class="row my-3">
-                <h4><strong>{{ $laundry->laundrySepatuName }}</strong></h4>
-            </div>
-            <div class="row1 my-3">
-                <h6><Strong>Slug</Strong>:</h6>
-                <h6>{{ $laundry->laundrySepatuSlug }}</h6>
-            </div>
-            <div class="row1 my-3">
-                <h6><Strong>Description</Strong>:</h6>
-                <h6>{{ $laundry->bio }}</h6>
-            </div>
-            <div class="row1 my-3">
-                <h6><Strong>Contact</Strong>:</h6>
-                <h6>{{ $laundry->Contact }}</h6>
-            </div>
-            <div class="row1 my-3">
-                <h6><Strong>Distance</Strong>:</h6>
-                <h6>{{ $laundry->distance }}</h6>
-            </div>
-            <div class="row1 my-3">
-                <h6><Strong>Address</Strong>:</h6>
-                <h6>{{ $laundry->Address }}</h6>
-            </div>
-            <div class="row1 my-3">
-                <h6><Strong>Services</Strong></h6>
-                <div class="rowhori my-3">
-                    @foreach ($services as $service)
-                        {{-- <h5>{{ $service->id }}</h5> --}}
-                        <div>
-                            <a href="/service/{{$service->id}}">
-                                <button class="serviceBtn">
-                                <h6>{{ $service->serviceName }}</h6>
-                            </a>
-                        </div>
-                    @endforeach
-                </div>
+                <a href="#" class="btn btn-primary">Buy Now</a>
+                <a href="#" class="btn btn-primary ml-4">Add to Cart</a>
             </div>
         </div>
     </div>
