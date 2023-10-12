@@ -54,6 +54,7 @@ Route::group(['middleware' => 'auth'], function () {
         // Route::get('/home/laundry', [MenuController::class, 'homeLaundry'])->middleware('auth');
         Route::get('laundry/{id}', [MenuController::class, 'homeLaundry'])->middleware('auth');
         Route::get('serviceDetail/{id}', [MenuController::class, 'serviceLaundryBuyer'])->middleware('auth');
+        Route::resource('orderlist', OrderUserController::class)->middleware('auth');
         Route::resource('orderList', OrderUserController::class)->middleware('auth');
         Route::get('cart', [CartController::class, 'showCart'])->middleware('auth');
         Route::post('/addToCart', [CartController::class, 'addToCart']);

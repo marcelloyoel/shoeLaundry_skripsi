@@ -589,6 +589,14 @@ pre code {
   margin-left: -0.75rem;
 }
 
+.row1 {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-right: -0.75rem;
+    margin-left: -0.75rem;
+  }
+
 .no-gutters {
   margin-right: 0;
   margin-left: 0;
@@ -4488,6 +4496,7 @@ input[type="button"].btn-block {
   display: flex;
   flex-direction: column;
   min-width: 0;
+  max-width: 100%;
   word-wrap: break-word;
   background-color: #fff;
   background-clip: border-box;
