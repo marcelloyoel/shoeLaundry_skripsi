@@ -70,7 +70,6 @@
             <div class="form-group col-md-6">
                 <label for="status">Status</label>
                 <select class="form-control" id="group_id" name="group_id" disabled>
-                    <select class="form-control" id="group_id" name="group_id">
                         <option value="1" {{ $order->status == 1 ? 'selected' : '' }}>Waiting</option>
                         <option value="2" {{ $order->status == 2 ? 'selected' : '' }}>Accepted</option>
                         <option value="3" {{ $order->status == 3 ? 'selected' : '' }}>Brushing Sole</option>
@@ -80,7 +79,6 @@
                         <option value="7" {{ $order->status == 7 ? 'selected' : '' }}>Awaiting Pickup</option>
                         <option value="8" {{ $order->status == 8 ? 'selected' : '' }}>Finished</option>
                         <option value="9" {{ $order->status == 9 ? 'selected' : '' }}>Rejected</option>
-                    </select>
                 </select>
             </div>
         </div>
