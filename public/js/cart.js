@@ -4,6 +4,8 @@ function addToCart(){
     var jsonParse = JSON.parse(service);
     console.log(jsonParse);
     console.log(authId);
+    console.log('laundrySepatuName');
+    console.log(laundrySepatuName);
 
     $.ajax({
         url: '/addToCart',
@@ -11,7 +13,8 @@ function addToCart(){
         data: {
             // _token: '{{ csrf_token() }}',  // Add this line
             service: jsonParse,
-            userId: authId
+            userId: authId,
+            laundrySepatuName: laundrySepatuName
         },
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

@@ -91,9 +91,20 @@ class CartController extends Controller
         $items = Cart::getContent();
         $isEmpty = Cart::isEmpty();
         $databaseCart = DB::table('carts')->get();
+
+        $shops = [];
+        foreach ($items as $item) {
+            $shopName = $item->attributes->laundrySepatuName;
+            if (!isset($shops[$shopName])) {
+                $shops[$shopName] = [];
+            }
+            array_push($shops[$shopName], $item);
+        }
+
+
         return view('buyer.shoppingcart', [
             'title' => 'Shopping Cart',
-            'items'   => $items,
+            'shops'   => $shops,
             'isEmpty'   => $isEmpty,
             'database' => $databaseCart
         ]);
@@ -103,13 +114,16 @@ class CartController extends Controller
     {
         $service = $request->input('service');
         $authId = $request->input('userId');
+        $laundrySepatuName = $request->input('laundrySepatuName');
         // Add the service to the cart
         Cart::add(array(
             'id' => $service['id'],
             'name' => $service['serviceName'],
             'price' => $service['servicePrice'],
             'quantity' => 1,
-            'attributes' => array()
+            'attributes' => array(
+                'laundrySepatuName' => $laundrySepatuName
+            )
         ));
         // $request->session()->save();
         DB::table('carts')->insert([
@@ -118,6 +132,7 @@ class CartController extends Controller
             'name' => $service['serviceName'],
             'price' => $service['servicePrice'],
             'quantity' => 1,
+            'laundrySepatuName' => $laundrySepatuName,
             'created_at' => now(),
             'updated_at' => now(),
         ]);

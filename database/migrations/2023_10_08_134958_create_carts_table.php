@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('name');
             $table->decimal('price', 15, 2);
             $table->integer('quantity')->default(1);
+            $table->string('laundrySepatuName');
             $table->timestamps();
         });
     }
