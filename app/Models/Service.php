@@ -20,6 +20,11 @@ class Service extends Model
         return $this->belongsTo(LaundrySepatu::class);
     }
 
+    public function cart()
+    {
+        return $this->belongsTo(Cart::class);
+    }
+
     // public function getSelectedServices($orderId){
     //     return $this->select('id', 'serviceName')->where('')
     // }
