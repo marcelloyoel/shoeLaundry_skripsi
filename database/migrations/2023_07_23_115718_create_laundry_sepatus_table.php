@@ -19,7 +19,10 @@ return new class extends Migration
             $table->string('laundrySepatuName');
             $table->string('laundrySepatuSlug')->unique();
             $table->text('bio');
+            $table->text('Address');
+            $table->text('Contact');
             $table->string('picture')->nullable();
+            $table->string('distance');
             $table->timestamps();
         });
     }
