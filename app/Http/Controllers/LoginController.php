@@ -35,7 +35,9 @@ class LoginController extends Controller
                         'name' => $item->name,  // Replace with actual service name
                         'price' => $item->price,  // Replace with actual service price
                         'quantity' => $item->quantity,
-                        'attributes' => array()
+                        'attributes' => array(
+                            'laundrySepatuName' => $item->laundrySepatuName
+                        )
                     ]);
                 }
             }
