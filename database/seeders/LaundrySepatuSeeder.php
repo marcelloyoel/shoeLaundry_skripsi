@@ -26,7 +26,7 @@ class LaundrySepatuSeeder extends Seeder
             'address' => 'Jl. Regensi Melati Mas, RT.5/RW.11, Jelupang, Serpong Utara',
             'contact' => '085770880822',
             'distance' => '200 m',
-            'picture' => '',
+            'picture' => 'JejakLangkah.jpg',
         ]);
 
         LaundrySepatu::create([
@@ -37,7 +37,7 @@ class LaundrySepatuSeeder extends Seeder
             'address' => 'Lt.2 Lemari Kopi Jl. Griya Loka Raya Blok RE2/4 Kec. Serpong, Kota Tangerang Selatan',
             'contact' => '087880057656',
             'distance' => '250 m',
-            'picture' => '',
+            'picture' => 'ShoePorter.jpg',
         ]);
 
         LaundrySepatu::create([
@@ -48,7 +48,7 @@ class LaundrySepatuSeeder extends Seeder
             'address' => 'Lobby basement 5 BA 20, Sumarecon Mall Serpong',
             'contact' => '087878649308',
             'distance' => '300 m',
-            'picture' => '',
+            'picture' => 'SneakerSyndicate.jpg',
         ]);
 
         LaundrySepatu::create([
@@ -59,7 +59,7 @@ class LaundrySepatuSeeder extends Seeder
             'address' => 'Mall @Alam Sutera, LG Floor Unit 10C',
             'contact' => '08812234445',
             'distance' => '350 m',
-            'picture' => '',
+            'picture' => 'Solecase.jpg',
         ]);
 
         LaundrySepatu::create([
@@ -70,7 +70,7 @@ class LaundrySepatuSeeder extends Seeder
             'address' => 'Posisi di Lantai 2 masuk dari Smartwash Laundry coin (Samping Steam Arema 24jam, Jl. Ciater Raya No.99B, Kec. Serpong, Kota Tangerang Selatan',
             'contact' => '082140003484',
             'distance' => '400 m',
-            'picture' => '',
+            'picture' => 'LaundryshoeID.jpg',
         ]);
 
         LaundrySepatu::create([
@@ -81,7 +81,7 @@ class LaundrySepatuSeeder extends Seeder
             'address' => 'Rawa Mekar Jaya, Serpong Sub-District, South Tangerang City',
             'contact' => '08118888001',
             'distance' => '450 m',
-            'picture' => '',
+            'picture' => 'Mozdeo.jpg',
         ]);
 
         LaundrySepatu::create([
@@ -92,7 +92,7 @@ class LaundrySepatuSeeder extends Seeder
             'address' => 'Granada Square Blok I No. 63 A Sektor 12, Jl. Kencana Loka, Ciater, Kec. Serpong, Kota Tangerang Selatan',
             'contact' => '081807000686',
             'distance' => '500 m',
-            'picture' => '',
+            'picture' => 'Dinoshoes.jpg',
         ]);
 
         LaundrySepatu::create([
@@ -103,7 +103,7 @@ class LaundrySepatuSeeder extends Seeder
             'address' => 'Ruko Barcelona, E9/39 (Lantai 2, Jl. Letnan Sutopo No.2, Rw. Mekar Jaya, Kec. Serpong, Kota Tangerang Selatan',
             'contact' => '081212480288',
             'distance' => '600 m',
-            'picture' => '',
+            'picture' => 'Sucishoelab.jpg',
         ]);
 
         LaundrySepatu::create([
@@ -125,7 +125,7 @@ class LaundrySepatuSeeder extends Seeder
             'address' => 'Jl. Pahlawan Seribu, Lengkong Wetan, Kec. Serpong, Kota Tangerang Selatan',
             'contact' => '081574370667',
             'distance' => '700 m',
-            'picture' => '',
+            'picture' => 'Cleanpatu.jpg',
         ]);
 
         LaundrySepatu::create([
@@ -136,7 +136,7 @@ class LaundrySepatuSeeder extends Seeder
             'address' => 'BSD Plaza Lantai Dasar, Jl. Pahlawan Seribu, Lengkong Wetan, Serpong Sub-District, South Tangerang City',
             'contact' => '087885156677',
             'distance' => '750 m',
-            'picture' => '',
+            'picture' => 'TheCleanBar.jpg',
         ]);
 
         LaundrySepatu::create([
@@ -147,7 +147,7 @@ class LaundrySepatuSeeder extends Seeder
             'address' => 'L. Raya Lengkong Wetan BSD - Bintaro No. 137',
             'contact' => '081281063662',
             'distance' => '8000 m',
-            'picture' => '',
+            'picture' => 'CleanAvenue.jpg',
         ]);
 
 

@@ -6,7 +6,11 @@
     <div class="row d-flex flex-row">
         <div class="col-sm-6 bagianKiri d-flex justify-content-center align-items-center">
             <div class="bagianDalem">
-                <img src="image/shopimagedummy.png">
+                @if ($laundry->picture)
+                    <img src="{{ asset('image/' . $laundry->picture) }}" class="card-img-top">
+                @else
+                    <img src="{{ asset('image/shopimagedummy.png') }}" class="card-img-top">
+                @endif
                 {{-- <img src={{url('storage/image/shopimagedummy.png')}}> --}}
             </div>
         </div>
