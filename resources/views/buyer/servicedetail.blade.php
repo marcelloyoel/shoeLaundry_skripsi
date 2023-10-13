@@ -29,7 +29,7 @@
             </div>
             <div class="row my-3">
                 <a href="#" class="btn btn-primary">Buy Now</a>
-                <a href="#" class="btn btn-primary ml-4">Add to Cart</a>
+                <button type="button" onclick="addToCart()" id="btnAddToCart" class="btn btn-primary ml-4">Add to Cart</button>
             </div>
         </div>
     </div>
@@ -54,14 +54,5 @@
             <button type="button" onclick="addToCart()" id="btnAddToCart" class="btn btn-primary">Add This To
                 Cart</button>
         </div> --}}
-        <div class="col mt-4 d-flex justify-content-center">
-            <div class="mx-5">
-                <button type="button" onclick="addToCart()" id="btnAddToCart" class="btn btn-primary">Add This To
-                    Cart</button>
-            </div>
-            <div class="mx-5">
-                <button type="button" onclick="window.history.back()" id="btnSubmit" class="btn btn-primary">Back</button>
-            </div>
-        </div>
     </div>
 @endsection
