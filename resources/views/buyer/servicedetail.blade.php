@@ -31,8 +31,30 @@
             </div>
             <div class="row my-3">
                 <a href="#" class="btn btn-primary">Buy Now</a>
-                <a href="#" class="btn btn-primary ml-4">Add to Cart</a>
+                <button type="button" onclick="addToCart()" id="btnAddToCart" class="btn btn-primary ml-4">Add to Cart</button>
             </div>
         </div>
+    </div>
+    <div class="row mt-4">
+        <?php
+        echo "<script>
+                                    var authId = " .
+            Auth::id() .
+            ";
+                                                                                                                                                                                        var servicePrice = '" .
+            $service->servicePrice .
+            "';
+                                                                                                                                                                            var service = '" .
+            json_encode($service) .
+            "';
+                                            var laundrySepatuName = '" .
+            $service->laundrySepatu->laundrySepatuName .
+            "';
+                                                                                                                                                                                        </script>";
+        ?>
+        {{-- <div class="col-12 ngetest">
+            <button type="button" onclick="addToCart()" id="btnAddToCart" class="btn btn-primary">Add This To
+                Cart</button>
+        </div> --}}
     </div>
 @endsection

@@ -46,7 +46,8 @@ class MenuController extends Controller
         $service = Service::find($id);
         return view('buyer.servicedetail', [
             'title' => $service->serviceName,
-            'service'   => $service
+            'service'   => $service,
+            'javascript'    => 'cart.js'
         ]);
     }
 }
