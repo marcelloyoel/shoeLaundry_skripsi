@@ -28,31 +28,36 @@ class OrderToServiceSeeder extends Seeder
             'order_id'  => 1,
             'service_id'    => 3
         ]);
-        //buat laundry dengan nomer 2
+
         OrderToService::create([
             'order_id'  => 2,
+            'service_id'    => 15
+        ]);
+        OrderToService::create([
+            'order_id'  => 2,
+            'service_id'    => 16
+        ]);
+
+        OrderToService::create([
+            'order_id'  => 3,
             'service_id'    => 5
         ]);
         OrderToService::create([
-            'order_id'  => 2,
-            'service_id'    => 8
-        ]);
-        //buat laundry dengan nomer 3
-        OrderToService::create([
             'order_id'  => 3,
-            'service_id'    => 9
+            'service_id'    => 6
         ]);
-        OrderToService::create([
-            'order_id'  => 3,
-            'service_id'    => 10
-        ]);
-        //another buyer
+
         OrderToService::create([
             'order_id'  => 4,
-            'service_id'    => 1
+            'service_id'    => 16
         ]);
         OrderToService::create([
             'order_id'  => 4,
+            'service_id'    => 17
+        ]);
+
+        OrderToService::create([
+            'order_id'  => 5,
             'service_id'    => 2
         ]);
 

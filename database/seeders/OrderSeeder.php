@@ -22,7 +22,7 @@ class OrderSeeder extends Seeder
             'phoneNumber'       => '089615736938',
             'address'           => 'Jalan Imam Bonjol 30 No.42 Karang Anyar Tangerang Selatan, Banten. 15323',
             'merkSepatu'       => 'Nike',
-            'jenisSepatu'       => 'Air Jordan'
+            'jenisSepatu'       => 'Air Jordan',
         ]);
         Order::create([
             'user_id'   => 5,
@@ -30,7 +30,7 @@ class OrderSeeder extends Seeder
             'phoneNumber'       => '089615736938',
             'address'           => 'Jalan Imam Bonjol 30 No.42 Karang Anyar Tangerang Selatan, Banten. 15323',
             'merkSepatu'       => 'Adidas',
-            'jenisSepatu'       => 'Adidas Yeezy'
+            'jenisSepatu'       => 'Adidas Yeezy',
         ]);
         Order::create([
             'user_id'   => 30,
@@ -38,7 +38,7 @@ class OrderSeeder extends Seeder
             'phoneNumber'       => '089615736938',
             'address'           => 'Jalan Kompleks Villa Melati Mas Tangerang Selatan, Banten. 15323',
             'merkSepatu'       => 'Adidas',
-            'jenisSepatu'       => 'Adidas Superstar White'
+            'jenisSepatu'       => 'Adidas Superstar White',
         ]);
         Order::create([
             'user_id'   => 30,
@@ -46,7 +46,7 @@ class OrderSeeder extends Seeder
             'phoneNumber'       => '089615736938',
             'address'           => 'Jalan Metro Pondok Indah, Jakarta Selatan, Jakarta. 15323',
             'merkSepatu'       => 'Airwalk',
-            'jenisSepatu'       => 'Airwalk Air Fresh Bump 3X5 Super'
+            'jenisSepatu'       => 'Airwalk Air Fresh Bump 3X5 Super',
         ]);
         Order::create([
             'user_id'   => 6,
@@ -54,7 +54,7 @@ class OrderSeeder extends Seeder
             'phoneNumber'       => '089618736938',
             'address'           => 'BCA Finance Pondok Indah',
             'merkSepatu'       => 'Fogo',
-            'jenisSepatu'       => 'FOGO Super Running 2053'
+            'jenisSepatu'       => 'FOGO Super Running 2053',
         ]);
 
     }
