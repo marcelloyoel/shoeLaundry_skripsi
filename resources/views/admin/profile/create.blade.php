@@ -62,21 +62,31 @@
                 @enderror
             </div>
             <div class="form-group col-md-6">
-                <label for="exampleFormControlSelect1">Status</label>
-                <select class="form-control" id="exampleFormControlSelect1" name="status">
-                    <option value="1">Active</option>
-                    <option value="2">Non-Active</option>
-                </select>
+                <label for="picture">Profile Picture</label>
+                <input type="file" class="form-control @error('picture') is-invalid @enderror" id="picture"
+                value="{{ old('picture') }}" name="picture">
+                @error('picture')
+                    <div class="invalid-feedback mb-2">
+                        {{ $message }}
+                    </div>
+                @enderror
             </div>
         </div>
         <div class="form-row">
-            <div class="form-group col-md-12">
+            <div class="form-group col-md-6">
                 <label for="group_id">Role</label>
                 <select class="form-control" id="group_id" name="group_id">
                     <option value="1">Buyer</option>
                     <option value="2">Laundry</option>
                     <option value="3">Admin</option>
                     <option value="4">Super Admin</option>
+                </select>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="exampleFormControlSelect1">Status</label>
+                <select class="form-control" id="exampleFormControlSelect1" name="status">
+                    <option value="1">Active</option>
+                    <option value="2">Non-Active</option>
                 </select>
             </div>
         </div>

@@ -50,8 +50,17 @@ class UserController extends Controller
             'email' => ['unique:users', 'required'],
             'phoneNumber' => ['nullable'],
             'status'    => ['required'],
-            'group_id'  => ['required']
+            'group_id'  => ['required'],
+            'picture' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
+
+        if ($request->hasFile('picture')) {
+            $uploadedPicture = $request->file('picture');
+            $pictureFileName = $uploadedPicture->getClientOriginalName();
+            $uploadedPicture->storeAs('images', $pictureFileName, 'public');
+            $validatedData['picture'] = $pictureFileName; // Store the filename in the 'picture' field
+        }
+
         $validatedData['password'] = bcrypt('12345');
         // dd($validatedData);
 
