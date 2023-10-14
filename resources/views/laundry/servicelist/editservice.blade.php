@@ -3,7 +3,7 @@
     @include('partials.sidebar')
 @endsection
 @section('container')
-    <h2>Service Detail</h2>
+    <h2>Edit Service</h2>
     <hr>
     <form method="POST" action="/laundryservice/{{ $service->id }}" enctype="multipart/form-data">
         @csrf
@@ -33,8 +33,30 @@
                 <textarea class="form-control" id="serviceDescription" rows="3" name="serviceDescription">{{ old('serviceDescription', $service->serviceDescription) }}</textarea>
             </div>
         </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="serviceSlug">Service Slug</label>
+                <input type="text" class="form-control" id="serviceSlug" value="{{ old('serviceSlug', $service->serviceSlug) }}"
+                    name="serviceSlug">
+                @error('serviceSlug')
+                    <div class="invalid-feedback mb-2">
+                        {{ $message }}
+                    </div>
+                @enderror
+            </div>
+            <div class="form-group col-md-6">
+                <label for="servicePicture">Service Picture</label>
+                <input type="file" class="form-control @error('servicePicture') is-invalid @enderror" id="servicePicture"
+                value="{{ old('servicePicture') }}" name="servicePicture">
+                @error('servicePicture')
+                    <div class="invalid-feedback mb-2">
+                        {{ $message }}
+                    </div>
+                @enderror
+            </div>
+        </div>
         <div class="d-flex justify-content-center mt-4">
-            <button type="submit" class="btn btn-primary my-3">Update Order</button>
+            <button type="submit" class="btn btn-primary my-3">Update Service</button>
         </div>
     </form>
 @endsection

@@ -22,6 +22,10 @@
                 <p>{{ $service->serviceDescription}}</p>
             </div>
             <div class="row my-3">
+                <p><Strong>Slug : </Strong></p>
+                <p>{{ $service->serviceSlug}}</p>
+            </div>
+            <div class="row my-3">
                 <p><Strong>Price : </Strong></p>
                 <p>{{ $service->servicePrice}}</p>
             </div>
