@@ -51,8 +51,20 @@ class RegisterController extends Controller
             'phoneNumber' => ['nullable'],
             'group_id'  => ['required'],
             'password' => ['required'],
+            'picture' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
-        $validatedData['password'] = Hash::make($request->input('password'));
+
+        if ($request->hasFile('picture')) {
+            $uploadedPicture = $request->file('picture');
+            $pictureFileName = $uploadedPicture->getClientOriginalName();
+            $uploadedPicture->storeAs('images', $pictureFileName, 'public');
+            $validatedData['picture'] = $pictureFileName; // Store the filename in the 'picture' field
+        }
+
+        if ($request->input('password')) {
+            $validatedData['password'] = Hash::make($request->input('password'));
+        }
+
         User::create($validatedData);
         // dd('test2');
         return redirect('/');

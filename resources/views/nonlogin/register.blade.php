@@ -99,12 +99,22 @@
                                     </div>
                                 </div>
                                 <div class="form-row">
-                                    <div class="form-group col-md-12">
+                                    <div class="form-group col-md-6">
                                         <label for="group_id">Role</label>
                                         <select class="form-control" id="group_id" name="group_id">
                                             <option value="1">Buyer</option>
                                             <option value="2">Laundry</option>
                                         </select>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="picture">Profile Picture</label>
+                                        <input type="file" class="form-control @error('picture') is-invalid @enderror" id="picture"
+                                        value="{{ old('picture') }}" name="picture">
+                                        @error('picture')
+                                            <div class="invalid-feedback mb-2">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="d-flex justify-content-center">
