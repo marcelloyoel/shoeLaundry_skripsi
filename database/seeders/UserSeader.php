@@ -24,7 +24,8 @@ class UserSeader extends Seeder
             'displayName'  => 'marcello keren',
             'address' => 'Jalan Melati Mas',
             'phoneNumber'  => '089615736938',
-            'group_id'     =>  4
+            'group_id'     =>  4,
+            'picture'       => '',
         ]);
         User::create([
             'username'  => 'leonardojose',
@@ -34,7 +35,8 @@ class UserSeader extends Seeder
             'displayName'  => 'leo',
             'address' => 'Jalan Gardenia I',
             'phoneNumber'  => '089615736938',
-            'group_id'     =>  4
+            'group_id'     =>  4,
+            'picture'       => '',
         ]);
         User::create([
             'username'  => 'jonathan',
@@ -44,7 +46,8 @@ class UserSeader extends Seeder
             'displayName'  => 'jo',
             'address' => 'Jalan BSD City',
             'phoneNumber'  => '089615736938',
-            'group_id'     =>  4
+            'group_id'     =>  4,
+            'picture'       => '',
         ]);
         User::create([
             'username'  => 'jejaklangkah',
@@ -54,7 +57,8 @@ class UserSeader extends Seeder
             'displayName'  => 'Jelang BSD',
             'address' => 'Jl. Regensi Melati Mas, RT.5/RW.11, Jelupang, Serpong Utara',
             'phoneNumber'  => '085770880822',
-            'group_id'     =>  2
+            'group_id'     =>  2,
+            'picture'       => '',
         ]);
         User::create([
             'username'  => 'buyer',
@@ -63,7 +67,8 @@ class UserSeader extends Seeder
             'status'  => 1,
             'displayName'  => 'buyerDummy',
             'address' => 'Jalan Anggrek 2 no 9',
-            'phoneNumber'  => '089615736938'
+            'phoneNumber'  => '089615736938',
+            'picture'       => '',
         ]);
         User::create([
             'username'  => 'elonmusk',
@@ -72,7 +77,8 @@ class UserSeader extends Seeder
             'status'  => 1,
             'displayName'  => 'Elon Musk',
             'address' => 'Jalan Rengasdengklok no 32',
-            'phoneNumber'  => '089615736932'
+            'phoneNumber'  => '089615736932',
+            'picture'       => '',
         ]);
         User::create([
             'username'  => 'mrbeast',
@@ -81,7 +87,8 @@ class UserSeader extends Seeder
             'status'  => 1,
             'displayName'  => 'Mr. Beast',
             'address' => 'Jalan Pagi Siang no 11',
-            'phoneNumber'  => '089612736932'
+            'phoneNumber'  => '089612736932',
+            'picture'       => '',
         ]);
         User::create([
             'username'  => 'zaynmalik',
@@ -90,7 +97,8 @@ class UserSeader extends Seeder
             'status'  => 1,
             'displayName'  => 'Zayn Malik',
             'address' => 'Jalan Sudirman no 77',
-            'phoneNumber'  => '089615736932'
+            'phoneNumber'  => '089615736932',
+            'picture'       => '',
         ]);
         User::factory(25)->create();
         User::create([
@@ -101,7 +109,8 @@ class UserSeader extends Seeder
             'displayName'  => 'ShoePorter',
             'address' => 'Lt.2 Lemari Kopi Jl. Griya Loka Raya Blok RE2/4 Kec. Serpong, Kota Tangerang Selatan',
             'phoneNumber'  => '087880057656',
-            'group_id'     =>  2
+            'group_id'     =>  2,
+            'picture'       => '',
         ]);
         User::create([
             'username'  => 'sneakerssyndicate',
@@ -111,7 +120,8 @@ class UserSeader extends Seeder
             'displayName'  => 'Sneakers Syndicate',
             'address' => 'Lobby basement 5 BA 20, Sumarecon Mall Serpong',
             'phoneNumber'  => '087878649308',
-            'group_id'     =>  2
+            'group_id'     =>  2,
+            'picture'       => '',
         ]);
         User::create([
             'username'  => 'solecase',
@@ -121,7 +131,8 @@ class UserSeader extends Seeder
             'displayName'  => 'Solecase',
             'address' => 'Mall @Alam Sutera, LG Floor Unit 10C',
             'phoneNumber'  => '08812234445',
-            'group_id'     =>  2
+            'group_id'     =>  2,
+            'picture'       => '',
         ]);
         User::create([
             'username'  => 'laundryshoe.id',
@@ -131,7 +142,8 @@ class UserSeader extends Seeder
             'displayName'  => 'Laundryshoe.id',
             'address' => 'Posisi di Lantai 2 masuk dari Smartwash Laundry coin (Samping Steam Arema 24jam, Jl. Ciater Raya No.99B, Kec. Serpong, Kota Tangerang Selatan',
             'phoneNumber'  => '082140003484',
-            'group_id'     =>  2
+            'group_id'     =>  2,
+            'picture'       => '',
         ]);
         User::create([
             'username'  => 'mozdeo',
@@ -141,7 +153,8 @@ class UserSeader extends Seeder
             'displayName'  => 'Modzeo',
             'address' => 'Rawa Mekar Jaya, Serpong Sub-District, South Tangerang City',
             'phoneNumber'  => '08118888001',
-            'group_id'     =>  2
+            'group_id'     =>  2,
+            'picture'       => '',
         ]);
         User::create([
             'username'  => 'dinoshoes',
@@ -151,7 +164,8 @@ class UserSeader extends Seeder
             'displayName'  => 'Dinoshoes',
             'address' => 'Granada Square Blok I No. 63 A Sektor 12, Jl. Kencana Loka, Ciater, Kec. Serpong, Kota Tangerang Selatan',
             'phoneNumber'  => '081807000686',
-            'group_id'     =>  2
+            'group_id'     =>  2,
+            'picture'       => '',
         ]);
         User::create([
             'username'  => 'sucishoelab',
@@ -161,7 +175,8 @@ class UserSeader extends Seeder
             'displayName'  => 'Suci Shoelab',
             'address' => 'Ruko Barcelona, E9/39 (Lantai 2, Jl. Letnan Sutopo No.2, Rw. Mekar Jaya, Kec. Serpong, Kota Tangerang Selatan',
             'phoneNumber'  => '081212480288',
-            'group_id'     =>  2
+            'group_id'     =>  2,
+            'picture'       => '',
         ]);
         User::create([
             'username'  => 'shufix',
@@ -171,7 +186,8 @@ class UserSeader extends Seeder
             'displayName'  => 'ShuFix',
             'address' => 'Pasar Modern BSD City, Kios Unit K159',
             'phoneNumber'  => '089615736938',
-            'group_id'     =>  2
+            'group_id'     =>  2,
+            'picture'       => '',
         ]);
         User::create([
             'username'  => 'cleanpatu',
@@ -181,7 +197,8 @@ class UserSeader extends Seeder
             'displayName'  => 'Cleanpatu',
             'address' => 'Jl. Pahlawan Seribu, Lengkong Wetan, Kec. Serpong, Kota Tangerang Selatan',
             'phoneNumber'  => '081574370667',
-            'group_id'     =>  2
+            'group_id'     =>  2,
+            'picture'       => '',
         ]);
         User::create([
             'username'  => 'thecleanbar',
@@ -191,7 +208,8 @@ class UserSeader extends Seeder
             'displayName'  => 'The Clean Bar',
             'address' => 'BSD Plaza Lantai Dasar, Jl. Pahlawan Seribu, Lengkong Wetan, Serpong Sub-District, South Tangerang City',
             'phoneNumber'  => '087885156677',
-            'group_id'     =>  2
+            'group_id'     =>  2,
+            'picture'       => '',
         ]);
         User::create([
             'username'  => 'cleanavenue',
@@ -201,7 +219,8 @@ class UserSeader extends Seeder
             'displayName'  => 'Clean Avenue',
             'address' => 'L. Raya Lengkong Wetan BSD - Bintaro No. 137',
             'phoneNumber'  => '081281063662',
-            'group_id'     =>  2
+            'group_id'     =>  2,
+            'picture'       => '',
         ]);
     }
 }

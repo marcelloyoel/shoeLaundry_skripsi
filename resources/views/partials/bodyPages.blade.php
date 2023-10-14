@@ -85,7 +85,11 @@
                                         {{ Auth::user()->displayName }}
                                     @endif
                                 </span>
-                                <img class="img-profile rounded-circle" src="{{ asset('image/User-Profile-PNG-Image.png') }}">
+                                @if ( Auth::user()->picture )
+                                    <img class="img-profile rounded-circle" src="{{ asset('image/' . Auth::user()->picture ) }}">
+                                @else
+                                    <img class="img-profile rounded-circle" src="{{ asset('image/User-Profile-PNG-Image.png') }}">
+                                @endif
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"

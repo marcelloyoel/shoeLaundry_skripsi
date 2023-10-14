@@ -84,23 +84,18 @@
                 @enderror
             </div>
             <div class="form-group col-md-6">
-                @if (Auth::user()->group_id == 3 || Auth::user()->group_id == 4)
-                    <label for="exampleFormControlSelect1">Status</label>
-                    <select class="form-control" id="exampleFormControlSelect1" name="status">
-                        <option value="1" {{ $user->status == 1 ? 'selected' : '' }}>Active</option>
-                        <option value="2" {{ $user->status == 2 ? 'selected' : '' }}>Non-Active</option>
-                    </select>
-                {{-- @else
-                    <label for="exampleFormControlSelect1">Status</label>
-                    <select disabled class="form-control" id="exampleFormControlSelect1" name="status">
-                        <option value="1" {{ $user->status == 1 ? 'selected' : '' }}>Active</option>
-                        <option value="2" {{ $user->status == 2 ? 'selected' : '' }}>Non-Active</option>
-                    </select> --}}
-                @endif
+                <label for="pitcure">Picture</label>
+                {{-- <input type="file" class="form-control-file" id="picture" name="picture"> --}}
+                <input type="file" class="form-control @error('picture') is-invalid @enderror" id="picture" value="{{ old('picture', $user->picture) }}" name="picture">
             </div>
+            @error('picture')
+                <div class="invalid-feedback mb-2">
+                    {{ $message }}
+                </div>
+            @enderror
         </div>
         <div class="form-row">
-            <div class="form-group col-md-12">
+            <div class="form-group col-md-6">
                 @if (Auth::user()->group_id == 3 || Auth::user()->group_id == 4)
                     <label for="group_id">Role</label>
                     <select class="form-control" id="group_id" name="group_id">
@@ -118,6 +113,21 @@
                         <option value="2" {{ $user->group_id == 2 ? 'selected' : '' }}>Laundry</option>
                         <option value="3" {{ $user->group_id == 3 ? 'selected' : '' }}>Admin</option>
                         <option value="4" {{ $user->group_id == 4 ? 'selected' : '' }}>Super Admin</option>
+                    </select> --}}
+                @endif
+            </div>
+            <div class="form-group col-md-6">
+                @if (Auth::user()->group_id == 3 || Auth::user()->group_id == 4)
+                    <label for="exampleFormControlSelect1">Status</label>
+                    <select class="form-control" id="exampleFormControlSelect1" name="status">
+                        <option value="1" {{ $user->status == 1 ? 'selected' : '' }}>Active</option>
+                        <option value="2" {{ $user->status == 2 ? 'selected' : '' }}>Non-Active</option>
+                    </select>
+                {{-- @else
+                    <label for="exampleFormControlSelect1">Status</label>
+                    <select disabled class="form-control" id="exampleFormControlSelect1" name="status">
+                        <option value="1" {{ $user->status == 1 ? 'selected' : '' }}>Active</option>
+                        <option value="2" {{ $user->status == 2 ? 'selected' : '' }}>Non-Active</option>
                     </select> --}}
                 @endif
             </div>
