@@ -59,8 +59,16 @@ class ServiceController extends Controller
             'status' => ['required'],
             'servicePrice' => ['nullable'],
             'serviceDescription' => ['required'],
-            'servicePicture' => ['nullable']
+            'servicePicture' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
         ]);
+
+        if ($request->hasFile('servicePicture')) {
+            $uploadedFile = $request->file('servicePicture');
+            $fileName = $uploadedFile->getClientOriginalName();
+            $uploadedFile->storeAs('images', $fileName, 'public');
+            $validatedData['servicePicture'] = $fileName;
+        }
+
         // dd($validatedData);
         $validatedData['laundry_sepatu_id'] = $laundryid;
 
