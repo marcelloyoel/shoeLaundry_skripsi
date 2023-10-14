@@ -32,8 +32,8 @@
                 {{-- @else
                     <input type="displayName" class="form-control @error('displayName') is-invalid @enderror"
                         id="displayName" value="{{ old('displayName', $user->displayName) }}" name="displayName" required
-                        disabled>
-                @endif --}}
+                        disabled> --}}
+                {{-- @endif --}}
                 @error('displayName')
                     <div class="invalid-feedback mb-2">
                         {{ $message }}
@@ -59,7 +59,7 @@
             <div class="form-group col-md-6">
                 <label for="email">Email</label>
                 <input type="email" class="form-control @error('email') is-invalid @enderror" id="email"
-                    value="{{ $user->email }}">
+                        value="{{ old('email', $user->email) }}" name="email" required autofocus>
                 @error('email')
                     <div class="invalid-feedback mb-2">
                         {{ $message }}
@@ -84,15 +84,15 @@
                 @enderror
             </div>
             <div class="form-group col-md-6">
-                <label for="pitcure">Picture</label>
-                {{-- <input type="file" class="form-control-file" id="picture" name="picture"> --}}
-                <input type="file" class="form-control @error('picture') is-invalid @enderror" id="picture" value="{{ old('picture', $user->picture) }}" name="picture">
+                <label for="picture">Profile Picture</label>
+                <input type="file" class="form-control @error('picture') is-invalid @enderror" id="picture"
+                value="{{ old('picture', $user->picture) }}" name="picture">
+                @error('picture')
+                    <div class="invalid-feedback mb-2">
+                        {{ $message }}
+                    </div>
+                @enderror
             </div>
-            @error('picture')
-                <div class="invalid-feedback mb-2">
-                    {{ $message }}
-                </div>
-            @enderror
         </div>
         <div class="form-row">
             <div class="form-group col-md-6">
@@ -106,8 +106,8 @@
                             <option value="4" {{ $user->group_id == 4 ? 'selected' : '' }}>Super Admin</option>
                         @endif
                     </select>
-                @else
-                    {{-- <label for="group_id">Role</label>
+                {{-- @else
+                    <label for="group_id">Role</label>
                     <select disabled class="form-control" id="group_id" name="group_id">
                         <option value="1" {{ $user->group_id == 1 ? 'selected' : '' }}>Buyer</option>
                         <option value="2" {{ $user->group_id == 2 ? 'selected' : '' }}>Laundry</option>

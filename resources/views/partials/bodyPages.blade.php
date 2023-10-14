@@ -86,9 +86,9 @@
                                     @endif
                                 </span>
                                 @if ( Auth::user()->picture )
-                                    <img class="img-profile rounded-circle" src="{{ asset('image/' . Auth::user()->picture ) }}">
+                                    <img class="img-profile rounded-circle" src="{{ asset('images/' . Auth::user()->picture ) }}">
                                 @else
-                                    <img class="img-profile rounded-circle" src="{{ asset('image/User-Profile-PNG-Image.png') }}">
+                                    <img class="img-profile rounded-circle" src="{{ asset('images/User-Profile-PNG-Image.png') }}">
                                 @endif
                             </a>
                             <!-- Dropdown - User Information -->

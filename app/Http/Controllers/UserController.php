@@ -94,15 +94,28 @@ class UserController extends Controller
      */
     public function update(Request $request, User $profile)
     {
+        $uploadedPicture = $request->file('picture');
+
         $rules = [
-            'username' => 'required|max:255|unique:users,id,' . $profile->id,
+            'username' => 'max:255|unique:users,id,' . $profile->id,
             'displayName' => ['required'],
+            'email' => ['required'],
             'address' => ['nullable'],
-            'status' => ['required'],
+            'status' => ['string'],
             'phoneNumber' => ['string'],
             'group_id' => ['string']
         ];
-        $validatedData = $request->validate($rules);
+
+        if ($uploadedPicture) {
+            $rules['picture'] = 'image|mimes:jpeg,png,jpg,gif|max:2048';
+            $validatedData = $request->validate($rules);
+            $pictureFileName = $uploadedPicture->getClientOriginalName();
+            $uploadedPicture->storeAs('images', $pictureFileName, 'public');
+            $validatedData['picture'] = $pictureFileName;
+        } else {
+            $validatedData = $request->validate($rules);
+        }
+
         User::where('id', $profile->id)->update($validatedData);
         return redirect('/home')->with('update', 'Data berhasil diupdate!');
     }

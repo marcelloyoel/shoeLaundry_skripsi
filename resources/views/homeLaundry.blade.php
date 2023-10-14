@@ -7,9 +7,9 @@
         <div class="col-sm-6 bagianKiri d-flex justify-content-center align-items-center">
             <div class="bagianDalem">
                 @if ($laundry->picture)
-                    <img src="{{ asset('image/' . $laundry->picture) }}" class="card-img-top">
+                    <img src="{{ asset('images/' . $laundry->picture) }}" class="card-img-top">
                 @else
-                    <img src="{{ asset('image/shopimagedummy.png') }}" class="card-img-top">
+                    <img src="{{ asset('images/shopimagedummy.png') }}" class="card-img-top">
                 @endif
             </div>
         </div>

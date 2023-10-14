@@ -2,7 +2,7 @@
 <a class="sidebar-brand d-flex align-items-center justify-content-left">
     <div class="sidebar-brand-icon">
         {{-- <i class="fas fa-house-user"></i> --}}
-        <img src="{{ asset('image/LogoWeb.jpg') }}">
+        <img src="{{ asset('images/LogoWeb.jpg') }}">
     </div>
     <div class="sidebar-brand-text">Nyepatu</div>
 </a>
