@@ -55,7 +55,6 @@ class RegisterController extends Controller
         ];
 
         if ($request->input('group_id') == 2) {
-            // Additional validation rules for laundry-specific fields
             $rules['laundry-laundrySepatuName'] = ['required'];
             $rules['laundry-laundrySepatuSlug'] = ['required'];
             $rules['laundry-bio'] = ['required'];
@@ -66,17 +65,15 @@ class RegisterController extends Controller
 
         $validatedData = $request->validate($rules);
 
-        // Handle the password hashing
         $validatedData['password'] = Hash::make($validatedData['password']);
 
         if ($request->hasFile('picture')) {
             $uploadedPicture = $request->file('picture');
             $pictureFileName = $uploadedPicture->getClientOriginalName();
             $uploadedPicture->storeAs('images', $pictureFileName, 'public');
-            $validatedData['picture'] = $pictureFileName; // Store the filename in the 'picture' field
+            $validatedData['picture'] = $pictureFileName;
         }
 
-        // Create the user record
         $user = User::create($validatedData);
 
         if ($user->group_id == 2) {
@@ -88,7 +85,6 @@ class RegisterController extends Controller
                 'Address' => $validatedData['laundry-address'],
                 'Contact' => $validatedData['laundry-contact'],
                 'distance' => '200 m',
-                // 'picture' => $validatedData['laundry-picture'],
             ];
 
             if ($request->hasFile('laundry-picture')) {
@@ -97,8 +93,6 @@ class RegisterController extends Controller
                 $uploadedLaundryPicture->storeAs('images', $laundryPictureFileName, 'public');
                 $laundryData['picture'] = $laundryPictureFileName;
             }
-
-            // Handle laundry-specific file upload here if needed
 
             LaundrySepatu::create($laundryData);
         }
