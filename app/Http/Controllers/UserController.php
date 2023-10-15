@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Group;
 use App\Models\User;
+use App\Models\LaundrySepatu;
 use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Http\Request;
 
@@ -64,7 +65,18 @@ class UserController extends Controller
         $validatedData['password'] = bcrypt('12345');
         // dd($validatedData);
 
-        User::create($validatedData);
+        // User::create($validatedData);
+        $user = User::create($validatedData);
+
+        if ($user->group_id == 2) {
+            $laundryData = [
+                'user_id' => $user->id, // Associate the user with the laundry
+                // Add any other relevant data for the laundry
+            ];
+
+            LaundrySepatu::create($laundryData);
+        }
+
         return redirect('/profile')->with('success', 'Data berhasil ditambahkan!');
     }
 

@@ -22,7 +22,6 @@ class HomeController extends Controller
                 // 'services' => $services
             ]);
         } else if (Auth::user()->group_id == 2) {
-            // dd($laundry->id);
             $user = Auth::user();
             $laundry = $user->laundrySepatu;
             $services = Service::where('laundry_sepatu_id', $laundry->id)->get();

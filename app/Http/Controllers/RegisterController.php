@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Group;
 use App\Models\User;
+use App\Models\LaundrySepatu;
 use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -42,17 +43,31 @@ class RegisterController extends Controller
      */
     public function store(Request $request)
     {
-        // dd('test');
-        $validatedData = $request->validate([
+        $rules = [
             'username' => ['unique:users', 'required'],
             'displayName' => ['required'],
             'address' => ['nullable'],
             'email' => ['unique:users', 'required'],
             'phoneNumber' => ['nullable'],
-            'group_id'  => ['required'],
-            'password' => ['required'],
-            'picture' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-        ]);
+            'group_id' => ['required'],
+            'password' => 'required',
+            'picture' => 'image',
+        ];
+
+        if ($request->input('group_id') == 2) {
+            // Additional validation rules for laundry-specific fields
+            $rules['laundry-laundrySepatuName'] = ['required'];
+            $rules['laundry-laundrySepatuSlug'] = ['required'];
+            $rules['laundry-bio'] = ['required'];
+            $rules['laundry-address'] = ['required'];
+            $rules['laundry-contact'] = ['required'];
+            $rules['laundry-picture'] = ['nullable'];
+        }
+
+        $validatedData = $request->validate($rules);
+
+        // Handle the password hashing
+        $validatedData['password'] = Hash::make($validatedData['password']);
 
         if ($request->hasFile('picture')) {
             $uploadedPicture = $request->file('picture');
@@ -61,14 +76,37 @@ class RegisterController extends Controller
             $validatedData['picture'] = $pictureFileName; // Store the filename in the 'picture' field
         }
 
-        if ($request->input('password')) {
-            $validatedData['password'] = Hash::make($request->input('password'));
+        // Create the user record
+        $user = User::create($validatedData);
+
+        if ($user->group_id == 2) {
+            $laundryData = [
+                'user_id' => $user->id,
+                'laundrySepatuName' => $validatedData['laundry-laundrySepatuName'],
+                'laundrySepatuSlug' => $validatedData['laundry-laundrySepatuSlug'],
+                'bio' => $validatedData['laundry-bio'],
+                'Address' => $validatedData['laundry-address'],
+                'Contact' => $validatedData['laundry-contact'],
+                'distance' => '200 m',
+                // 'picture' => $validatedData['laundry-picture'],
+            ];
+
+            if ($request->hasFile('laundry-picture')) {
+                $uploadedLaundryPicture = $request->file('laundry-picture');
+                $laundryPictureFileName = $uploadedLaundryPicture->getClientOriginalName();
+                $uploadedLaundryPicture->storeAs('images', $laundryPictureFileName, 'public');
+                $laundryData['picture'] = $laundryPictureFileName;
+            }
+
+            // Handle laundry-specific file upload here if needed
+
+            LaundrySepatu::create($laundryData);
         }
 
-        User::create($validatedData);
-        // dd('test2');
         return redirect('/');
     }
+
+
 
     /**
      * Display the specified resource.

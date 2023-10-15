@@ -40,15 +40,19 @@
             <div class="row1 my-3">
                 <h6><Strong>Services</Strong></h6>
                 <div class="rowhori my-3">
-                    @foreach ($services as $service)
-                        {{-- <h5>{{ $service->id }}</h5> --}}
-                        <div>
-                            <a href="/service/{{$service->id}}">
-                                <button class="serviceBtn">
-                                <h6>{{ $service->serviceName }}</h6>
-                            </a>
-                        </div>
-                    @endforeach
+                    @if ($services->isEmpty())
+                        <h6>There are no services.</h6>
+                    @else
+                        @foreach ($services as $service)
+                            {{-- <h5>{{ $service->id }}</h5> --}}
+                            <div>
+                                <a href="/service/{{$service->id}}">
+                                    <button class="serviceBtn">
+                                    <h6>{{ $service->serviceName }}</h6>
+                                </a>
+                            </div>
+                        @endforeach
+                    @endif
                 </div>
             </div>
         </div>
