@@ -64,6 +64,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::resource('/laundryorder', OrderLaundryController::class)->middleware('auth');
         Route::resource('/laundryservice', ServiceController::class)->middleware('auth');
         Route::get('service/{id}', [MenuController::class, 'serviceLaundry'])->middleware('auth');
+        Route::resource('/laundrysepatu', LaundrySepatuController::class)->middleware('auth');
     });
 
     Route::group(['middleware'  => 'admin'], function () {
