@@ -14,6 +14,7 @@ use App\Http\Controllers\UpdateController;
 use App\Http\Controllers\UserController;
 use App\Models\LaundrySepatu;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MapsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,7 +36,12 @@ Route::get('/forget', [LoginController::class, 'forget']);
 // Route::get('laundry/{id}', [MenuController::class, 'homeLaundry'])->middleware('auth');
 Route::resource('/register', RegisterController::class);
 Route::post('/login', [LoginController::class, 'authenticate']);
+Route::get('/show-distance', 'MapsController@showDistance');
+Route::get('/calculate-distance', [MapsController::class, 'calculateDistance']);
 // Route::post('/logout', [LoginController::class, 'logout']);
+Route::post('/get-user-location', [MapsController::class, 'getUserLocation']);
+Route::post('/get-user-location', 'MapsController@calculateDistance');
+
 
 // Route::resource('/profile', UserController::class)->middleware('auth');
 // Route::resource('/order', OrderController::class)->middleware('auth');

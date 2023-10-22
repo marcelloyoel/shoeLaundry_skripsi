@@ -22,7 +22,8 @@ return new class extends Migration
             $table->text('Address');
             $table->text('Contact');
             $table->string('picture')->nullable();
-            $table->string('distance');
+            $table->string('lat');
+            $table->string('lng');
             $table->timestamps();
         });
     }

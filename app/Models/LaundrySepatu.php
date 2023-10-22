@@ -23,8 +23,9 @@ class LaundrySepatu extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
+
 
     public function getThisService($id)
     {
@@ -34,4 +35,6 @@ class LaundrySepatu extends Model
             ->get();
         return $services;
     }
+
+
 }

@@ -182,7 +182,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Darryldecode\Cart\CartServiceProvider::class,
-
+        GoogleMaps\ServiceProvider\GoogleMapsServiceProvider::class,
         /*
          * Package Service Providers...
          */
@@ -211,6 +211,7 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
+        'GoogleMaps' => GoogleMaps\Facade\GoogleMapsFacade::class,
         'Cart' => Darryldecode\Cart\Facades\CartFacade::class
     ])->toArray(),
 

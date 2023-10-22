@@ -4,19 +4,32 @@ namespace App\Http\Controllers;
 
 use App\Models\LaundrySepatu;
 use App\Models\Service;
+// use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         // dd('hello');
         if (Auth::user()->group_id == 1) {
             // $user = Auth::user();
             // $laundry = $user->laundrySepatu;
             // $services = Service::where('laundry_sepatu_id', $laundry->id)->get();
-            return view('home', [
+            // Assuming MapsController is in the same namespace
+        $mapsController = new MapsController();
+
+        // Call the calculateDistance method internally
+        $mapsController->calculateDistance($request);
+
+        // Retrieve the calculated distance from the session
+        $calculatedDistances = Session::get('calculated_distances');
+
+        // You may pass the calculated distance to your view
+        // return view('home', compact('calculatedDistance'));
+            return view('home', compact('calculatedDistances'), [
                 'title' => 'Halaman Home',
                 'laundries' => LaundrySepatu::simplePaginate(8),
                 // 'services' => $services
@@ -36,6 +49,7 @@ class HomeController extends Controller
                 'title' => 'Halaman Home'
             ]);
         }
+
     }
 }
 // $laundry = LaundrySepatu::find($id);

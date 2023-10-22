@@ -21,31 +21,38 @@
             <div class="row1 my-3">
                 <h6><Strong>Description</Strong></h6>
                 <p>{{ $laundry->bio }}</p>
-            </div>
-            <div class="row1 my-3">
                 <h6><Strong>Alamat</Strong></h6>
                 {{-- <br> --}}
                 <p>{{ $laundry->Address }}</p>
-            </div>
-            <div class="row1 my-3">
                 <h6><Strong>Contact</Strong></h6>
                 <p>{{ $laundry->Contact }}</p>
-            </div>
-            <div class="row1 my-3">
                 <h6><Strong>Distance</Strong></h6>
                 <p>{{ $laundry->distance }}</p>
             </div>
             <div class="row1 my-3">
                 <h6><Strong>Services</Strong></h6>
-                @foreach ($services as $service)
-                    {{-- <h5>{{ $service->id }}</h5> --}}
-                    <div>
-                        <a href="/serviceDetail/{{ $service->id }}">
-                            <button class="serviceBtn">
-                                <h6>{{ $service->serviceName }}</h6>
-                        </a>
-                    </div>
-                @endforeach
+                <div class="row my-3">
+                    @foreach ($services as $service)
+                        {{-- <h5>{{ $service->id }}</h5> --}}
+                        <div class="col-sm-4">
+                            <div class="card mt-3" style="width: 18rem;">
+                                {{-- @if ($service->servicePicture)
+                                    <img src="{{ asset('image/' . $service->servicePicture) }}" class="card-img-top">
+                                @else
+                                    <img src="{{ asset('image/servicedummy.jpg') }}" class="card-img-top">
+                                @endif --}}
+                                {{-- <img src={{url('storage/image/shopimagedummy.png')}} class="card-img-top"> --}}
+                                <div class="card-body">
+                                    <a href="/serviceDetail/{{ $service->id }}">
+                                        <button class="serviceBtn">
+                                            <h6 class="card-title">{{  $service->serviceName }}</h6>
+                                        </button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
             </div>
         </div>
     </div>

@@ -21,7 +21,7 @@
                         <p class="card-text">📌 : {{ Str::words($laundry->Address, 6, '...') }}</p>
                         {{-- <h6 class="card-text">📌 : {{ $laundry->Address }}</h6> --}}
                         <h6 class="card-text">☎ : {{ $laundry->Contact }}</h6>
-                        <h6 class="card-text">📍 : {{ $laundry->distance }}</h6>
+                        <h6 class="card-text">📍 : {{ $calculatedDistances[$laundry->user_id] ?? 'Not available' }} </h6>
                         <a href="laundry/{{ $laundry->id }}" class="btn btn-primary">Laundry Detail</a>
                     </div>
                 </div>
@@ -33,4 +33,33 @@
             {{ $laundries->links() }}
         </div>
     </div>
+
+    <script defer>
+        if ('geolocation' in navigator) {
+            navigator.geolocation.getCurrentPosition((position) => {
+                const { latitude, longitude } = position.coords;
+
+                // Send the user's location data to the server using AJAX
+                fetch('/get-user-location', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': 'ptbRWJlBanDfJX5Fozo3EN3y440VGTODBdQYhVAC',
+                    },
+                    body: JSON.stringify({ latitude, longitude }),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('After AJAX request');
+                    console.log(data);
+                })
+                .catch(error => console.error('Error:', error));
+            }, (error) => {
+                console.error('Error getting user location:', error);
+            });
+        } else {
+            console.log('Geolocation is not supported');
+        }
+    </script>
+
 @endsection
