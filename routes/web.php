@@ -58,6 +58,11 @@ Route::group(['middleware' => 'auth'], function () {
         Route::resource('orderList', OrderUserController::class)->middleware('auth');
         Route::get('cart', [CartController::class, 'showCart'])->middleware('auth');
         Route::post('/addToCart', [CartController::class, 'addToCart']);
+        Route::post('/updateCartDecreaseQuantity', [CartController::class, 'decreaseCart']);
+        Route::post('/updateCartIncreaseQuantity', [CartController::class, 'increaseCart']);
+        Route::get('/deleteCart/{id}/{idUser}', [CartController::class, 'deleteItem']);
+        Route::post('/checkout', [CartController::class, 'checkoutPage']);
+        Route::post('/makeOrder', [CartController::class, 'makeOrder']);
     });
 
     Route::group(['middleware'  => 'laundrySepatu'], function () {

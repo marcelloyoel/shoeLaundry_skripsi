@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class OrderToService extends Model
 {
     use HasFactory;
+    protected $fillable = ['order_id', 'service_id'];
 
     public function order()
     {

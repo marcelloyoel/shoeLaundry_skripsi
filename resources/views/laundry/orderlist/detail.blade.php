@@ -62,9 +62,15 @@
             </div>
         </div>
         <div class="form-row">
+            <div class="form-group col-md-12">
+                <label for="description">Description</label>
+                <textarea class="form-control" id="description" rows="3" name="description" disabled>{{ $order->description }}</textarea>
+            </div>
+        </div>
+        <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="totalHarga">Total Harga</label>
-                <input type="text" class="form-control" id="totalHarga" value="{{ $total }}" name="totalHarga"
+                <input type="text" class="form-control" id="totalHarga" value="{{ $order->harga }}" name="totalHarga"
                     disabled>
             </div>
             <div class="form-group col-md-6">
@@ -73,7 +79,8 @@
                     <option value="1" {{ $order->status == 1 ? 'selected' : '' }}>Waiting</option>
                     <option value="2" {{ $order->status == 2 ? 'selected' : '' }}>Accepted</option>
                     <option value="3" {{ $order->status == 3 ? 'selected' : '' }}>Brushing Sole</option>
-                    <option value="4" {{ $order->status == 4 ? 'selected' : '' }}>Brushing Insole and Shoelace</option>
+                    <option value="4" {{ $order->status == 4 ? 'selected' : '' }}>Brushing Insole and Shoelace
+                    </option>
                     <option value="5" {{ $order->status == 5 ? 'selected' : '' }}>Removing Stains</option>
                     <option value="6" {{ $order->status == 6 ? 'selected' : '' }}>Quality Control</option>
                     <option value="7" {{ $order->status == 7 ? 'selected' : '' }}>Awaiting Pickup</option>
