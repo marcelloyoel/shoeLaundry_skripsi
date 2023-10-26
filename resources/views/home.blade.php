@@ -3,11 +3,10 @@
     @include('partials.sidebar')
 @endsection
 @section('container')
-    {{-- <h1>Hello World!</h1>
-    <p>Ini cuman mau ngetest aja sbenernya bisa ga sih bikin begini</p>
-    <p>Halo ini test</p> --}}
     <div class="row">
-        @foreach ($laundries as $laundry)
+        @foreach ($laundries->sortBy(function ($laundry) use ($calculatedDistances) {
+            return (float) str_replace(',', '', $calculatedDistances[$laundry->user_id] ?? PHP_INT_MAX);
+        }) as $laundry)
             <div class="col-sm-3">
                 <div class="card mt-3" style="width: 18rem;">
                     @if ($laundry->picture)
@@ -33,8 +32,7 @@
             {{ $laundries->links() }}
         </div>
     </div>
-
-    <script defer>
+    {{-- <script defer>
         if ('geolocation' in navigator) {
             navigator.geolocation.getCurrentPosition((position) => {
                 const { latitude, longitude } = position.coords;
@@ -60,6 +58,6 @@
         } else {
             console.log('Geolocation is not supported');
         }
-    </script>
+    </script> --}}
 
 @endsection
