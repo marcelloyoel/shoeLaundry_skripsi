@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreCartRequest;
 use App\Http\Requests\UpdateCartRequest;
 use App\Models\Cart as ModelsCart;
+use App\Models\LaundrySepatu;
 use App\Models\Order;
 use App\Models\OrderToService;
 use App\Models\Service;
@@ -280,5 +281,37 @@ class CartController extends Controller
             throw new \Exception('Transaction failed: ' . $e->getMessage());
             return redirect('/home')->with('failed', 'Order gagal dibuat!');
         }
+    }
+
+    public function buyNow(Request $request)
+    {
+        $service = json_decode($request->input('service'));
+        // dd($service);
+        $shops = array();
+        $id = $service->id;
+        $laundry = LaundrySepatu::where('id', $service->laundry_sepatu_id)->first();
+        // dd($laundry);
+        $shopName = $laundry->laundrySepatuName;
+        $price = $service->servicePrice;
+        $quantity = 1;
+        $name = $service->serviceName;
+
+        if (!isset($shops[$shopName])) {
+            $shops[$shopName] = array();
+        }
+
+        $shops[$shopName][] = array(
+            'idService' => $id,
+            'price' => $price,
+            'quantity' => $quantity,
+            'name' => $name
+        );
+
+        return view('buyer.checkout', [
+            'title' => 'Checkout',
+            'shops'   => $shops,
+            'total'     => $price,
+            'javascript' => 'checkout.js',
+        ]);
     }
 }

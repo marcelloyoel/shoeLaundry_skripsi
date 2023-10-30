@@ -63,6 +63,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/deleteCart/{id}/{idUser}', [CartController::class, 'deleteItem']);
         Route::post('/checkout', [CartController::class, 'checkoutPage']);
         Route::post('/makeOrder', [CartController::class, 'makeOrder']);
+        Route::post('/buyNow', [CartController::class, 'buyNow']);
     });
 
     Route::group(['middleware'  => 'laundrySepatu'], function () {

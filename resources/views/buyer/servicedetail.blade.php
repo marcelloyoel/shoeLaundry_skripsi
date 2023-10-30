@@ -27,34 +27,51 @@
             </div>
             <div class="row1 my-3">
                 <h6><Strong>Price : </Strong></h6>
-                <h6>{{ $service->servicePrice }}</h6>
+                <h6 id="price">{{ $service->servicePrice }}</h6>
             </div>
-            <div class="row my-3">
-                <a href="#" class="btn btn-primary">Buy Now</a>
-                <button type="button" onclick="addToCart()" id="btnAddToCart" class="btn btn-primary ml-4">Add to Cart</button>
+            <div class="row">
+                <div class="col-lg-12">
+                    <form method="POST" action="/buyNow">
+                        @csrf
+                        <input type="hidden" name="service" id="service" value="{{ $service }}">
+                        <button type="submit" class="btn btn-primary ml-4" id="buynow" style="width: 50%;">
+                            Buy Now
+                        </button>
+                    </form>
+                </div>
+                <div class="col-lg-12">
+                    <button style="width: 50%;" type="button" onclick="addToCart()" id="btnAddToCart"
+                        class="btn btn-primary ml-4">Add to
+                        Cart</button>
+                </div>
             </div>
         </div>
     </div>
     <div class="row mt-4">
         <?php
         echo "<script>
-                                    var authId = " .
+                                                                                                                                                                                                                                                                                                                                                                                                    var authId = " .
             Auth::id() .
             ";
-                                                                                                                                                                                        var servicePrice = '" .
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        var servicePrice = '" .
             $service->servicePrice .
             "';
-                                                                                                                                                                            var service = '" .
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            var service = '" .
             json_encode($service) .
             "';
-                                            var laundrySepatuName = '" .
+                                                                                                                                                                                                                                                                                                                                                                                                            var laundrySepatuName = '" .
             $service->laundrySepatu->laundrySepatuName .
             "';
-                                                                                                                                                                                        </script>";
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </script>";
         ?>
         {{-- <div class="col-12 ngetest">
             <button type="button" onclick="addToCart()" id="btnAddToCart" class="btn btn-primary">Add This To
                 Cart</button>
         </div> --}}
+    </div>
+    <div class="row mt-4">
+        <div class="col-12 ngetest">
+            <button type="button" onclick="window.history.back()" id="btnSubmit" class="btn btn-primary">Back</button>
+        </div>
     </div>
 @endsection
