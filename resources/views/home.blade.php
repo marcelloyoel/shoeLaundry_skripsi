@@ -3,6 +3,15 @@
     @include('partials.sidebar')
 @endsection
 @section('container')
+    @if (session()->has('submitted'))
+        <div class="alert alert-success" role="alert">
+            {{ session('submitted') }}
+        </div>
+    @elseif (session()->has('failed'))
+        <div class="alert alert-danger" role="alert">
+            {{ session('failed') }}
+        </div>
+    @endif
     {{-- <h1>Hello World!</h1>
     <p>Ini cuman mau ngetest aja sbenernya bisa ga sih bikin begini</p>
     <p>Halo ini test</p> --}}
