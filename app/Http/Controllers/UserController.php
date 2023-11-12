@@ -16,7 +16,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('admin.profile.profile', [
+        return view('homeAdmin', [
             'title' => 'profile',
             'users' => User::all(),
             'javascript'   => 'profile.js'
@@ -56,7 +56,7 @@ class UserController extends Controller
         // dd($validatedData);
 
         User::create($validatedData);
-        return redirect('/profile')->with('success', 'Data berhasil ditambahkan!');
+        return redirect('/home')->with('success', 'Data berhasil ditambahkan!');
     }
 
     /**
@@ -116,6 +116,6 @@ class UserController extends Controller
     public function destroy(User $profile)
     {
         User::destroy($profile->id);
-        return redirect('/profile')->with('delete', 'Data berhasil dihapus!');
+        return redirect('/home')->with('delete', 'Data berhasil dihapus!');
     }
 }

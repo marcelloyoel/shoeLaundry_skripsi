@@ -139,22 +139,6 @@
         </div>
     </li>
 
-
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#adminprofile"
-            aria-expanded="true" aria-controls="adminprofile">
-            <i class="fas fa-user-tie"></i>
-            <span>Profile</span>
-        </a>
-
-        <div id="adminprofile" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Profile:</h6>
-                <a class="collapse-item" href="/profile">Profile</a>
-            </div>
-        </div>
-    </li>
-
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
 @endif

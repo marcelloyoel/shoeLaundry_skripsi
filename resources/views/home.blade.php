@@ -17,20 +17,15 @@
                     {{-- <img src={{url('storage/image/shopimagedummy.png')}} class="card-img-top"> --}}
                     <div class="card-body">
                         <h5 class="card-title" style="font-weight: bold">{{ $laundry->laundrySepatuName }}</h5>
-                        <p class="card-text">📌 : {{ Str::words($laundry->Address, 6, '...') }}</p>
+                        <h6 class="card-text">📌 : {{ Str::words($laundry->Address, 6, '...') }}</h6>
                         {{-- <h6 class="card-text">📌 : {{ $laundry->Address }}</h6> --}}
                         <h6 class="card-text">☎ : {{ $laundry->Contact }}</h6>
                         <h6 class="card-text">📍 : {{ $calculatedDistances[$laundry->user_id] ?? 'Not available' }} </h6>
-                        <a href="laundry/{{ $laundry->id }}" class="btn btn-primary">Laundry Detail</a>
+                        <a href="laundry/{{ $laundry->id }}" class="btn btn-primary mt-2">Laundry Detail</a>
                     </div>
                 </div>
             </div>
         @endforeach
-    </div>
-    <div class="row my-5">
-        <div class="col-sm-12  d-flex justify-content-center">
-            {{ $laundries->links() }}
-        </div>
     </div>
     {{-- <script defer>
         if ('geolocation' in navigator) {
