@@ -2,20 +2,34 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Address;
 use App\Models\LaundrySepatu;
 use App\Models\User;
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
-use Illuminate\Contracts\Pagination\LengthAwarePaginator;
-use Illuminate\Pagination\LengthAwarePaginator as PaginationLengthAwarePaginator;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
 
 
 class MapsController extends Controller
 {
+    public function updateAddress(Request $request)
+{
+    $user = auth()->user();
+
+    if ($user) {
+        try {
+            $updatedAddress = $request->input('address');
+            // Directly execute a query to update the address in the database
+            DB::table('users')->where('id', $user->id)->update(['address' => $updatedAddress]);
+
+            return redirect()->back()->with('success', 'Address updated successfully!');
+        } catch (\Exception $e) {
+            dd($e->getMessage());
+        }
+    } else {
+        return redirect()->back()->with('error', 'User not authenticated');
+    }
+}
 
     public function calculateDistance()
 {

@@ -3,6 +3,18 @@
     @include('partials.sidebar')
 @endsection
 @section('container')
+<div class="row">
+    <div class="col-md-6">
+        <form action="{{ route('update-address') }}" method="post">
+            @csrf
+            <div class="form-group">
+                <label for="address">Enter Address:</label>
+                <input type="text" class="form-control" id="address" name="address">
+            </div>
+            <button type="submit" class="btn btn-primary">Update Address</button>
+        </form>
+    </div>
+</div>
     <div class="row">
         @foreach ($laundries->sortBy(function ($laundry) use ($calculatedDistances) {
             return (float) str_replace(',', '', $calculatedDistances[$laundry->user_id] ?? PHP_INT_MAX);
@@ -27,32 +39,5 @@
             </div>
         @endforeach
     </div>
-    {{-- <script defer>
-        if ('geolocation' in navigator) {
-            navigator.geolocation.getCurrentPosition((position) => {
-                const { latitude, longitude } = position.coords;
-
-                // Send the user's location data to the server using AJAX
-                fetch('/get-user-location', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-CSRF-TOKEN': 'ptbRWJlBanDfJX5Fozo3EN3y440VGTODBdQYhVAC',
-                    },
-                    body: JSON.stringify({ latitude, longitude }),
-                })
-                .then(response => response.json())
-                .then(data => {
-                    console.log('After AJAX request');
-                    console.log(data);
-                })
-                .catch(error => console.error('Error:', error));
-            }, (error) => {
-                console.error('Error getting user location:', error);
-            });
-        } else {
-            console.log('Geolocation is not supported');
-        }
-    </script> --}}
 
 @endsection
