@@ -17,24 +17,17 @@ use Illuminate\Support\Facades\DB;
 class MapsController extends Controller
 {
 
-    // public function getUserLocation(Request $request)
-    // {
-    //     try {
-    //         $latitude = $request->input('latitude');
-    //         $longitude = $request->input('longitude');
-    //         return response()->json(['message' => 'User location received']);
-    //     } catch (\Exception $e) {
-    //         return response()->json(['error' => $e->getMessage()], 500);
-    //     }
-    // }
-
-    public function calculateDistance(Request $request)
+    public function calculateDistance()
 {
-    // $latitude = $request->input('latitude');
-    // $longitude = $request->input('longitude');
-    // $origin = "$latitude,$longitude";
-    // dd($latitude, $longitude);
-    $origin = 'Jl. Pintu Air Raya No.2-F, RT.7/RW.1, Ps. Baru, Kecamatan Sawah Besar, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10710';
+    // $users = User::all();
+    $user = auth()->user();
+    if ($user) {
+        $origin = $user->address;
+        // echo "Logged-in User Address: $origin";
+    } else {
+        // echo "User not authenticated";
+    }
+    // $origin = 'Jl. Pintu Air Raya No.2-F, RT.7/RW.1, Ps. Baru, Kecamatan Sawah Besar, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10710';
     // $origin = 'Jl. Jalur Sutera Bar. No.Kav. 21, RT.001/RW.004, Panunggangan, Kec. Pinang, Kota Tangerang, Banten 15143';
     $users = User::whereHas('laundrySepatu', function ($query) {
         $query->whereNotNull('Address');
@@ -94,10 +87,10 @@ class MapsController extends Controller
     return response()->json(['message' => 'Distance calculation completed']);
 }
 
-public function showDistance(Request $request)
+public function showDistance()
 {
     // Call calculateDistance to ensure the distance is calculated
-    $this->calculateDistance($request);
+    $this->calculateDistance();
 
     // Retrieve the calculated distances from the session
     $calculatedDistances = Session::get('calculated_distances');

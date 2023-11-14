@@ -35,13 +35,7 @@
                     @foreach ($services as $service)
                         {{-- <h5>{{ $service->id }}</h5> --}}
                         <div class="col-sm-4">
-                            <div class="card mt-3" style="width: 18rem;">
-                                {{-- @if ($service->servicePicture)
-                                    <img src="{{ asset('image/' . $service->servicePicture) }}" class="card-img-top">
-                                @else
-                                    <img src="{{ asset('image/servicedummy.jpg') }}" class="card-img-top">
-                                @endif --}}
-                                {{-- <img src={{url('storage/image/shopimagedummy.png')}} class="card-img-top"> --}}
+                            <div class="card mt-3" style="width: 10rem;">
                                 <div class="card-body">
                                     <a href="/serviceDetail/{{ $service->id }}">
                                         <button class="serviceBtn">
