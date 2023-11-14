@@ -19,8 +19,9 @@ class MapsController extends Controller
     if ($user) {
         try {
             $updatedAddress = $request->input('address');
-            // Directly execute a query to update the address in the database
-            DB::table('users')->where('id', $user->id)->update(['address' => $updatedAddress]);
+
+            // Store the updated address in the session
+            session(['temp_address' => $updatedAddress]);
 
             return redirect()->back()->with('success', 'Address updated successfully!');
         } catch (\Exception $e) {
@@ -31,12 +32,13 @@ class MapsController extends Controller
     }
 }
 
+
     public function calculateDistance()
 {
     // $users = User::all();
     $user = auth()->user();
     if ($user) {
-        $origin = $user->address;
+        $origin = session('temp_address') ?? $user->address;
         // echo "Logged-in User Address: $origin";
     } else {
         // echo "User not authenticated";
