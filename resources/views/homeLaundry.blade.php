@@ -7,9 +7,9 @@
         <div class="col-sm-6 bagianKiri d-flex justify-content-center align-items-center">
             <div class="bagianDalem">
                 @if ($laundry->picture)
-                    <img src="{{ asset('image/' . $laundry->picture) }}" class="card-img-top">
+                    <img src="{{ asset('images/' . $laundry->picture) }}" class="card-img-top">
                 @else
-                    <img src="{{ asset('image/shopimagedummy.png') }}" class="card-img-top">
+                    <img src="{{ asset('images/shopimagedummy.png') }}" class="card-img-top">
                 @endif
             </div>
         </div>
@@ -40,16 +40,24 @@
             <div class="row1 my-3">
                 <h6><Strong>Services</Strong></h6>
                 <div class="rowhori my-3">
-                    @foreach ($services as $service)
-                        {{-- <h5>{{ $service->id }}</h5> --}}
-                        <div>
-                            <a href="/service/{{$service->id}}">
-                                <button class="serviceBtn">
-                                <h6>{{ $service->serviceName }}</h6>
-                            </a>
-                        </div>
-                    @endforeach
+                    @if ($services->isEmpty())
+                        <h6>There are no services.</h6>
+                    @else
+                        @foreach ($services as $service)
+                            {{-- <h5>{{ $service->id }}</h5> --}}
+                            <div>
+                                <a href="/service/{{$service->id}}">
+                                    <button class="serviceBtn">
+                                    <h6>{{ $service->serviceName }}</h6>
+                                </a>
+                            </div>
+                        @endforeach
+                    @endif
                 </div>
+            </div>
+            <div class="row" style="justify-content: center">
+                {{-- <a href="{{ route('laundrysepatu.edit', $laundry->id) }}" class="btn btn-primary">Edit Laundry Store</a> --}}
+                <a href="laundrysepatu/{{ $laundry->id }}/edit" class="btn btn-primary">Edit Laundry Store</a>
             </div>
         </div>
     </div>
