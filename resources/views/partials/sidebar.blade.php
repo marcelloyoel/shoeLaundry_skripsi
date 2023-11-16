@@ -117,7 +117,7 @@
         <div id="adminhome" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Home:</h6>
-                <a class="collapse-item" href="home">Home</a>
+                <a class="collapse-item" href="/home">Home</a>
             </div>
         </div>
     </li>
@@ -135,22 +135,6 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Transaction:</h6>
                 <a class="collapse-item" href="/order">Order List</a>
-            </div>
-        </div>
-    </li>
-
-
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#adminprofile"
-            aria-expanded="true" aria-controls="adminprofile">
-            <i class="fas fa-user-tie"></i>
-            <span>Profile</span>
-        </a>
-
-        <div id="adminprofile" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Profile:</h6>
-                <a class="collapse-item" href="/profile">Profile</a>
             </div>
         </div>
     </li>

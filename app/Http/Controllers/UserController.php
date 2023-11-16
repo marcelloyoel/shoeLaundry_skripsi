@@ -18,7 +18,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('admin.profile.profile', [
+        return view('homeAdmin', [
             'title' => 'profile',
             'users' => User::all(),
             'javascript'   => 'profile.js'
@@ -98,8 +98,8 @@ class UserController extends Controller
 
             LaundrySepatu::create($laundryData);
         }
-
-        return redirect('/profile')->with('success', 'Data berhasil ditambahkan!');
+        User::create($validatedData);
+        return redirect('/home')->with('success', 'Data berhasil ditambahkan!');
     }
 
     /**
@@ -172,6 +172,6 @@ class UserController extends Controller
     public function destroy(User $profile)
     {
         User::destroy($profile->id);
-        return redirect('/profile')->with('delete', 'Data berhasil dihapus!');
+        return redirect('/home')->with('delete', 'Data berhasil dihapus!');
     }
 }

@@ -37,21 +37,27 @@
                 <h6><Strong>Address</Strong>:</h6>
                 <h6>{{ $laundry->Address }}</h6>
             </div>
-            <div class="row1 my-3">
+            {{-- <div class="row1 my-3">
                 <h6><Strong>Services</Strong></h6>
                 <div class="rowhori my-3">
                     @if ($services->isEmpty())
                         <h6>There are no services.</h6>
                     @else
-                        @foreach ($services as $service)
-                            {{-- <h5>{{ $service->id }}</h5> --}}
-                            <div>
-                                <a href="/service/{{$service->id}}">
-                                    <button class="serviceBtn">
-                                    <h6>{{ $service->serviceName }}</h6>
-                                </a>
-                            </div>
-                        @endforeach
+                        <div class="row my-3">
+                          @foreach ($services as $service)
+                              <div class="col-sm-4">
+                                  <div class="card mt-3" style="width: 10rem;">
+                                      <div class="card-body">
+                                          <a href="/service/{{ $service->id }}">
+                                              <button class="serviceBtn">
+                                                  <h6 class="card-title">{{  $service->serviceName }}</h6>
+                                              </button>
+                                          </a>
+                                      </div>
+                                  </div>
+                              </div>
+                          @endforeach
+                        </div>
                     @endif
                 </div>
             </div>
