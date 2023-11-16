@@ -63,8 +63,7 @@
             </div>
             <div class="row" style="justify-content: center">
                 {{-- <a href="{{ route('laundrysepatu.edit', $laundry->id) }}" class="btn btn-primary">Edit Laundry Store</a> --}}
-                <a href="laundrysepatu/{{ $laundry->id }}/edit" class="btn btn-primary">Edit Laundry Store</a>
-            </div>
+            <a href="laundrysepatu/{{ $laundry->id }}/edit" class="btn btn-primary">Edit Laundry Store</a>
         </div>
     </div>
 @endsection
