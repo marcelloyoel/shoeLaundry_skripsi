@@ -64,12 +64,19 @@ Route::group(['middleware' => 'auth'], function () {
         Route::resource('orderList', OrderUserController::class)->middleware('auth');
         Route::get('cart', [CartController::class, 'showCart'])->middleware('auth');
         Route::post('/addToCart', [CartController::class, 'addToCart']);
+        Route::post('/updateCartDecreaseQuantity', [CartController::class, 'decreaseCart']);
+        Route::post('/updateCartIncreaseQuantity', [CartController::class, 'increaseCart']);
+        Route::get('/deleteCart/{id}/{idUser}', [CartController::class, 'deleteItem']);
+        Route::post('/checkout', [CartController::class, 'checkoutPage']);
+        Route::post('/makeOrder', [CartController::class, 'makeOrder']);
+        Route::post('/buyNow', [CartController::class, 'buyNow']);
     });
 
     Route::group(['middleware'  => 'laundrySepatu'], function () {
         Route::resource('/laundryorder', OrderLaundryController::class)->middleware('auth');
         Route::resource('/laundryservice', ServiceController::class)->middleware('auth');
         Route::get('service/{id}', [MenuController::class, 'serviceLaundry'])->middleware('auth');
+        Route::resource('/laundrysepatu', LaundrySepatuController::class)->middleware('auth');
     });
 
     Route::group(['middleware'  => 'admin'], function () {

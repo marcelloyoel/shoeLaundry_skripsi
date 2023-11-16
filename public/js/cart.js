@@ -1,4 +1,14 @@
 console.log('ini kah yang benar?');
+var subTotal = 0;
+let subTotalContent = document.getElementById('price');
+console.log(subTotalContent.textContent);
+    // subTotalContent.textContent = subTotal;
+let subTotalMoney = Number(subTotalContent.textContent);
+let changeIt = new Intl.NumberFormat('id-ID', {
+    style: 'currency',
+    currency: 'IDR',
+}).format(subTotalMoney);
+subTotalContent.textContent = changeIt;
 
 function addToCart(){
     var jsonParse = JSON.parse(service);

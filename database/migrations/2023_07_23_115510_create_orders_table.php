@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('jenisSepatu');
             $table->string('merkSepatu');
             $table->integer('harga')->nullable();
+            $table->string('description')->nullable();
         });
     }
 

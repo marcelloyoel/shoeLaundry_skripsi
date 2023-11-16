@@ -26,6 +26,7 @@ return new class extends Migration
             //1 = login, 0 = ga lagi login
             $table->string('phoneNumber');
             $table->foreignId('group_id')->default('1');
+            $table->string('picture')->nullable();
             // 1 = buyer, 2 = laundry, 3 = admin, 4 = superadmin
             $table->timestamps();
         });

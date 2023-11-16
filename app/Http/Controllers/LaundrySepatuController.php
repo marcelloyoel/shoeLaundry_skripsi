@@ -17,6 +17,14 @@ class LaundrySepatuController extends Controller
      */
     public function index()
     {
+        $user = Auth::user();
+        $laundrySepatu = $user->laundrySepatu;
+        // dd($laundrySepatu);
+        return view('homeLaundry', [
+            'title' => 'Halaman Home',
+            'laundrySepatu' => $laundrySepatu
+        ]);
+
         // $this->authorize('view-orders');
         // $user = Auth::user();
         // // dd($user);
@@ -71,9 +79,18 @@ class LaundrySepatuController extends Controller
      * @param  \App\Models\LaundrySepatu  $laundrySepatu
      * @return \Illuminate\Http\Response
      */
-    public function edit(LaundrySepatu $laundrySepatu)
+    public function edit($id)
     {
-        //
+        $laundry = LaundrySepatu::find($id);
+
+        if (!$laundry) {
+            return redirect()->route('laundrysepatu.index')->with('error', 'Laundry not found.');
+        }
+
+        return view('laundry.laundryedit.editlaundry', [
+            'title' => 'Edit Service',
+            'laundry' => $laundry,
+        ]);
     }
 
     /**
@@ -86,6 +103,30 @@ class LaundrySepatuController extends Controller
     public function update(UpdateLaundrySepatuRequest $request, LaundrySepatu $laundrySepatu)
     {
         //
+        $rules = [
+            'laundrySepatuName' => ['required'],
+            'laundrySepatuSlug' => ['required'],
+            'bio' => ['required'],
+            'Address' => ['required'],
+            'Contact' => ['required'],
+            'picture' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ];
+
+        $validatedData = $request->validate($rules);
+
+        if ($request->hasFile('picture')) {
+            $uploadedFile = $request->file('picture');
+            $fileName = $uploadedFile->getClientOriginalName();
+            $uploadedFile->storeAs('images', $fileName, 'public');
+            $validatedData['picture'] = $fileName;
+        }
+
+        $user = Auth::user();
+        $laundrySepatu = $user->laundrySepatu;
+        // dd($laundrySepatu->id);
+
+        LaundrySepatu::where('id', $laundrySepatu->id)->update($validatedData);
+        return redirect('/home')->with('update', 'Data berhasil diupdate!');
     }
 
     /**

@@ -31,13 +31,6 @@
         </div>
         <div class="form-row">
             <div class="form-group col-md-6">
-                <label for="status">Status</label>
-                <select name="status" class="form-control" id="status">
-                    <option value="1">Active</option>
-                    <option value="0">Non-Active</option>
-                </select>
-            </div>
-            <div class="form-group col-md-6">
                 <label for="serviceDescription">Service Description</label>
                 <textarea class="form-control @error('serviceDescription') is-invalid @enderror" id="serviceDescription" rows="3"
                     name="serviceDescription">{{ old('serviceDescription') }}</textarea>
@@ -47,6 +40,13 @@
                     </div>
                 @enderror
             </div>
+            <div class="form-group col-md-6">
+                <label for="status">Status</label>
+                <select name="status" class="form-control" id="status">
+                    <option value="1">Active</option>
+                    <option value="0">Non-Active</option>
+                </select>
+            </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-6">
@@ -54,6 +54,16 @@
                 <input type="text" class="form-control" id="serviceSlug" value="{{ old('serviceSlug') }}"
                     name="serviceSlug">
                 @error('serviceSlug')
+                    <div class="invalid-feedback mb-2">
+                        {{ $message }}
+                    </div>
+                @enderror
+            </div>
+            <div class="form-group col-md-6">
+                <label for="servicePicture">Service Picture</label>
+                <input type="file" class="form-control @error('servicePicture') is-invalid @enderror" id="servicePicture"
+                value="{{ old('servicePicture') }}" name="servicePicture">
+                @error('servicePicture')
                     <div class="invalid-feedback mb-2">
                         {{ $message }}
                     </div>
