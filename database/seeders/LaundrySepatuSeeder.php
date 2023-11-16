@@ -155,7 +155,7 @@ class LaundrySepatuSeeder extends Seeder
             'bio' => 'Fresh Clean Laundry adalah laundry sepatu yang terdapat di BSD dekat Bintaro. Mari merapat untuk mendapatkan harga yang bersahabat',
             'address' => 'Ruko South Goldfinch Blok SGD No.25, Kabupaten Tangerang, Banten 15810',
             'contact' => '081281061111',
-            'distance' => '8000 m',
+            // 'distance' => '8000 m',
             'picture' => 'fresh-clean.jpg',
         ]);
         LaundrySepatu::create([
@@ -165,7 +165,7 @@ class LaundrySepatuSeeder extends Seeder
             'bio' => 'The Shoes Bar Gading Serpong adalah laundry sepatu yang terdapat di BSD dekat Bintaro. Mari merapat untuk mendapatkan harga yang bersahabat',
             'address' => 'Jl. Gading boulevard golf Jl. Boulevard Raya Gading Serpong No.m5/9, Pakulonan Bar., Kec. Klp. Dua, Kabupaten Tangerang, Banten 15810',
             'contact' => '081281061112',
-            'distance' => '2000 m',
+            // 'distance' => '2000 m',
             'picture' => 'the-shoes-bar.png',
         ]);
         LaundrySepatu::create([
@@ -175,7 +175,7 @@ class LaundrySepatuSeeder extends Seeder
             'bio' => 'Rakun Cuci Sepatu adalah laundry sepatu yang terdapat di BSD dekat Bintaro. Mari merapat untuk mendapatkan harga yang bersahabat',
             'address' => 'Gading Serpong, Ruko Crystal 1, Jl. Gading Golf Boulevard No.33, West Pakulonan, Kelapa Dua, Tangerang Regency, Banten 15810',
             'contact' => '081281061122',
-            'distance' => '20000 m',
+            // 'distance' => '20000 m',
             'picture' => 'rakun-cuci-sepatu.jpeg',
         ]);
         LaundrySepatu::create([
@@ -185,7 +185,7 @@ class LaundrySepatuSeeder extends Seeder
             'bio' => 'tinyTidy Shoe adalah laundry sepatu yang terdapat di BSD dekat Bintaro. Mari merapat untuk mendapatkan harga yang bersahabat',
             'address' => 'Gading Serpong, Ruko Crystal 1, Jl. Gading Golf Boulevard No.33, West Pakulonan, Kelapa Dua, Tangerang Regency, Banten 15810',
             'contact' => '081281061222',
-            'distance' => '20000 m',
+            // 'distance' => '20000 m',
             'picture' => 'tinytidy.jpg',
         ]);
         LaundrySepatu::create([
@@ -195,7 +195,7 @@ class LaundrySepatuSeeder extends Seeder
             'bio' => 'Shoeborn Shoe And Bag Care adalah laundry sepatu yang terdapat di BSD dekat Bintaro. Mari merapat untuk mendapatkan harga yang bersahabat',
             'address' => 'Ruko Crystal 2 31, Jl. Ki Hajar Dewantara No.31, Pakulonan Bar., Kec. Klp. Dua, Kabupaten Tangerang, Banten 15810',
             'contact' => '081281062222',
-            'distance' => '2500 m',
+            // 'distance' => '2500 m',
             'picture' => 'shoeborn.jpeg',
         ]);
         LaundrySepatu::create([
@@ -205,7 +205,7 @@ class LaundrySepatuSeeder extends Seeder
             'bio' => 'FIX BERSIH Laundry adalah laundry sepatu yang terdapat di BSD dekat Bintaro. Mari merapat untuk mendapatkan harga yang bersahabat',
             'address' => 'QJ4H+PW6 Banten 15810, Ruko Rodeo Drive, Pakulonan Bar., Kec. Klp. Dua, Kabupaten Tangerang, Banten',
             'contact' => '081281062223',
-            'distance' => '2800 m',
+            // 'distance' => '2800 m',
             'picture' => 'fix-bersih.jpg',
         ]);
         LaundrySepatu::create([
@@ -215,7 +215,7 @@ class LaundrySepatuSeeder extends Seeder
             'bio' => 'Litfeeds adalah laundry sepatu yang terdapat di BSD dekat Bintaro. Mari merapat untuk mendapatkan harga yang bersahabat',
             'address' => 'Taman Mangu Indah No.3, RT.005/RW.006, Pondok Aren, South Tangerang City, Banten 15224',
             'contact' => '081281062233',
-            'distance' => '2200 m',
+            // 'distance' => '2200 m',
             'picture' => 'Litfeeds.jpeg',
         ]);
         LaundrySepatu::create([
@@ -225,7 +225,7 @@ class LaundrySepatuSeeder extends Seeder
             'bio' => 'Washsins Shoes Care adalah laundry sepatu yang terdapat di BSD dekat Bintaro. Mari merapat untuk mendapatkan harga yang bersahabat',
             'address' => 'Jl. Pd. Jaya No.15, RT.04/RW.03, Pd. Jaya, Kec. Pd. Aren, Kota Tangerang Selatan, Banten 15224',
             'contact' => '081281062333',
-            'distance' => '3200 m',
+            // 'distance' => '3200 m',
             'picture' => 'washins.jpg',
         ]);
         LaundrySepatu::create([
@@ -235,7 +235,7 @@ class LaundrySepatuSeeder extends Seeder
             'bio' => 'Laces Laundry & Treatment adalah laundry sepatu yang terdapat di BSD dekat Bintaro. Mari merapat untuk mendapatkan harga yang bersahabat',
             'address' => 'Pondok Maharta C12 No. 19, RT.002 RW011/RW.010, East Pondok Kacang, Pondok Aren, South Tangerang City, Banten 15226',
             'contact' => '081281063333',
-            'distance' => '4260 m',
+            // 'distance' => '4260 m',
             'picture' => 'laces.jpeg',
         ]);
         LaundrySepatu::create([
@@ -245,7 +245,7 @@ class LaundrySepatuSeeder extends Seeder
             'bio' => 'Shoepreme Bintaro adalah laundry sepatu yang terdapat di BSD dekat Bintaro. Mari merapat untuk mendapatkan harga yang bersahabat',
             'address' => 'Jl. Camar 1 No.30, RT.6/RW.8, Pd. Betung, Kec. Pd. Aren, Kota Tangerang Selatan, Banten 15221',
             'contact' => '081281063334',
-            'distance' => '4560 m',
+            // 'distance' => '4560 m',
             'picture' => 'shoepreme.jpg',
         ]);
         LaundrySepatu::create([
@@ -255,7 +255,7 @@ class LaundrySepatuSeeder extends Seeder
             'bio' => 'Shoes & Care Bintaro Sektor 9 adalah laundry sepatu yang terdapat di BSD dekat Bintaro. Mari merapat untuk mendapatkan harga yang bersahabat',
             'address' => 'Jl. Elang No.17, Pd. Pucung, Kec. Pd. Aren, Kota Tangerang Selatan, Banten 15229',
             'contact' => '081281063344',
-            'distance' => '4530 m',
+            // 'distance' => '4530 m',
             'picture' => 'shoes-and-care.png',
         ]);
         LaundrySepatu::create([
@@ -265,7 +265,7 @@ class LaundrySepatuSeeder extends Seeder
             'bio' => 'Sneakers KVLT Graha Raya adalah laundry sepatu yang terdapat di BSD dekat Bintaro. Mari merapat untuk mendapatkan harga yang bersahabat',
             'address' => 'Blk. AB, Jl. Graha Raya Bintaro, Parigi Baru, Jaya, Kota Tangerang Selatan, Banten 15228',
             'contact' => '081281063444',
-            'distance' => '4510 m',
+            // 'distance' => '4510 m',
             'picture' => 'kvlt.jpeg',
         ]);
         LaundrySepatu::create([
@@ -275,7 +275,7 @@ class LaundrySepatuSeeder extends Seeder
             'bio' => 'Clean Stain Laundry adalah laundry sepatu yang terdapat di BSD dekat Bintaro. Mari merapat untuk mendapatkan harga yang bersahabat',
             'address' => 'Pasar Segar Graha Raya Blok KC-1/06 Pintu Selatan, Pd. Jagung Tim., Kec. Serpong Utara, Kota Tangerang Selatan, Banten 15324',
             'contact' => '081281064444',
-            'distance' => '1510 m',
+            // 'distance' => '1510 m',
             'picture' => 'clean-stain.jpg',
         ]);
         LaundrySepatu::create([
@@ -285,7 +285,7 @@ class LaundrySepatuSeeder extends Seeder
             'bio' => 'Dinoshoes Laundry adalah laundry sepatu yang terdapat di BSD dekat Bintaro. Mari merapat untuk mendapatkan harga yang bersahabat',
             'address' => 'Rumah Bakmi Cwims, Jl. Bintaro Selatan No.5, Bintaro, Kec. Pesanggrahan, Daerah Khusus Ibukota Jakarta 15412',
             'contact' => '081281064445',
-            'distance' => '1010 m',
+            // 'distance' => '1010 m',
             'picture' => 'Dinoshoes.jpg',
         ]);
         LaundrySepatu::create([
@@ -295,7 +295,7 @@ class LaundrySepatuSeeder extends Seeder
             'bio' => 'Rakun Cuci Sepatu BSD Anggrek Loka adalah laundry sepatu yang terdapat di BSD dekat Bintaro. Mari merapat untuk mendapatkan harga yang bersahabat',
             'address' => 'Jl. Anggrek Ungu No.A No.10, RW.10, Rw. Buntu, Kec. Serpong, Kota Tangerang Selatan, Banten 15310',
             'contact' => '081281064455',
-            'distance' => '1210 m',
+            // 'distance' => '1210 m',
             'picture' => 'rakun-cuci-sepatu.jpeg',
         ]);
         LaundrySepatu::create([
@@ -305,7 +305,7 @@ class LaundrySepatuSeeder extends Seeder
             'bio' => 'CARTEL SHOES CARE adalah laundry sepatu yang terdapat di BSD dekat Bintaro. Mari merapat untuk mendapatkan harga yang bersahabat',
             'address' => 'Jalan Kp Gunung Gg. Hikmah No.33, RT.4/RW.16, Jombang, Kec. Ciputat, Kota Tangerang Selatan, Banten 15414',
             'contact' => '081281064555',
-            'distance' => '12540 m',
+            // 'distance' => '12540 m',
             'picture' => 'cartel.JPG',
         ]);
         LaundrySepatu::create([
@@ -315,7 +315,7 @@ class LaundrySepatuSeeder extends Seeder
             'bio' => 'Cuci Sepatu Texas99 adalah laundry sepatu yang terdapat di BSD dekat Bintaro. Mari merapat untuk mendapatkan harga yang bersahabat',
             'address' => 'Gg. H. Endong 2 No.3, Pisangan, Kec. Ciputat Tim., Kota Tangerang Selatan, Banten 15419',
             'contact' => '081281065555',
-            'distance' => '10540 m',
+            // 'distance' => '10540 m',
             'picture' => 'texas.png',
         ]);
         LaundrySepatu::create([
@@ -325,7 +325,7 @@ class LaundrySepatuSeeder extends Seeder
             'bio' => 'VROZ CLEAN SHOES CIPUTAT adalah laundry sepatu yang terdapat di BSD dekat Bintaro. Mari merapat untuk mendapatkan harga yang bersahabat',
             'address' => 'Jl. Merpati Raya No.2, RT.07/RW.01, Sawah Baru, Kec. Ciputat, Kota Tangerang Selatan, Banten 15413',
             'contact' => '081281065556',
-            'distance' => '19540 m',
+            // 'distance' => '19540 m',
             'picture' => 'vroz.png',
         ]);
         LaundrySepatu::create([
@@ -335,7 +335,7 @@ class LaundrySepatuSeeder extends Seeder
             'bio' => 'Laundry Sepatu Bintaro Clean Brush adalah laundry sepatu yang terdapat di BSD dekat Bintaro. Mari merapat untuk mendapatkan harga yang bersahabat',
             'address' => 'Cattleya Bintaro Residence, Sawah Lama, Kec. Ciputat, Kota Tangerang Selatan, Banten',
             'contact' => '081281065566',
-            'distance' => '3540 m',
+            // 'distance' => '3540 m',
             'picture' => 'clean-brush.jpg',
         ]);
         LaundrySepatu::create([
@@ -345,7 +345,7 @@ class LaundrySepatuSeeder extends Seeder
             'bio' => 'Clean Motion Drop Point Jombang Ciputat - Laundry Sepatu adalah laundry sepatu yang terdapat di BSD dekat Bintaro. Mari merapat untuk mendapatkan harga yang bersahabat',
             'address' => 'Gg. Damai No.07, RT.07/RW.06, Jombang, Kec. Ciputat, Kota Tangerang Selatan, Banten 15414',
             'contact' => '081281065666',
-            'distance' => '7540 m',
+            // 'distance' => '7540 m',
             'picture' => 'clean-motion.png',
         ]);
         LaundrySepatu::create([
@@ -355,7 +355,7 @@ class LaundrySepatuSeeder extends Seeder
             'bio' => 'Queen Shoes Cleaning - Gading Serpong adalah laundry sepatu yang terdapat di BSD dekat Bintaro. Mari merapat untuk mendapatkan harga yang bersahabat',
             'address' => 'Jl. Medang II No.13, Medang, Kec. Pagedangan, Kabupaten Tangerang, Banten 15334',
             'contact' => '081281066666',
-            'distance' => '540 m',
+            // 'distance' => '540 m',
             'picture' => '',
         ]);
         LaundrySepatu::create([
@@ -365,7 +365,7 @@ class LaundrySepatuSeeder extends Seeder
             'bio' => 'Shoestamp Laundry Sepatu Pamulang adalah laundry sepatu yang terdapat di BSD dekat Bintaro. Mari merapat untuk mendapatkan harga yang bersahabat',
             'address' => 'Jl. Taman Permata 2 No.8, Bakti Jaya, Setu, South Tangerang City, Banten 15315',
             'contact' => '081281066667',
-            'distance' => '5240 m',
+            // 'distance' => '5240 m',
             'picture' => 'shoestamp.png',
         ]);
         LaundrySepatu::create([
@@ -375,7 +375,7 @@ class LaundrySepatuSeeder extends Seeder
             'bio' => 'SHOEKICK adalah laundry sepatu yang terdapat di BSD dekat Bintaro. Mari merapat untuk mendapatkan harga yang bersahabat',
             'address' => 'PMM3+GQW, Jl. Amil Mena, Pd. Jagung, Kec. Serpong Utara, Kota Tangerang Selatan, Banten 15326',
             'contact' => '081281066677',
-            'distance' => '40 m',
+            // 'distance' => '40 m',
             'picture' => 'shoekick.jpg',
         ]);
     }
