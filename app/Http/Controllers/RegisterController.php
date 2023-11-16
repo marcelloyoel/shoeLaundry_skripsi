@@ -84,7 +84,7 @@ class RegisterController extends Controller
                 'bio' => $validatedData['laundry-bio'],
                 'Address' => $validatedData['laundry-address'],
                 'Contact' => $validatedData['laundry-contact'],
-                'distance' => '200 m',
+                // 'distance' => '200 m',
             ];
 
             if ($request->hasFile('laundry-picture')) {
