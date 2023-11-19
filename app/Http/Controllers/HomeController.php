@@ -16,34 +16,37 @@ class HomeController extends Controller
     {
         // dd('hello');
         if (Auth::user()->group_id == 1) {
-            // // $user = Auth::user();
-            // // $laundry = $user->laundrySepatu;
-            // // $services = Service::where('laundry_sepatu_id', $laundry->id)->get();
-            // // Assuming MapsController is in the same namespace
-            // $mapsController = new MapsController();
-
-            // // Call the calculateDistance method internally
-            // $mapsController->calculateDistance($request);
-
-            // // Retrieve the calculated distance from the session
-            // $calculatedDistances = Session::get('calculated_distances');
-
-            // // You may pass the calculated distance to your view
-            // // return view('home', compact('calculatedDistance'));
-            // return view('home', compact('calculatedDistances'), [
-            //     'title' => 'Halaman Home',
-            //     'laundries' => LaundrySepatu::all(),
-            //     // 'services' => $services
-            // ]);
             $mapsController = new MapsController();
             $mapsController->calculateDistance($request);
             $calculatedDistances = Session::get('calculated_distances');
 
-            // Paginate the LaundrySepatu model with 8 items per page
-            $laundries = LaundrySepatu::all();
+            // Get all laundries
+            $laundriesQuery = LaundrySepatu::query();
 
-            return view('home', compact('calculatedDistances', 'laundries'), [
+            // Sort the laundries by distance
+            $laundries = $laundriesQuery->get()->sortBy(function ($laundry) use ($calculatedDistances) {
+                return (float) str_replace(',', '', $calculatedDistances[$laundry->user_id] ?? PHP_INT_MAX);
+            });
+
+            // Paginate the sorted laundries with 8 items per page
+            $perPage = 8;
+            $currentPage = $request->query('page') ?? 1;
+            $offset = ($currentPage - 1) * $perPage;
+            $currentPageItems = $laundries->slice($offset, $perPage)->values();
+            $total = $laundries->count();
+
+            $paginatedLaundries = new \Illuminate\Pagination\LengthAwarePaginator(
+                $currentPageItems,
+                $total,
+                $perPage,
+                $currentPage,
+                ['path' => $request->url()]
+            );
+
+            return view('home', [
                 'title' => 'Halaman Home',
+                'calculatedDistances' => $calculatedDistances,
+                'laundries' => $paginatedLaundries,
             ]);
         } else if (Auth::user()->group_id == 2) {
             $user = Auth::user();
@@ -63,6 +66,7 @@ class HomeController extends Controller
         }
 
     }
+
 }
 // $laundry = LaundrySepatu::find($id);
 // return view('buyer.laundry', [
