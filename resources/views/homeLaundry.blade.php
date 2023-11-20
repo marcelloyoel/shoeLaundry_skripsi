@@ -18,10 +18,6 @@
                 <h4><strong>{{ $laundry->laundrySepatuName }}</strong></h4>
             </div>
             <div class="row1 my-3">
-                <h6><Strong>Slug</Strong>:</h6>
-                <h6>{{ $laundry->laundrySepatuSlug }}</h6>
-            </div>
-            <div class="row1 my-3">
                 <h6><Strong>Description</Strong>:</h6>
                 <h6>{{ $laundry->bio }}</h6>
             </div>
