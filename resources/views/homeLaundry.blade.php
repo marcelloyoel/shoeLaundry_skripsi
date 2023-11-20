@@ -30,10 +30,6 @@
                 <h6>{{ $laundry->Contact }}</h6>
             </div>
             <div class="row1 my-3">
-                <h6><Strong>Distance</Strong>:</h6>
-                <h6>{{ $laundry->distance }}</h6>
-            </div>
-            <div class="row1 my-3">
                 <h6><Strong>Address</Strong>:</h6>
                 <h6>{{ $laundry->Address }}</h6>
             </div>

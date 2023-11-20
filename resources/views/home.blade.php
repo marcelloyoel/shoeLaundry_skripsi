@@ -38,6 +38,36 @@
                 </div>
             </div>
         @endforeach
+
+        <div class="col-md-12 d-flex justify-content-center mt-4">
+            <nav aria-label="Page navigation">
+                <ul class="pagination">
+
+                    <!-- Previous Page Link -->
+                    @if ($laundries->onFirstPage())
+                        <li class="page-item disabled">
+                            <span class="page-link">&laquo; Previous</span>
+                        </li>
+                    @else
+                        <li class="page-item">
+                            <a class="page-link" href="{{ $laundries->previousPageUrl() }}" rel="prev">&laquo; Previous</a>
+                        </li>
+                    @endif
+
+                    <!-- Next Page Link -->
+                    @if ($laundries->hasMorePages())
+                        <li class="page-item">
+                            <a class="page-link" href="{{ $laundries->nextPageUrl() }}" rel="next">Next &raquo;</a>
+                        </li>
+                    @else
+                        <li class="page-item disabled">
+                            <span class="page-link">Next &raquo;</span>
+                        </li>
+                    @endif
+                </ul>
+            </nav>
+        </div>
+
     </div>
 
 @endsection
