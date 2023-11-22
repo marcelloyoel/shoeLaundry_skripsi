@@ -9,10 +9,9 @@ class LoginController extends Controller
 {
     public function index()
     {
-        phpinfo();
-        // return view('nonlogin.login', [
-        //     'title' => 'Halaman Login'
-        // ]);
+        return view('nonlogin.login', [
+            'title' => 'Halaman Login'
+        ]);
     }
     public function authenticate(Request $request)
     {
