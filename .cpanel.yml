@@ -4,9 +4,7 @@ deployment:
     - export DEPLOYPATH=/home/nyer3192/public_html
     - /bin/cp -R public/css $DEPLOYPATH
     - /bin/cp -R public/js $DEPLOYPATH
-    - /bin/cp -R public/storage $DEPLOYPATH
     - /bin/cp -R public/template $DEPLOYPATH
-    - /bin/cp -R public/.htaccess $DEPLOYPATH
     - /bin/cp -R public/favicon.ico $DEPLOYPATH
     - /bin/cp -R public/index.php $DEPLOYPATH
     - /bin/cp -R public/robot.txt $DEPLOYPATH
