@@ -2,11 +2,11 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/nyer3192/public_html
-    - /bin/cp -R css $DEPLOYPATH
-    - /bin/cp -R js $DEPLOYPATH
-    - /bin/cp -R storage $DEPLOYPATH
-    - /bin/cp -R template $DEPLOYPATH
-    - /bin/cp -R .htaccess $DEPLOYPATH
-    - /bin/cp -R favicon.ico $DEPLOYPATH
-    - /bin/cp -R index.php $DEPLOYPATH
-    - /bin/cp -R robot.txt $DEPLOYPATH
+    - /bin/cp -R public/css $DEPLOYPATH
+    - /bin/cp -R public/js $DEPLOYPATH
+    - /bin/cp -R public/storage $DEPLOYPATH
+    - /bin/cp -R public/template $DEPLOYPATH
+    - /bin/cp -R public/.htaccess $DEPLOYPATH
+    - /bin/cp -R public/favicon.ico $DEPLOYPATH
+    - /bin/cp -R public/index.php $DEPLOYPATH
+    - /bin/cp -R public/robot.txt $DEPLOYPATH
