@@ -12,6 +12,7 @@ use App\Http\Controllers\UpdateController;
 use App\Http\Controllers\UserController;
 use App\Models\LaundrySepatu;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\WebhookController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +24,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+// Define the route pointing to the webhook handling method in your controller
+Route::post('/github/webhook', [WebhookController::class, 'handleWebhook']);
 
 Route::get('/', [LoginController::class, 'index']);
 Route::get('/register', [LoginController::class, 'register']);
