@@ -43,7 +43,7 @@ class LaundrySepatuSeeder extends Seeder
             'laundrySepatuName' => 'Sneakers Syndicate',
             'laundrySepatuSlug' => 'Taking Clean To Another Level',
             'bio' => 'SA\'s Exclusive Sneaker & Streetwear Marketplace',
-            'address' => 'Lobby basement 5 BA 20, Sumarecon Mall Serpong',
+            'address' => 'Sumarecon Mall Serpong',
             'contact' => '087878649308',
             'picture' => 'SneakerSyndicate.jpg',
         ]);
