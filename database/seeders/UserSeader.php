@@ -66,7 +66,7 @@ class UserSeader extends Seeder
             'password'  => bcrypt('12345'),
             'status'  => 1,
             'displayName'  => 'buyerDummy',
-            'address' => 'Jalan Anggrek 2 no 9',
+            'address' => 'Hypermart Villa Melati Mas',
             'phoneNumber'  => '089615736938',
             'picture'       => '',
         ]);

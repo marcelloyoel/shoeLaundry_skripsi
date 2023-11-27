@@ -180,6 +180,7 @@
             </div>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"
         integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
     <!-- Include DataTables library -->
@@ -210,6 +211,35 @@
                 laundryForm.style.display = 'block';
             }
         });
+    </script>
+
+    <script>
+        document.getElementById('getLocation').addEventListener('click', function() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(sendLocation);
+            } else {
+                alert('Geolocation is not supported by your browser.');
+            }
+        });
+
+        function sendLocation(position) {
+            var latitude = position.coords.latitude;
+            var longitude = position.coords.longitude;
+
+            // Send the latitude and longitude to your server using AJAX
+            axios.post('{{ route("update-location") }}', {
+                latitude: latitude,
+                longitude: longitude
+            })
+            .then(function (response) {
+                console.log('Location sent successfully');
+                // Handle the response or perform other actions
+            })
+            .catch(function (error) {
+                console.error('Error sending location', error);
+            });
+        }
+
     </script>
 
 </body>

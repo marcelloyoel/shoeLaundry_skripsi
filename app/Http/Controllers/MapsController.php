@@ -9,6 +9,7 @@ use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
 use Stevebauman\Location\Facades\Location;
+use Illuminate\Support\Facades\Auth;
 
 class MapsController extends Controller
 {
@@ -32,24 +33,55 @@ class MapsController extends Controller
         }
     }
 
+    public function updateLocation(Request $request)
+    {
+        $user = auth()->user();
+        dd($user);
+
+        if ($user) {
+            try {
+                $latitude = $request->input('latitude');
+                $longitude = $request->input('longitude');
+
+                // Store the received latitude and longitude in the user's data
+                $user->latitude = $latitude;
+                $user->longitude = $longitude;
+                $user->save();
+
+                return response()->json(['message' => 'Location updated successfully']);
+            } catch (\Exception $e) {
+                return response()->json(['error' => $e->getMessage()]);
+            }
+        } else {
+            return response()->json(['error' => 'User not authenticated']);
+        }
+    }
 
     public function calculateDistance(Request $request)
     {
-        $ip = $request->ip();
+        // $ip = $request->ip();
         // $ip = '49.35.41.195'; // contoh ip address public
-        $currentUserInfo = Location::get($ip);
+        // $currentUserInfo = Location::get($ip);
 
         // $users = User::all();
         $user = auth()->user();
         if ($user) {
 
-            if ($currentUserInfo === false) {
-                // if ip address is private
-                $origin = $user->address;
+            if ($user->latitude === null || $user->longitude === null) {
+                // if dont have latitude or longitude
+                $origin = session('temp_address') ?? $user->address;
             } else {
-                // if ip address is public
-                $origin = session('temp_address') ?? $currentUserInfo->latitude . ',' . $currentUserInfo->longitude;
+                // if have latitude and longitude
+                $origin = session('temp_address') ?? $user->latitude . ',' . $user->longitude;
             }
+
+            // if ($currentUserInfo === false) {
+            //     // if ip address is private
+            //     $origin = $user->address;
+            // } else {
+            //     // if ip address is public
+            //     $origin = session('temp_address') ?? $currentUserInfo->latitude . ',' . $currentUserInfo->longitude;
+            // }
 
             // echo "Logged-in User Address: $origin";
         } else {

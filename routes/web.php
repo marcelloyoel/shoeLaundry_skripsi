@@ -42,6 +42,7 @@ Route::get('/calculate-distance', [MapsController::class, 'calculateDistance']);
 Route::post('/get-user-location', [MapsController::class, 'getUserLocation']);
 Route::post('/get-user-location', 'MapsController@calculateDistance');
 Route::post('/update-address', [MapsController::class, 'updateAddress'])->name('update-address');
+Route::post('/update-location', [MapsController::class, 'updateLocation'])->name('update-location');
 
 // Route::resource('/profile', UserController::class)->middleware('auth');
 // Route::resource('/order', OrderController::class)->middleware('auth');

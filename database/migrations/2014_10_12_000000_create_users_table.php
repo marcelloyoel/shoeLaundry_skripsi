@@ -27,6 +27,8 @@ return new class extends Migration
             $table->string('phoneNumber');
             $table->foreignId('group_id')->default('1');
             $table->string('picture')->nullable();
+            $table->decimal('latitude', 10, 8)->nullable();
+            $table->decimal('longitude', 11, 8)->nullable();
             // 1 = buyer, 2 = laundry, 3 = admin, 4 = superadmin
             $table->timestamps();
         });
