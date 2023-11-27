@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\LaundrySepatuController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MenuController;
@@ -27,7 +28,10 @@ use App\Http\Controllers\MapsController;
 |
 */
 
-Route::get('/', [LoginController::class, 'index']);
+Route::get('/', function () {
+    return view('nonlogin/landingpage');
+});
+Route::get('/login', [LoginController::class, 'index']);
 // Route::get('/register', [LoginController::class, 'register']);
 // Route::post('/registerUser', [LoginController::class, 'store']);
 Route::get('/forget', [LoginController::class, 'forget']);

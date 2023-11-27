@@ -85,10 +85,12 @@
                                         {{ Auth::user()->displayName }}
                                     @endif
                                 </span>
-                                @if ( Auth::user()->picture )
-                                    <img class="img-profile rounded-circle" src="{{ asset('images/' . Auth::user()->picture ) }}">
+                                @if (Auth::user()->picture)
+                                    <img class="img-profile rounded-circle"
+                                        src="{{ asset('images/' . Auth::user()->picture) }}">
                                 @else
-                                    <img class="img-profile rounded-circle" src="{{ asset('images/User-Profile-PNG-Image.png') }}">
+                                    <img class="img-profile rounded-circle"
+                                        src="{{ asset('images/User-Profile-PNG-Image.png') }}">
                                 @endif
                             </a>
                             <!-- Dropdown - User Information -->
@@ -199,7 +201,7 @@
         const buyerForm = document.getElementById('buyer-form');
         const laundryForm = document.getElementById('laundry-form');
 
-        roleDropdown.addEventListener('change', function () {
+        roleDropdown.addEventListener('change', function() {
             const selectedRole = this.value;
 
             if (selectedRole === '1') {

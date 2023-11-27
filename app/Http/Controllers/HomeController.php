@@ -61,7 +61,6 @@ class HomeController extends Controller
                 'javascript'   => 'profile.js'
             ]);
         }
-
     }
 }
 // $laundry = LaundrySepatu::find($id);

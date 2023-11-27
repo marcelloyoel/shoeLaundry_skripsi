@@ -50,19 +50,22 @@
     <div class="row mt-4">
         <?php
         echo "<script>
-                                                                                                                                                                                                                                                                                                                                                                                                    var authId = " .
+                                                                                                                                                                                                                                                                                                                                                                                                                            var authId = " .
             Auth::id() .
             ";
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        var servicePrice = '" .
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                var servicePrice = '" .
             $service->servicePrice .
             "';
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            var service = '" .
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    var service = '" .
             json_encode($service) .
             "';
-                                                                                                                                                                                                                                                                                                                                                                                                            var laundrySepatuName = '" .
+                                                                                                                                                                                                                                                                                                                                                                                                                                    var laundrySepatuName = '" .
             $service->laundrySepatu->laundrySepatuName .
             "';
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </script>";
+                                    var laundrySlug = '" .
+            $laundrySlug .
+            "';
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </script>";
         ?>
     </div>
     <div class="row mt-4">
