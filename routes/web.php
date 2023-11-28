@@ -16,6 +16,7 @@ use App\Http\Controllers\UserController;
 use App\Models\LaundrySepatu;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MapsController;
+use App\Http\Controllers\WebhookController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,12 +29,12 @@ use App\Http\Controllers\MapsController;
 |
 */
 
+
 Route::get('/', function () {
     return view('nonlogin/landingpage');
 });
 Route::get('/login', [LoginController::class, 'index']);
-// Route::get('/register', [LoginController::class, 'register']);
-// Route::post('/registerUser', [LoginController::class, 'store']);
+Route::post('/github/webhook', [WebhookController::class, 'handleWebhook']);
 Route::get('/forget', [LoginController::class, 'forget']);
 // Route::get('/home', [HomeController::class, 'index']);
 // // Route::get('/home/laundry', [MenuController::class, 'homeLaundry'])->middleware('auth');

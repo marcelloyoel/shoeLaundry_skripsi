@@ -4,6 +4,7 @@
 
 namespace Composer\Autoload;
 
+
 class ComposerStaticInit0a5870b0222ab90994e8f4abfda4fa36
 {
     public static $files = array (
@@ -6017,7 +6018,6 @@ class ComposerStaticInit0a5870b0222ab90994e8f4abfda4fa36
             $loader->prefixDirsPsr4 = ComposerStaticInit0a5870b0222ab90994e8f4abfda4fa36::$prefixDirsPsr4;
             $loader->prefixesPsr0 = ComposerStaticInit0a5870b0222ab90994e8f4abfda4fa36::$prefixesPsr0;
             $loader->classMap = ComposerStaticInit0a5870b0222ab90994e8f4abfda4fa36::$classMap;
-
         }, null, ClassLoader::class);
     }
 }

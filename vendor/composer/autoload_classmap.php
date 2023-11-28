@@ -204,6 +204,7 @@ return array(
     'Cocur\\Slugify\\RuleProvider\\RuleProviderInterface' => $vendorDir . '/cocur/slugify/src/RuleProvider/RuleProviderInterface.php',
     'Cocur\\Slugify\\Slugify' => $vendorDir . '/cocur/slugify/src/Slugify.php',
     'Cocur\\Slugify\\SlugifyInterface' => $vendorDir . '/cocur/slugify/src/SlugifyInterface.php',
+
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
     'Cron\\AbstractField' => $vendorDir . '/dragonmantank/cron-expression/src/Cron/AbstractField.php',
     'Cron\\CronExpression' => $vendorDir . '/dragonmantank/cron-expression/src/Cron/CronExpression.php',
@@ -220,6 +221,7 @@ return array(
     'Cviebrock\\EloquentSluggable\\Sluggable' => $vendorDir . '/cviebrock/eloquent-sluggable/src/Sluggable.php',
     'Cviebrock\\EloquentSluggable\\SluggableObserver' => $vendorDir . '/cviebrock/eloquent-sluggable/src/SluggableObserver.php',
     'Cviebrock\\EloquentSluggable\\SluggableScopeHelpers' => $vendorDir . '/cviebrock/eloquent-sluggable/src/SluggableScopeHelpers.php',
+
     'Darryldecode\\Cart\\Cart' => $vendorDir . '/darryldecode/cart/src/Darryldecode/Cart/Cart.php',
     'Darryldecode\\Cart\\CartCollection' => $vendorDir . '/darryldecode/cart/src/Darryldecode/Cart/CartCollection.php',
     'Darryldecode\\Cart\\CartCondition' => $vendorDir . '/darryldecode/cart/src/Darryldecode/Cart/CartCondition.php',
