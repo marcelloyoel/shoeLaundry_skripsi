@@ -4,7 +4,6 @@
 
 namespace Composer\Autoload;
 
-
 class ComposerStaticInit0a5870b0222ab90994e8f4abfda4fa36
 {
     public static $files = array (
@@ -578,6 +577,7 @@ class ComposerStaticInit0a5870b0222ab90994e8f4abfda4fa36
         'App\\Http\\Controllers\\ServiceController' => __DIR__ . '/../..' . '/app/Http/Controllers/ServiceController.php',
         'App\\Http\\Controllers\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserController.php',
         'App\\Http\\Controllers\\UserGroupController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserGroupController.php',
+        'App\\Http\\Controllers\\WebhookController' => __DIR__ . '/../..' . '/app/Http/Controllers/WebhookController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Admin' => __DIR__ . '/../..' . '/app/Http/Middleware/Admin.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
@@ -6018,6 +6018,7 @@ class ComposerStaticInit0a5870b0222ab90994e8f4abfda4fa36
             $loader->prefixDirsPsr4 = ComposerStaticInit0a5870b0222ab90994e8f4abfda4fa36::$prefixDirsPsr4;
             $loader->prefixesPsr0 = ComposerStaticInit0a5870b0222ab90994e8f4abfda4fa36::$prefixesPsr0;
             $loader->classMap = ComposerStaticInit0a5870b0222ab90994e8f4abfda4fa36::$classMap;
+
         }, null, ClassLoader::class);
     }
 }
