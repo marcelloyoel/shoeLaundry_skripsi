@@ -16,6 +16,7 @@ function addToCart(){
     console.log(authId);
     console.log('laundrySepatuName');
     console.log(laundrySepatuName);
+    console.log(laundrySlug);
 
     $.ajax({
         url: '/addToCart',
@@ -24,7 +25,8 @@ function addToCart(){
             // _token: '{{ csrf_token() }}',  // Add this line
             service: jsonParse,
             userId: authId,
-            laundrySepatuName: laundrySepatuName
+            laundrySepatuName: laundrySepatuName,
+            laundrySlug: laundrySlug
         },
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

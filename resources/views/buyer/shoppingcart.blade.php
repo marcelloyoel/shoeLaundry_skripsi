@@ -23,14 +23,19 @@
                     @if ($isEmpty == true)
                         <h5 class=" d-flex justify-content-center align-items-center">There are no data!</h5>
                     @endif
-                    @foreach ($shops as $shopName => $items)
+                    @foreach ($shops as $shopName => $shopDetails)
+                        <?php
+                        $shopName = $shopName;
+                        $shopSlug = $shopDetails['shopSlug'];
+                        $items = $shopDetails['items'];
+                        ?>
                         <div class="card mb-4">
                             <div class="card-header py-3">
                                 <div class="custom-control custom-checkbox">
                                     <input type="checkbox" class="custom-control-input shop-checkbox"
-                                        id="shop-{{ $shopName }}">
+                                        id="shop-{{ $shopSlug }}">
                                     <label class="custom-control-label"
-                                        for="shop-{{ $shopName }}">{{ $shopName }}</label>
+                                        for="shop-{{ $shopSlug }}">{{ $shopName }}</label>
                                 </div>
                             </div>
                             <div class="card-body">
@@ -39,8 +44,9 @@
                                     <div class="row">
                                         <div class="col-lg-1 m-auto">
                                             <input type="checkbox" id="item-{{ $item->id }}" class="item-checkbox"
-                                                data-shop="{{ $shopName }}" data-price="{{ $item->price }}"
-                                                data-qty="{{ $item->quantity }}" data-servicename="{{ $item->name }}">
+                                                data-shop="shop-{{ $shopSlug }}" data-price="{{ $item->price }}"
+                                                data-qty="{{ $item->quantity }}" data-servicename="{{ $item->name }}"
+                                                data-laundryname="{{ $shopName }}">
                                             <label style="display: none;"
                                                 for="item-{{ $item->id }}">{{ $item->name }}</label>
                                         </div>
@@ -48,7 +54,7 @@
                                             <!-- Image -->
                                             <div class="bg-image hover-overlay hover-zoom ripple rounded"
                                                 data-mdb-ripple-color="light">
-                                                <img src="/image/servicedummy.jpg" class="w-100" alt="service" />
+                                                <img src="/images/servicedummy.jpg" class="w-100" alt="service" />
                                                 <a href="#!">
                                                     <div class="mask" style="background-color: rgba(251, 251, 251, 0.2)">
                                                     </div>
