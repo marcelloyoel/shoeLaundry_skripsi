@@ -17,8 +17,10 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id');
             $table->string('laundrySepatuName');
-            $table->string('laundrySepatuSlug')->unique();
+            $table->string('slug')->unique();
             $table->text('bio');
+            $table->text('Address');
+            $table->text('Contact');
             $table->string('picture')->nullable();
             $table->timestamps();
         });

@@ -29,6 +29,12 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $guarded = ['id'];
+    // protected $fillable = [
+    //     'name',
+    //     'email',
+    //     'password',
+    //     'address',
+    // ];
     protected $hidden = [
         'password',
         'remember_token',
@@ -51,6 +57,10 @@ class User extends Authenticatable
     public function laundrySepatu()
     {
         return $this->hasOne(LaundrySepatu::class);
+    }
+    public function cart()
+    {
+        return $this->hasOne(Cart::class);
     }
 
     // public function userGroup()
