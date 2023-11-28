@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\LaundrySepatu;
+use App\Models\Service;
 use App\Models\User;
 
 class MenuController extends Controller
@@ -23,9 +24,33 @@ class MenuController extends Controller
     public function homeLaundry($id)
     {
         $laundry = LaundrySepatu::find($id);
+        $services = Service::where('laundry_sepatu_id', $laundry->id)->get();
         return view('buyer.laundry', [
             'title' => $laundry->laundrySepatuName,
-            'laundry'   => $laundry
+            'laundry'   => $laundry,
+            'services' => $services
+        ]);
+    }
+
+    public function serviceLaundry($id)
+    {
+        $service = Service::find($id);
+        return view('laundry.servicelist.service', [
+            'title' => $service->serviceName,
+            'service'   => $service
+        ]);
+    }
+
+    public function serviceLaundryBuyer($id)
+    {
+        $service = Service::find($id);
+        $laundry = $service->laundrySepatu;
+        $laundrySlug = $laundry->slug;
+        return view('buyer.servicedetail', [
+            'title' => $service->serviceName,
+            'service'   => $service,
+            'laundrySlug'   => $laundrySlug,
+            'javascript'    => 'cart.js'
         ]);
     }
 }

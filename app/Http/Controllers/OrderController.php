@@ -101,19 +101,18 @@ class OrderController extends Controller
         //     // Now $serviceNames contains the names of services related to the given Order's LaundrySepatu
         // }
         // dd($orderToService->service);
-        $total = 0;
-        foreach ($orderToServices as $orderToService) {
-            // Access the related Service and get the serviceName attribute
-            $servicesNih = $orderToService->service;
-            $total += $servicesNih->servicePrice;
-        }
+        // $total = 0;
+        // foreach ($orderToServices as $orderToService) {
+        //     // Access the related Service and get the serviceName attribute
+        //     $servicesNih = $orderToService->service;
+        //     $total += $servicesNih->servicePrice;
+        // }
 
         return view('admin.order.view', [
             'order' => $order,
             'title' => 'View Order',
             'services'  => $services,
-            'allService' => $laundrySepatu,
-            'total'     => $total
+            'allService' => $laundrySepatu
         ]);
     }
 

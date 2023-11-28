@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('username')->unique();
+            $table->string('username');
             $table->string('email')->unique();
             $table->string('password');
             $table->string('displayName');
@@ -26,6 +26,7 @@ return new class extends Migration
             //1 = login, 0 = ga lagi login
             $table->string('phoneNumber');
             $table->foreignId('group_id')->default('1');
+            $table->string('picture')->nullable();
             // 1 = buyer, 2 = laundry, 3 = admin, 4 = superadmin
             $table->timestamps();
         });

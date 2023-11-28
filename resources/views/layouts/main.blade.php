@@ -8,6 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    {{-- <meta name="csrf-token" content="IitqznmVlvlDyFmyaGAua6zebYyPzPBd99kbYLSh"> --}}
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ $title }}</title>
 
@@ -18,10 +20,10 @@
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="/template/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="/template/css/sb-admin-2.css" rel="stylesheet">
     <link href="/css/sidebarNew.css" rel="stylesheet">
     <!-- Include CSS styles for DataTables -->
-    <link rel="stylesheet" href="//cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="//cdn.datatables.net/1.13.6/css/jquery.dataTables.css">
     {{-- openai --}}
     {{-- <link rel="stylesheet" href="/vendor/snapappointments/bootstrap-select/dist/css/bootstrap-select.min.css"> --}}
     <link rel="stylesheet"
