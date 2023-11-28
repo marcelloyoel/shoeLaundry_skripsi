@@ -31,6 +31,7 @@ use App\Http\Controllers\MapsController;
 Route::get('/', function () {
     return view('nonlogin/landingpage');
 });
+// bisa jalan ga ya
 Route::get('/login', [LoginController::class, 'index']);
 // Route::get('/register', [LoginController::class, 'register']);
 // Route::post('/registerUser', [LoginController::class, 'store']);
