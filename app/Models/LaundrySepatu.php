@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
@@ -9,7 +10,17 @@ use Illuminate\Support\Facades\DB;
 class LaundrySepatu extends Model
 {
     use HasFactory;
+    use Sluggable;
     protected $guarded = ['id'];
+
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'laundrySepatuName'
+            ]
+        ];
+    }
 
     public function service()
     {
@@ -35,6 +46,4 @@ class LaundrySepatu extends Model
             ->get();
         return $services;
     }
-
-
 }

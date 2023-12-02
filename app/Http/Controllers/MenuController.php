@@ -44,9 +44,12 @@ class MenuController extends Controller
     public function serviceLaundryBuyer($id)
     {
         $service = Service::find($id);
+        $laundry = $service->laundrySepatu;
+        $laundrySlug = $laundry->slug;
         return view('buyer.servicedetail', [
             'title' => $service->serviceName,
             'service'   => $service,
+            'laundrySlug'   => $laundrySlug,
             'javascript'    => 'cart.js'
         ]);
     }

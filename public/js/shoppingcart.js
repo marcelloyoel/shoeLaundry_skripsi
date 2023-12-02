@@ -61,7 +61,7 @@ function buttonDown(button, userId, serviceId){
 function buttonUp(button, userId, item){
     var inputElement = button.parentNode.querySelector('input[type=number]');
     var jsonItem = JSON.stringify(item);
-    // console.log(jsonItem);
+    console.log(jsonItem);
     // Perform the step down action
     inputElement.stepUp();
     increaseQuantityCart(userId,jsonItem);
@@ -125,7 +125,8 @@ function increaseQuantityCart(userId,jsonItem){
 
 // For each shop checkbox
 $('.shop-checkbox').change(function() {
-    var shopName = this.id.split('-')[1];
+    // var shopName = this.id.split('-')[1];
+    var shopName = this.id;
     $('.item-checkbox[data-shop="' + shopName + '"]').prop('checked', this.checked).trigger('change');
     generateSummaryPrice();
 });
@@ -135,7 +136,7 @@ $('.item-checkbox').change(function() {
     var shopName = $(this).data('shop');
     console.log($(this).data());
     var allChecked = $('.item-checkbox[data-shop="' + shopName + '"]').length === $('.item-checkbox[data-shop="' + shopName + '"]:checked').length;
-    $('#shop-' + shopName).prop('checked', allChecked);
+    $('#' + shopName).prop('checked', allChecked);
     generateSummaryPrice();
 });
 
@@ -164,7 +165,8 @@ document.getElementById('checkout').addEventListener('click', function(){
     var shops = {};
     $('.item-checkbox:checked').each(function() {
         var id = $(this).attr('id').split('-')[1]; // Assuming the id is in the format "item-<id>"
-        var shopName = $(this).data('shop');
+        // var shopName = $(this).data('shop');
+        var shopName = $(this).data('laundryname');
         var price = $(this).data('price');
         var quantity = $(this).data('qty');
         var name = $(this).data('servicename');

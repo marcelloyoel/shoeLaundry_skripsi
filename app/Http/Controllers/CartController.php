@@ -97,16 +97,20 @@ class CartController extends Controller
         $items = Cart::getContent();
         $isEmpty = Cart::isEmpty();
         $databaseCart = DB::table('carts')->get();
-
+        // dd($items);
         $shops = [];
         foreach ($items as $item) {
             $shopName = $item->attributes->laundrySepatuName;
+            $shopSlug = $item->attributes->laundrySepatuSlug;
             if (!isset($shops[$shopName])) {
-                $shops[$shopName] = [];
+                $shops[$shopName] = [
+                    'shopSlug' => $shopSlug,
+                    'items' => [],
+                ];
             }
-            array_push($shops[$shopName], $item);
+            $shops[$shopName]['items'][] = $item;
         }
-
+        // dd($shops);
 
         return view('buyer.shoppingcart', [
             'title' => 'Shopping Cart',
@@ -124,6 +128,7 @@ class CartController extends Controller
         $service = $request->input('service');
         $authId = $request->input('userId');
         $laundrySepatuName = $request->input('laundrySepatuName');
+        $laundrySepatuSlug = $request->input('laundrySlug');
         // Add the service to the cart
         Cart::add(array(
             'id' => $service['id'],
@@ -131,7 +136,8 @@ class CartController extends Controller
             'price' => $service['servicePrice'],
             'quantity' => 1,
             'attributes' => array(
-                'laundrySepatuName' => $laundrySepatuName
+                'laundrySepatuName' => $laundrySepatuName,
+                'laundrySepatuSlug' => $laundrySepatuSlug
             )
         ));
         // $request->session()->save();
@@ -142,6 +148,7 @@ class CartController extends Controller
             'price' => $service['servicePrice'],
             'quantity' => 1,
             'laundrySepatuName' => $laundrySepatuName,
+            'laundrySepatuSlug' => $laundrySepatuSlug,
             'created_at' => now(),
             'updated_at' => now(),
         ]);
@@ -186,6 +193,7 @@ class CartController extends Controller
             'price' => $item->price,
             'quantity' => 1,
             'laundrySepatuName' => $item->attributes->laundrySepatuName,
+            'laundrySepatuSlug' => $item->attributes->laundrySepatuSlug,
             'created_at' => now(),
             'updated_at' => now(),
         ]);
