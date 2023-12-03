@@ -98,7 +98,7 @@ class MapsController extends Controller
                     $distances[$user->id] = $distance;
 
                     // If you want to store the distance in the $laundrySepatu model, you can do so here
-                    $laundrySepatu->update(['distance' => $distance]);
+                    // $laundrySepatu->update(['distance' => $distance]);
                 } else {
                     // Handle the case where the expected keys are not present
                     // echo "Invalid response structure for user: $user->displayName\n";
