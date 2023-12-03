@@ -36,6 +36,7 @@
                         <a href="laundry/{{ $laundry->id }}" class="btn btn-primary mt-2">Laundry Detail</a>
                     </div>
                 </div>
+                <p>hey</p>
             </div>
         @endforeach
 
@@ -50,7 +51,8 @@
                         </li>
                     @else
                         <li class="page-item">
-                            <a class="page-link" href="{{ $laundries->previousPageUrl() }}" rel="prev">&laquo; Previous</a>
+                            <a class="page-link" href="{{ $laundries->previousPageUrl() }}" rel="prev">&laquo;
+                                Previous</a>
                         </li>
                     @endif
 
@@ -69,5 +71,4 @@
         </div>
 
     </div>
-
 @endsection
