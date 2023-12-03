@@ -10,8 +10,8 @@
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="assets/img/favicon.png" rel="icon">
-    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="images/favicon.png" rel="icon">
+    <link href="images/apple-touch-icon.png" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
     <link
@@ -19,16 +19,16 @@
         rel="stylesheet">
 
     <!-- Vendor CSS Files -->
-    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-    <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="vendor/aos/aos.css" rel="stylesheet">
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
     <!-- Template Main CSS File -->
-    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -72,8 +72,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
-                    <img src="assets/img/money-transfer-monochromatic-2d85b.png" class="img-fluid animated"
-                        alt="">
+                    <img src="images/money-transfer-monochromatic-2d85b.png" class="img-fluid animated" alt="">
                 </div>
             </div>
         </div>
@@ -89,11 +88,11 @@
                 <div class="row d-flex justify-content-center" data-aos="zoom-in">
 
                     <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-                        <img src="assets/img/clients/logobinus.png" class="img-fluid" alt="">
+                        <img src="images/clients/logobinus.png" class="img-fluid" alt="">
                     </div>
 
                     <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-                        <img src="assets/img/clients/logosocs.png" class="img-fluid" alt="">
+                        <img src="images/clients/logosocs.png" class="img-fluid" alt="">
                     </div>
 
                 </div>
@@ -212,8 +211,8 @@
                     </div>
 
                     <div class="col-lg-5 align-items-stretch order-1 order-lg-2 img"
-                        style='background-image: url("assets/img/why-us.png");' data-aos="zoom-in"
-                        data-aos-delay="150">&nbsp;</div>
+                        style='background-image: url("images/why-us.png");' data-aos="zoom-in" data-aos-delay="150">
+                        &nbsp;</div>
                 </div>
 
             </div>
@@ -225,7 +224,7 @@
 
                 <div class="row">
                     <div class="col-lg-6 d-flex align-items-center" data-aos="fade-right" data-aos-delay="100">
-                        <img src="assets/img/skills.png" class="img-fluid" alt="">
+                        <img src="images/skills.png" class="img-fluid" alt="">
                     </div>
                     <div class="col-lg-6 pt-4 pt-lg-0 content" data-aos="fade-left" data-aos-delay="100">
                         <h3>Untuk pemilik bisnis laundry sepatu!</h3>
@@ -344,7 +343,7 @@
 
                     <div class="col-lg-6" data-aos="zoom-in" data-aos-delay="100">
                         <div class="member d-flex align-items-start">
-                            <div class="pic"><img src="assets/img/team/informal1.jpg" class="img-fluid"
+                            <div class="pic"><img src="images/team/informal1.jpg" class="img-fluid"
                                     alt=""></div>
                             <div class="member-info">
                                 <h4>Marcello Yoel Christianus</h4>
@@ -362,8 +361,8 @@
 
                     <div class="col-lg-6 mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="200">
                         <div class="member d-flex align-items-start">
-                            <div class="pic"><img src="assets/img/team/leo.jpeg" class="img-fluid"
-                                    alt=""></div>
+                            <div class="pic"><img src="images/team/leo.jpeg" class="img-fluid" alt="">
+                            </div>
                             <div class="member-info">
                                 <h4>Leonardo Jose Gunawan</h4>
                                 <span>2440030462 - Computer Science</span>
@@ -380,8 +379,7 @@
                     <div class="col-lg-12 mt-4">
                         <div class="col-lg-6 mx-auto" data-aos="zoom-in" data-aos-delay="300">
                             <div class="member d-flex align-items-start">
-                                <div class="pic"><img src="assets/img/team/jo.jpeg" class="img-fluid"
-                                        alt="">
+                                <div class="pic"><img src="images/team/jo.jpeg" class="img-fluid" alt="">
                                 </div>
                                 <div class="member-info">
                                     <h4>Jonathan Ernest Suteja</h4>
@@ -486,16 +484,16 @@
             class="bi bi-arrow-up-short"></i></a>
 
     <!-- Vendor JS Files -->
-    <script src="assets/vendor/aos/aos.js"></script>
-    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-    <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-    <script src="assets/vendor/php-email-form/validate.js"></script>
+    <script src="vendor/aos/aos.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="vendor/waypoints/noframework.waypoints.js"></script>
+    <script src="vendor/php-email-form/validate.js"></script>
 
     <!-- Template Main JS File -->
-    <script src="assets/js/main.js"></script>
+    <script src="js/main.js"></script>
 
 </body>
 
