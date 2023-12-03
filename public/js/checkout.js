@@ -41,11 +41,45 @@ function alertMain(alertText){
 //         alertMain(validasi);
 //     }
 // }
+let totalHargaAjax = document.getElementById('totalJs').value;
+
+function generateToken() {
+    var token = 0;
+
+    $.ajax({
+        url: '/generateToken',
+        type: 'POST',
+        data: {
+            price: totalHargaAjax
+        },
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        success: function(response) {
+            token = response;
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            console.log(jqXHR);
+            // alert('There was an error generating the transaction token.');
+            token = 0;
+        }
+    });
+
+    return token;
+}
+
 
 document.getElementById('orderButton').addEventListener('click', function(){
-    var validasi = validasiForm();
+    // var validasi = validasiForm();
+    var validasi = true;
     if(validasi == true){
-        document.getElementById('submitForm').submit();
+        var token = generateToken();
+        if(token != 0){
+            console.log('ini tokennya');
+            console.log(token);
+            asalajayangpentinggagal();
+            document.getElementById('submitForm').submit();
+        }
     }else{
         alertMain(validasi);
     }

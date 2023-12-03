@@ -103,7 +103,7 @@
                             </strong>
                         </div>
                         <span><strong id="total">{{ $total }}</strong></span>
-                        <input type="hidden" name="totalOrderValue" value={{ $total }}>
+                        <input type="hidden" id="totalJs" name="totalOrderValue" value={{ $total }}>
                         <input type="hidden" name="jumlahToko" value="{{ $jumlahToko }}">
                     </li>
                 </ul>
