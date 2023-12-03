@@ -36,7 +36,6 @@
                         <a href="laundry/{{ $laundry->id }}" class="btn btn-primary mt-2">Laundry Detail</a>
                     </div>
                 </div>
-                <p>hey</p>
             </div>
         @endforeach
 
