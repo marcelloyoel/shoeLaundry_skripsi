@@ -44,7 +44,6 @@ function alertMain(alertText){
 let totalHargaAjax = document.getElementById('totalJs').value;
 
 function generateToken() {
-    var token = 0;
 
     $.ajax({
         url: '/generateToken',
@@ -56,12 +55,19 @@ function generateToken() {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
         success: function(response) {
-            token = response;
+            var hiddenInput = document.createElement("input");
+            hiddenInput.setAttribute("type", "hidden");
+            hiddenInput.setAttribute("id", "tokenMidtrans");
+            hiddenInput.setAttribute("name", "tokenMidtrans");
+            hiddenInput.setAttribute("value", response);
+
+            var form = document.getElementById("submitForm");
+            form.appendChild(hiddenInput);
         },
         error: function(jqXHR, textStatus, errorThrown) {
             console.log(jqXHR);
-            // alert('There was an error generating the transaction token.');
-            token = 0;
+            alert('There was an error generating the transaction token.');
+            // token = 0;
         }
     });
 
@@ -73,13 +79,11 @@ document.getElementById('orderButton').addEventListener('click', function(){
     // var validasi = validasiForm();
     var validasi = true;
     if(validasi == true){
-        var token = generateToken();
-        if(token != 0){
-            console.log('ini tokennya');
-            console.log(token);
-            asalajayangpentinggagal();
-            document.getElementById('submitForm').submit();
-        }
+        generateToken();
+        console.log('ini tokennya');
+        console.log(document.getElementById('tokenMidtrans').value);
+        asalajayangpentinggagal();
+        document.getElementById('submitForm').submit();
     }else{
         alertMain(validasi);
     }
