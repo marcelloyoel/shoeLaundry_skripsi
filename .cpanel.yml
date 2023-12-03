@@ -8,4 +8,24 @@ deployment:
     - /bin/cp -R public/favicon.ico $DEPLOYPATH
     - /bin/cp -R public/index.php $DEPLOYPATH
     - /bin/cp -R public/robot.txt $DEPLOYPATH
-    - /bin/cp -R public/assets/. $DEPLOYPATH/assets
+    - /bin/cp -R public/assets/css $DEPLOYPATH/assets/css
+    - /bin/cp -R public/assets/img $DEPLOYPATH/assets/img
+    - /bin/cp -R public/assets/img/clients $DEPLOYPATH/assets/img/clients
+    - /bin/cp -R public/assets/img/portofolio $DEPLOYPATH/assets/img/portofolio
+    - /bin/cp -R public/assets/img/team $DEPLOYPATH/assets/img/team
+    - /bin/cp -R public/assets/js $DEPLOYPATH/assets/js
+    - /bin/cp -R public/assets/scss $DEPLOYPATH/assets/scss
+    - /bin/cp -R public/assets/vendor/aos $DEPLOYPATH/assets/vendor/aos
+    - /bin/cp -R public/assets/vendor/bootstrap/css $DEPLOYPATH/assets/vendor/bootstrap/css
+    - /bin/cp -R public/assets/vendor/bootstrap/js $DEPLOYPATH/assets/vendor/bootstrap/js
+    - /bin/cp -R public/assets/vendor/bootstrap-icons $DEPLOYPATH/assets/vendor/bootstrap-icons
+    - /bin/cp -R public/assets/vendor/bootstrap-icons/fonts $DEPLOYPATH/assets/vendor/bootstrap-icons/fonts
+    - /bin/cp -R public/assets/vendor/boxicons/css $DEPLOYPATH/assets/vendor/boxicons/css
+    - /bin/cp -R public/assets/vendor/boxicons/fonts $DEPLOYPATH/assets/vendor/boxicons/fonts
+    - /bin/cp -R public/assets/vendor/glightbox/css $DEPLOYPATH/assets/vendor/glightbox/css
+    - /bin/cp -R public/assets/vendor/glightbox/js $DEPLOYPATH/assets/vendor/glightbox/js
+    - /bin/cp -R public/assets/vendor/isotope-layout $DEPLOYPATH/assets/vendor/isotope-layout
+    - /bin/cp -R public/assets/vendor/php-email-form $DEPLOYPATH/assets/vendor/php-email-form
+    - /bin/cp -R public/assets/vendor/remixicon $DEPLOYPATH/assets/vendor/remixicon
+    - /bin/cp -R public/assets/vendor/swiper $DEPLOYPATH/assets/vendor/swiper
+    - /bin/cp -R public/assets/vendor/waypoints $DEPLOYPATH/assets/vendor/waypoints
