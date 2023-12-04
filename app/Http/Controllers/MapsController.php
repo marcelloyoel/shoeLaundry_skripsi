@@ -9,6 +9,7 @@ use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
 use Stevebauman\Location\Facades\Location;
+use Illuminate\Support\Facades\Http;
 
 class MapsController extends Controller
 {
@@ -41,7 +42,8 @@ class MapsController extends Controller
         $currentUserInfo = Location::get($ip);
 
         $url = "http://ip-api.com/" . $ip;
-        $data = Http::get($url);
+        $response = Http::get($url);
+        $data = $response->json();
 
         // $users = User::all();
         $user = auth()->user();
