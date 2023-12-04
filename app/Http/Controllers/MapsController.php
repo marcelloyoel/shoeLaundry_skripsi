@@ -40,6 +40,9 @@ class MapsController extends Controller
         // $ip = '49.35.41.195'; // contoh ip address public
         $currentUserInfo = Location::get($ip);
 
+        $url = "http://ip-api.com/" . $ip;
+        $data = Http::get($url);
+
         // $users = User::all();
         $user = auth()->user();
         if ($user) {
@@ -57,7 +60,7 @@ class MapsController extends Controller
             // echo "User not authenticated";
         }
 
-        dd($ip, $currentUserInfo, $currentUserInfo->longitude, $currentUserInfo->latitude, $origin);
+        dd($ip, $currentUserInfo, $currentUserInfo->longitude, $currentUserInfo->latitude, $origin, $data);
 
         // $origin = 'Jl. Pintu Air Raya No.2-F, RT.7/RW.1, Ps. Baru, Kecamatan Sawah Besar, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10710';
         // $origin = 'Jl. Jalur Sutera Bar. No.Kav. 21, RT.001/RW.004, Panunggangan, Kec. Pinang, Kota Tangerang, Banten 15143';
