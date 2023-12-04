@@ -40,7 +40,7 @@ class MapsController extends Controller
         // $ip = '49.35.41.195'; // contoh ip address public
         $currentUserInfo = Location::get($ip);
 
-        // dd($currentUserInfo);
+        dd($ip, $currentUserInfo);
 
         // $users = User::all();
         $user = auth()->user();
