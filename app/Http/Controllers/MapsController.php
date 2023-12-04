@@ -51,7 +51,7 @@ class MapsController extends Controller
                 $origin = session('temp_address') ?? $user->address;
             } else {
                 // if ip address is public
-                $origin = session('temp_address') ?? $currentUserInfo->latitude . ', ' . $currentUserInfo->longitude;
+                $origin = session('temp_address') ?? $currentUserInfo->longitude . ', ' . $currentUserInfo->latitude;
             }
 
             // echo "Logged-in User Address: $origin";
