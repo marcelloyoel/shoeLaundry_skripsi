@@ -40,7 +40,7 @@ class MapsController extends Controller
         // $ip = '49.35.41.195'; // contoh ip address public
         $currentUserInfo = Location::get($ip);
 
-        dd($ip, $currentUserInfo);
+        dd($ip, $currentUserInfo, $currentUserInfo->longitude, $currentUserInfo->latitude);
 
         // $users = User::all();
         $user = auth()->user();
@@ -48,7 +48,7 @@ class MapsController extends Controller
 
             if ($currentUserInfo === false) {
                 // if ip address is private
-                $origin = $user->address;
+                $origin = session('temp_address') ?? $user->address;
             } else {
                 // if ip address is public
                 $origin = session('temp_address') ?? $currentUserInfo->latitude . ',' . $currentUserInfo->longitude;
