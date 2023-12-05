@@ -237,7 +237,7 @@
 
             $.ajax({
                 type: 'POST',
-                url: "{{ route('maps.calculate') }}",
+                url: "{{ route('MapsController.calculateDistance') }}",
                 data: {
                     _token:         csrf,
                     latitude: position.coords.latitude,
