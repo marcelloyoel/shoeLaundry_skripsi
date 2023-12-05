@@ -226,9 +226,6 @@
         }
 
         function showPosition(position) {
-            x.innerHTML = "Latitude: " + position.coords.latitude +
-            "<br>Longitude: " + position.coords.longitude;
-
             console.log(position);
             var latitude = position.coords.latitude;
             var longitude = position.coords.longitude;
