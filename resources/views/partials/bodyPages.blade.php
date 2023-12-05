@@ -251,6 +251,9 @@
                 }
             });
         }
+        window.onload = function() {
+            getLocation();
+        };
     </script>
 
 </body>
