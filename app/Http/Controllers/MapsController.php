@@ -48,9 +48,11 @@ class MapsController extends Controller
 
             if ($currentUserInfo === false) {
                 // if ip address is private
+                dd('private');
                 $origin = session('temp_address') ?? $user->address;
             } else {
                 // if ip address is public
+                dd('public');
                 $origin = session('temp_address') ?? $currentUserInfo->latitude . ', ' . $currentUserInfo->longitude;
             }
 
