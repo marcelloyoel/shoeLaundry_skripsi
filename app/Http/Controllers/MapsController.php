@@ -36,9 +36,9 @@ class MapsController extends Controller
 
     public function calculateDistance(Request $request)
     {
+        $ip = $request->getClientIp();
         // $ip = $request->ip();
         // $ip = $_SERVER['REMOTE_ADDR'];
-        $ip = '2001:448a:20a2:19d8:8764:d54c:80b1:9360'; // controh ip address private
         // $ip = '49.35.41.195'; // contoh ip address public
         $currentUserInfo = Location::get($ip);
 
