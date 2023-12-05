@@ -124,7 +124,7 @@ class MapsController extends Controller
 
         // If you want to return a response after processing all users, you can do it here
         // return response()->json(['message' => 'Distance calculation completed']);
-        return view('home', compact('distances'));
+        return view('home')->with('distances', $distances);;
     }
 
     public function showDistance(Request $request)
