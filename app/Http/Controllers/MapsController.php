@@ -36,8 +36,9 @@ class MapsController extends Controller
 
     public function calculateDistance(Request $request)
     {
-        $ip = $request->ip();
+        // $ip = $request->ip();
         // $ip = $_SERVER['REMOTE_ADDR'];
+        $ip = '192.168.100.4'; // controh ip address private
         // $ip = '49.35.41.195'; // contoh ip address public
         $currentUserInfo = Location::get($ip);
 
@@ -58,7 +59,7 @@ class MapsController extends Controller
             // echo "User not authenticated";
         }
 
-        // dd($ip, $currentUserInfo, $currentUserInfo->longitude, $currentUserInfo->latitude, $origin);
+        dd($ip, $currentUserInfo, $currentUserInfo->longitude, $currentUserInfo->latitude, $origin);
 
         // $origin = 'Jl. Pintu Air Raya No.2-F, RT.7/RW.1, Ps. Baru, Kecamatan Sawah Besar, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10710';
         // $origin = 'Jl. Jalur Sutera Bar. No.Kav. 21, RT.001/RW.004, Panunggangan, Kec. Pinang, Kota Tangerang, Banten 15143';
