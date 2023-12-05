@@ -253,7 +253,7 @@ class CartController extends Controller
 
     public function makeOrder(Request $request)
     {
-        dd($this->serverKey);
+        // dd($this->serverKey);
         try {
             DB::beginTransaction();
             $jumlahToko = $request->input('jumlahToko');
@@ -338,7 +338,7 @@ class CartController extends Controller
 
     public function generateToken(Request $request)
     {
-        $price = $request->input('price');
+        $price = intval($request->input('price'));
         Midtrans::$serverKey = $this->serverKey;
         Midtrans::$isProduction = $this->isProduction;
         Midtrans::$isSanitized = $this->isSanitized;
@@ -348,8 +348,11 @@ class CartController extends Controller
             'order_id'  => 'ORDER-' . time(),
             'gross_amount'  => $price
         );
+        $transaction = array(
+            'transaction_details'   => $transaction_details
+        );
 
-        $token = Snap::getSnapToken($transaction_details);
+        $token = Snap::getSnapToken($transaction);
         return $token;
     }
 }

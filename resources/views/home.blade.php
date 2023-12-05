@@ -3,6 +3,11 @@
     @include('partials.sidebar')
 @endsection
 @section('container')
+    @if (session()->has('submitted'))
+        <div class="alert alert-success" role="alert">
+            {{ session('submitted') }}
+        </div>
+    @endif
     <div class="row">
         <div class="col-md-6">
             <form action="{{ route('update-address') }}" method="post">
@@ -50,7 +55,8 @@
                         </li>
                     @else
                         <li class="page-item">
-                            <a class="page-link" href="{{ $laundries->previousPageUrl() }}" rel="prev">&laquo; Previous</a>
+                            <a class="page-link" href="{{ $laundries->previousPageUrl() }}" rel="prev">&laquo;
+                                Previous</a>
                         </li>
                     @endif
 
@@ -69,5 +75,4 @@
         </div>
 
     </div>
-
 @endsection

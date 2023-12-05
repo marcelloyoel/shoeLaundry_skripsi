@@ -1,3 +1,4 @@
+console.log('test');
 let subTotalContent = document.getElementById('subtotal');
 // subTotalContent.textContent = subTotal;
 let subTotalMoney = Number(subTotalContent.textContent);
@@ -42,7 +43,7 @@ function alertMain(alertText){
 //     }
 // }
 let totalHargaAjax = document.getElementById('totalJs').value;
-
+var tokenHasil = "";
 function generateToken() {
 
     $.ajax({
@@ -55,14 +56,27 @@ function generateToken() {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
         success: function(response) {
-            var hiddenInput = document.createElement("input");
-            hiddenInput.setAttribute("type", "hidden");
-            hiddenInput.setAttribute("id", "tokenMidtrans");
-            hiddenInput.setAttribute("name", "tokenMidtrans");
-            hiddenInput.setAttribute("value", response);
-
-            var form = document.getElementById("submitForm");
-            form.appendChild(hiddenInput);
+            tokenHasil = response;
+            window.snap.pay(tokenHasil, {
+                onSuccess: function(result){
+                  /* You may add your own implementation here */
+                    alert("payment success!"); console.log(result);
+                    document.getElementById('orderButton').disabled=true;
+                    document.getElementById('submitForm').submit();
+                },
+                onPending: function(result){
+                  /* You may add your own implementation here */
+                    alert("wating your payment!"); console.log(result);
+                },
+                onError: function(result){
+                  /* You may add your own implementation here */
+                    alert("payment failed!"); console.log(result);
+                },
+                onClose: function(){
+                  /* You may add your own implementation here */
+                    alert('you closed the popup without finishing the payment');
+                }
+            })
         },
         error: function(jqXHR, textStatus, errorThrown) {
             console.log(jqXHR);
@@ -71,19 +85,19 @@ function generateToken() {
         }
     });
 
-    return token;
+    // return token;
 }
 
 
 document.getElementById('orderButton').addEventListener('click', function(){
-    // var validasi = validasiForm();
-    var validasi = true;
+    var validasi = validasiForm();
+    // var validasi = true;
     if(validasi == true){
         generateToken();
-        console.log('ini tokennya');
-        console.log(document.getElementById('tokenMidtrans').value);
-        asalajayangpentinggagal();
-        document.getElementById('submitForm').submit();
+        // console.log('ini tokennya');
+        // console.log(tokenHasil);
+        // asalajayangpentinggagal();
+        // document.getElementById('submitForm').submit();
     }else{
         alertMain(validasi);
     }
