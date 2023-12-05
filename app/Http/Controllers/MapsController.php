@@ -46,8 +46,6 @@ class MapsController extends Controller
         $latitude = $request->input('latitude');
         $longitude = $request->input('longitude');
 
-        dd($latitude, $longitude);
-
         // $users = User::all();
         $user = auth()->user();
         if ($user) {
