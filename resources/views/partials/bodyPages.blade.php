@@ -233,7 +233,7 @@
             var longitude = position.coords.longitude;
 
             // Send latitude and longitude to the server using AJAX
-            axios.post('{{ route("MapsControllercalculateDistance") }}', {
+            axios.post('{{ route("MapsController.calculateDistance") }}', {
                 latitude: latitude,
                 longitude: longitude
             })
