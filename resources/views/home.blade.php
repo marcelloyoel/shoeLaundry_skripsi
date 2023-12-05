@@ -6,9 +6,6 @@
     <div>
         <input type="hidden" name="csrf-token" id="csrf-token" value="{{ csrf_token() }}">
         <p id="demo"></p>
-        @foreach($distances as $userId => $distance)
-            <h6 class="card-text">📍 : {{ $distance ?? 'Not available' }}</h6>
-        @endforeach
     </div>
 
     <div class="row">
