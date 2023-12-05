@@ -51,12 +51,12 @@ class MapsController extends Controller
                 $origin = session('temp_address') ?? $user->address;
             } else {
                 // if ip address is public
-                $origin = session('temp_address') ?? $currentUserInfo->latitude . ', ' . $currentUserInfo->longitude;
+                // $origin = session('temp_address') ?? $currentUserInfo->latitude . ', ' . $currentUserInfo->longitude;
 
                 // Get the latitude and longitude from the request
-                // $latitude = $request->input('latitude');
-                // $longitude = $request->input('longitude');
-                // $origin = session('temp_address') ?? $latitude . ', ' . $longitude;
+                $latitude = $request->input('latitude');
+                $longitude = $request->input('longitude');
+                $origin = session('temp_address') ?? $latitude . ', ' . $longitude;
             }
 
             // echo "Logged-in User Address: $origin";
