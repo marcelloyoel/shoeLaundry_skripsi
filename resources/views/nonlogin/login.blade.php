@@ -66,7 +66,7 @@
                                                     Me</label>
                                             </div>
                                         </div> --}}
-                                        <button onclick="getLocation()" type="submit" class="btn btn-primary btn-user btn-block">
+                                        <button type="submit" class="btn btn-primary btn-user btn-block">
                                             Login
                                         </button>
                                     </form>
@@ -95,45 +95,6 @@
 
     <!-- Custom scripts for all pages-->
     <script src="/template/js/sb-admin-2.min.js"></script>
-
-    <script>
-        const x = document.getElementById("demo");
-
-        function getLocation() {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(showPosition);
-            } else {
-                x.innerHTML = "Geolocation is not supported by this browser.";
-            }
-        }
-
-        function showPosition(position) {
-            x.innerHTML = "Latitude: " + position.coords.latitude +
-            "<br>Longitude: " + position.coords.longitude;
-
-            console.log(position);
-            var latitude = position.coords.latitude;
-            var longitude = position.coords.longitude;
-
-            var csrf = $("#csrf-token").val();
-
-            $.ajax({
-                type: 'POST',
-                url: "{{ route('MapsController.calculateDistance') }}",
-                data: {
-                    _token:         csrf,
-                    latitude: position.coords.latitude,
-                    longitude: position.coords.longitude
-                },
-                success: function(ajax) {
-                    console.log($.ajax);
-                },
-                error: function(request, error) {
-                    console.log(error);
-                }
-            });
-        }
-    </script>
 
 </body>
 
