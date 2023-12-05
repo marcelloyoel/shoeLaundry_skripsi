@@ -250,39 +250,6 @@
                     console.log(error);
                 }
             });
-
-            // var latitude = position.coords.latitude;
-            // var longitude = position.coords.longitude;
-
-            // Send latitude and longitude to the server using AJAX
-            // var xhr = new XMLHttpRequest();
-            // var url = '/coordinates';
-            // var params = 'latitude=' + latitude + '&longitude=' + longitude;
-
-            // xhr.open('POST', url, true);
-            // xhr.setRequestHeader('X-CSRF-TOKEN', document.querySelector('meta[name="csrf-token"]').content);
-            // xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-
-            // xhr.onreadystatechange = function() {
-            //     if (xhr.readyState == 4 && xhr.status == 200) {
-            //         console.log(xhr.responseText);
-            //     }
-            // };
-
-            // xhr.send(params);
-
-            // var xhr = new XMLHttpRequest();
-            // var url = '/coordinates';
-            // var params = 'latitude=' + latitude + '&longitude=' + longitude;
-            // xhr.open('POST', url, true);
-            // xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-            // xhr.onreadystatechange = function() {
-            //     if (xhr.readyState == 4 && xhr.status == 200) {
-            //         // Handle response from the server, if needed
-            //         console.log(xhr.responseText);
-            //     }
-            // };
-            // xhr.send(params);
         }
     </script>
 
