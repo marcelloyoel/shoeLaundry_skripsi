@@ -123,7 +123,8 @@ class MapsController extends Controller
         Session::put('calculated_distances', $distances);
 
         // If you want to return a response after processing all users, you can do it here
-        return response()->json(['message' => 'Distance calculation completed']);
+        // return response()->json(['message' => 'Distance calculation completed']);
+        return view('home', compact('distances'));
     }
 
     public function showDistance(Request $request)
