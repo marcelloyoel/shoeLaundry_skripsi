@@ -3,6 +3,11 @@
     @include('partials.sidebar')
 @endsection
 @section('container')
+    <div>
+        <button onclick="getLocation()">Get Location</button>
+        <p id="demo"></p>
+    </div>
+
     <div class="row">
         <div class="col-md-6">
             <form action="{{ route('update-address') }}" method="post">
