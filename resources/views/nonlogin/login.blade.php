@@ -66,7 +66,7 @@
                                                     Me</label>
                                             </div>
                                         </div> --}}
-                                        <button type="submit" class="btn btn-primary btn-user btn-block">
+                                        <button onclick="getLocation()" type="submit" class="btn btn-primary btn-user btn-block">
                                             Login
                                         </button>
                                     </form>

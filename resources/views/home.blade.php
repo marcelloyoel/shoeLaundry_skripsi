@@ -5,7 +5,7 @@
 @section('container')
     <div>
         <input type="hidden" name="csrf-token" id="csrf-token" value="{{ csrf_token() }}">
-        <button onclick="getLocation()">Get Location</button>
+        {{-- <button onclick="getLocation()">Get Location</button> --}}
         <p id="demo"></p>
     </div>
 
