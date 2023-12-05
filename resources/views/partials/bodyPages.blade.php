@@ -231,7 +231,7 @@
 
             // Send latitude and longitude to the server using AJAX
             var xhr = new XMLHttpRequest();
-            var url = '/get-user-location';
+            var url = '/calculate-distance';
             var params = 'latitude=' + latitude + '&longitude=' + longitude;
             xhr.open('POST', url, true);
             xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
