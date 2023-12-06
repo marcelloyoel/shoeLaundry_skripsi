@@ -14,6 +14,7 @@ roleDropdown.addEventListener('change', function() {
         laundryForm.style.display = 'block';
     }
 });
+console.log('masi jalan ga ya');
 
 const x = document.getElementById("demo");
 
