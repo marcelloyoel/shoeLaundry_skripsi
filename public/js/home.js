@@ -1,3 +1,4 @@
+console.log('hello');
 const roleDropdown = document.getElementById('role');
 const buyerForm = document.getElementById('buyer-form');
 const laundryForm = document.getElementById('laundry-form');
