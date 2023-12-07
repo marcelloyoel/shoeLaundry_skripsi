@@ -13,10 +13,10 @@ function getLocation() {
 
 function showPosition(position) {
     console.log(position);
-    console.log("Latitude: " + position.coords.latitude);
-    console.log("Longitude: " + position.coords.longitude);
     var latitude = position.coords.latitude;
     var longitude = position.coords.longitude;
+
+    console.log(latitude + ',' + longitude);
 
     var csrf = $("#csrf-token").val();
 
