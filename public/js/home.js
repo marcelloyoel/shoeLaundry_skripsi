@@ -1,5 +1,5 @@
 console.log('hello test');
-
+console.log('yaolo kok gabisa');
 const x = document.getElementById("demo");
 
 function getLocation() {

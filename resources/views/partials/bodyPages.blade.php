@@ -214,8 +214,7 @@
     <script>
         console.log('dimana letak errornya5');
     </script>
-    <script>
-        console.log('ini di bodypages');
+    {{-- <script>
         const roleDropdown = document.getElementById('role');
         const buyerForm = document.getElementById('buyer-form');
         const laundryForm = document.getElementById('laundry-form');
@@ -231,5 +230,5 @@
                 laundryForm.style.display = 'block';
             }
         });
-    </script>
+    </script> --}}
 </body>
