@@ -27,6 +27,7 @@ function showPosition(position) {
             longitude: position.coords.longitude
         },
         success: function(ajax) {
+            console.log("BERHASIL");
             console.log($.ajax);
         },
         error: function(request, error) {

@@ -72,7 +72,6 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('/getLocation', [MapsController::class, 'calculateDistance']);
         Route::get('/show-distance', 'MapsController@showDistance');
         Route::get('/calculate-distance', [MapsController::class, 'calculateDistance']);
-        // Route::post('/logout', [LoginController::class, 'logout']);
         Route::post('/get-user-location', [MapsController::class, 'getUserLocation']);
         Route::post('/get-user-location', 'MapsController@calculateDistance');
         Route::post('/update-address', [MapsController::class, 'updateAddress'])->name('update-address');
