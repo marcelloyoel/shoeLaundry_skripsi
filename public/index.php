@@ -31,7 +31,7 @@ if (file_exists($maintenance = __DIR__ . '/../storage/framework/maintenance.php'
 |
 */
 //Production
-require __DIR__ . '/../repositories/shoeLaundry_skripsi3/vendor/autoload.php';
+require __DIR__ . '/../repositories/shoeLaundry_skripsi4/vendor/autoload.php';
 //Development
 // require __DIR__ . '/../vendor/autoload.php';
 
@@ -46,7 +46,7 @@ require __DIR__ . '/../repositories/shoeLaundry_skripsi3/vendor/autoload.php';
 |
 */
 //Production
-$app = require_once __DIR__ . '/../repositories/shoeLaundry_skripsi3/bootstrap/app.php';
+$app = require_once __DIR__ . '/../repositories/shoeLaundry_skripsi4/bootstrap/app.php';
 //Development
 // $app = require_once __DIR__ . '/../bootstrap/app.php';
 $kernel = $app->make(Kernel::class);
