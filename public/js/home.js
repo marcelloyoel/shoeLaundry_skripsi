@@ -16,7 +16,7 @@ function showPosition(position) {
     var latitude = position.coords.latitude;
     var longitude = position.coords.longitude;
 
-    console.log(latitude + ',' + longitude);
+    console.log("Coords User: " + latitude + ',' + longitude);
 
     var csrf = $("#csrf-token").val();
 
