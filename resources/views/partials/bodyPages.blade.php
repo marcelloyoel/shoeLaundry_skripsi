@@ -182,9 +182,9 @@
             </div>
         </div>
     </div>
-    <script>
-        console.log('dimana letak errornya');
-    </script>
+    @if (isset($javascript))
+        <script src="/js/{{ $javascript }}"></script>
+    @endif
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"
         integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
     <!-- Include DataTables library -->
@@ -195,9 +195,6 @@
     {{-- openai --}}
     {{-- <script src="/vendor/snapappointments/bootstrap-select/dist/js/bootstrap-select.min.js"></script> --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/js/bootstrap-select.min.js"></script>
-    @if (isset($javascript))
-        <script src="/js/{{ $javascript }}"></script>
-    @endif
     <script>
         console.log('ini di bodypages');
         const roleDropdown = document.getElementById('role');
