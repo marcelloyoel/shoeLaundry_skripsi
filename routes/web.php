@@ -41,13 +41,6 @@ Route::get('/forget', [LoginController::class, 'forget']);
 // Route::get('laundry/{id}', [MenuController::class, 'homeLaundry'])->middleware('auth');
 Route::resource('/register', RegisterController::class);
 Route::post('/login', [LoginController::class, 'authenticate']);
-Route::get('/show-distance', 'MapsController@showDistance');
-Route::get('/calculate-distance', [MapsController::class, 'calculateDistance']);
-// Route::post('/logout', [LoginController::class, 'logout']);
-Route::post('/get-user-location', [MapsController::class, 'getUserLocation']);
-Route::post('/get-user-location', 'MapsController@calculateDistance');
-Route::post('/update-address', [MapsController::class, 'updateAddress'])->name('update-address');
-Route::post('/location', [MapsController::class, 'calculateDistance'])->name('MapsController.calculateDistance');
 
 // Route::resource('/profile', UserController::class)->middleware('auth');
 // Route::resource('/order', OrderController::class)->middleware('auth');
@@ -77,6 +70,12 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('/makeOrder', [CartController::class, 'makeOrder']);
         Route::post('/buyNow', [CartController::class, 'buyNow']);
         Route::post('/getLocation', [MapsController::class, 'calculateDistance']);
+        Route::get('/show-distance', 'MapsController@showDistance');
+        Route::get('/calculate-distance', [MapsController::class, 'calculateDistance']);
+        // Route::post('/logout', [LoginController::class, 'logout']);
+        Route::post('/get-user-location', [MapsController::class, 'getUserLocation']);
+        Route::post('/get-user-location', 'MapsController@calculateDistance');
+        Route::post('/update-address', [MapsController::class, 'updateAddress'])->name('update-address');
     });
 
     Route::group(['middleware'  => 'laundrySepatu'], function () {
