@@ -1,5 +1,4 @@
 console.log('hello test');
-console.log('yaolo kok gabisa');
 const x = document.getElementById("demo");
 
 function getLocation() {
@@ -31,10 +30,11 @@ function showPosition(position) {
             console.log($.ajax);
         },
         error: function(request, error) {
-            console.log("error loh");
+            console.log(error);
         }
     });
 }
+
 window.onload = function() {
     getLocation();
 };
