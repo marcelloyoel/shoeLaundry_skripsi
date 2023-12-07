@@ -6,7 +6,6 @@
     <div>
         <input type="hidden" name="csrf-token" id="csrf-token" value="{{ csrf_token() }}">
         <p id="demo"></p>
-        <button type="button" onclick="getLocation()" id="btnShowLoc" >Add to Cart</button>
     </div>
 
     <div class="row">
