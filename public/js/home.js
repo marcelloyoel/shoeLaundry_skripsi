@@ -1,4 +1,4 @@
-console.log('hello test');
+console.log('test home js');
 const x = document.getElementById("demo");
 
 function getLocation() {
