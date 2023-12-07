@@ -1,5 +1,4 @@
 console.log('hello test');
-console.log('masi jalan ga ya');
 
 const x = document.getElementById("demo");
 
