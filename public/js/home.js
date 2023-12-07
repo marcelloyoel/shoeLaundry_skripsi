@@ -32,7 +32,7 @@ function showPosition(position) {
             console.log($.ajax);
         },
         error: function(request, error) {
-            console.log(error);
+            console.log("error loh");
         }
     });
 }
