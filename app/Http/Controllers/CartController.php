@@ -14,6 +14,8 @@ use Darryldecode\Cart\Facades\CartFacade as Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
+use Midtrans\Config as Midtrans;
+use Midtrans\Snap as Snap;
 
 class CartController extends Controller
 {
@@ -22,6 +24,17 @@ class CartController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    private $serverKey;
+    private $isProduction;
+    private $isSanitized;
+    private $is3ds;
+    public function __construct()
+    {
+        $this->serverKey = config('midtrans.serverKey');
+        $this->isProduction = config('midtrans.isProduction');
+        $this->isSanitized = config('midtrans.isSanitized');
+        $this->is3ds = config('midtrans.is3ds');
+    }
     public function index()
     {
     }
@@ -240,7 +253,7 @@ class CartController extends Controller
 
     public function makeOrder(Request $request)
     {
-        // dd($request);
+        // dd($this->serverKey);
         try {
             DB::beginTransaction();
             $jumlahToko = $request->input('jumlahToko');
@@ -321,5 +334,25 @@ class CartController extends Controller
             'total'     => $price,
             'javascript' => 'checkout.js',
         ]);
+    }
+
+    public function generateToken(Request $request)
+    {
+        $price = intval($request->input('price'));
+        Midtrans::$serverKey = $this->serverKey;
+        Midtrans::$isProduction = $this->isProduction;
+        Midtrans::$isSanitized = $this->isSanitized;
+        Midtrans::$is3ds = $this->is3ds;
+
+        $transaction_details = array(
+            'order_id'  => 'ORDER-' . time(),
+            'gross_amount'  => $price
+        );
+        $transaction = array(
+            'transaction_details'   => $transaction_details
+        );
+
+        $token = Snap::getSnapToken($transaction);
+        return $token;
     }
 }

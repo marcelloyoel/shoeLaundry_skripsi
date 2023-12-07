@@ -36,8 +36,8 @@
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="serviceSlug">Service Slug</label>
-                <input type="text" class="form-control" id="serviceSlug" value="{{ old('serviceSlug', $service->serviceSlug) }}"
-                    name="serviceSlug">
+                <input disabled type="text" class="form-control" id="serviceSlug"
+                    value="{{ old('serviceSlug', $service->slug) }}" name="serviceSlug">
                 @error('serviceSlug')
                     <div class="invalid-feedback mb-2">
                         {{ $message }}
@@ -47,7 +47,7 @@
             <div class="form-group col-md-6">
                 <label for="servicePicture">Service Picture</label>
                 <input type="file" class="form-control @error('servicePicture') is-invalid @enderror" id="servicePicture"
-                value="{{ old('servicePicture') }}" name="servicePicture">
+                    value="{{ old('servicePicture') }}" name="servicePicture">
                 @error('servicePicture')
                     <div class="invalid-feedback mb-2">
                         {{ $message }}

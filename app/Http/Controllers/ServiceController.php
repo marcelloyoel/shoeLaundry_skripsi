@@ -55,7 +55,7 @@ class ServiceController extends Controller
 
         $validatedData = $request->validate([
             'serviceName' => ['required'],
-            'serviceSlug' => ['unique:services', 'required'],
+            // 'serviceSlug' => ['unique:services', 'required'],
             'status' => ['required'],
             'servicePrice' => ['nullable'],
             'serviceDescription' => ['required'],
