@@ -20,7 +20,7 @@ function showPosition(position) {
 
     $.ajax({
         type: 'POST',
-        url: "{{ route('MapsController.calculateDistance') }}",
+        url: "/getLocation",
         data: {
             _token:         csrf,
             latitude: position.coords.latitude,

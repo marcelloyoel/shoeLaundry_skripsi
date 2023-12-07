@@ -76,6 +76,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('/checkout', [CartController::class, 'checkoutPage']);
         Route::post('/makeOrder', [CartController::class, 'makeOrder']);
         Route::post('/buyNow', [CartController::class, 'buyNow']);
+        Route::post('/getLocation', [MapsController::class, 'calculateDistance']);
     });
 
     Route::group(['middleware'  => 'laundrySepatu'], function () {
