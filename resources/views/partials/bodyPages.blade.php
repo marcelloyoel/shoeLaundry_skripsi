@@ -196,8 +196,6 @@
         let table = new DataTable('#myTable');
     </script>
 
-    <script src="home.js"></script>
-
     {{-- openai --}}
     {{-- <script src="/vendor/snapappointments/bootstrap-select/dist/js/bootstrap-select.min.js"></script> --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/js/bootstrap-select.min.js"></script>
