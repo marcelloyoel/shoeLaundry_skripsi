@@ -185,16 +185,35 @@
     @if (isset($javascript))
         <script src="/js/{{ $javascript }}"></script>
     @endif
+    <script>
+        console.log('dimana letak errornya');
+    </script>
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"
         integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+
+    <script>
+        console.log('dimana letak errornya2');
+    </script>
     <!-- Include DataTables library -->
     <script src="//cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        console.log('dimana letak errornya3');
+    </script>
     <script>
         let table = new DataTable('#myTable');
+    </script>
+
+    <script>
+        console.log('dimana letak errornya4');
     </script>
     {{-- openai --}}
     {{-- <script src="/vendor/snapappointments/bootstrap-select/dist/js/bootstrap-select.min.js"></script> --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/js/bootstrap-select.min.js"></script>
+
+    <script>
+        console.log('dimana letak errornya5');
+    </script>
     <script>
         console.log('ini di bodypages');
         const roleDropdown = document.getElementById('role');
