@@ -22,16 +22,17 @@ function showPosition(position) {
         type: 'POST',
         url: "/getLocation",
         data: {
-            _token:         csrf,
+            // _token:         csrf,
             latitude: position.coords.latitude,
             longitude: position.coords.longitude
         },
         success: function(ajax) {
-            console.log("BERHASIL");
             console.log($.ajax);
+            alert("Berhasil");
         },
         error: function(request, error) {
             console.log(error);
+            alert("Gagal");
         }
     });
 }
