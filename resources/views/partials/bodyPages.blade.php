@@ -196,6 +196,7 @@
         <script src="/js/{{ $javascript }}"></script>
     @endif
     <script>
+        console.log('ini di bodypages');
         const roleDropdown = document.getElementById('role');
         const buyerForm = document.getElementById('buyer-form');
         const laundryForm = document.getElementById('laundry-form');
