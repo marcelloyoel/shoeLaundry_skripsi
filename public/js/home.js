@@ -28,11 +28,11 @@ function showPosition(position) {
         },
         success: function(ajax) {
             console.log($.ajax);
-            alert("Berhasil");
+            alert("Managed to find the location");
         },
         error: function(request, error) {
             console.log(error);
-            alert("Gagal");
+            alert("Failed to find its location");
         }
     });
 }
