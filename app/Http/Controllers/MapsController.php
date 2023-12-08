@@ -58,8 +58,8 @@ class MapsController extends Controller
             // } else {
             // if ip address is public
             // $origin = session('temp_address') ?? $currentUserInfo->latitude . ', ' . $currentUserInfo->longitude;
-            // $origin = session('temp_address') ?? $latitude . ', ' . $longitude;
-            $origin = 'hypermart villa melati mas';
+            $origin = session('temp_address') ?? $latitude . ', ' . $longitude;
+            // $origin = 'hypermart villa melati mas';
             // }
 
             // echo "Logged-in User Address: $origin";
