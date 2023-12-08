@@ -9,6 +9,7 @@ use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
 use Stevebauman\Location\Facades\Location;
+use Illuminate\Support\Facades\Http;
 
 class MapsController extends Controller
 {
@@ -35,12 +36,17 @@ class MapsController extends Controller
 
     public function calculateDistance(Request $request)
     {
+        $ip = $request->getClientIp();
         // $ip = $request->ip();
-        $ip = $_SERVER['REMOTE_ADDR'];
+        // $ip = $_SERVER['REMOTE_ADDR'];
         // $ip = '49.35.41.195'; // contoh ip address public
         $currentUserInfo = Location::get($ip);
 
-        // dd($currentUserInfo->ip);
+        // Get the latitude and longitude from the request
+        $latitude = $request->input('latitude');
+        $longitude = $request->input('longitude');
+
+        // dd($latitude, $longitude);
 
         // $users = User::all();
         $user = auth()->user();
@@ -48,16 +54,20 @@ class MapsController extends Controller
 
             if ($currentUserInfo === false) {
                 // if ip address is private
-                $origin = $user->address;
+                $origin = session('temp_address') ?? $user->address;
             } else {
                 // if ip address is public
-                $origin = session('temp_address') ?? $currentUserInfo->latitude . ',' . $currentUserInfo->longitude;
+                // $origin = session('temp_address') ?? $currentUserInfo->latitude . ', ' . $currentUserInfo->longitude;
+                $origin = session('temp_address') ?? $latitude . ', ' . $longitude;
             }
 
             // echo "Logged-in User Address: $origin";
         } else {
             // echo "User not authenticated";
         }
+
+        // dd($ip, $currentUserInfo, $currentUserInfo->latitude, $currentUserInfo->longitude, $origin, $latitude, $longitude);
+
         // $origin = 'Jl. Pintu Air Raya No.2-F, RT.7/RW.1, Ps. Baru, Kecamatan Sawah Besar, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10710';
         // $origin = 'Jl. Jalur Sutera Bar. No.Kav. 21, RT.001/RW.004, Panunggangan, Kec. Pinang, Kota Tangerang, Banten 15143';
         $users = User::whereHas('laundrySepatu', function ($query) {
@@ -98,7 +108,7 @@ class MapsController extends Controller
                     $distances[$user->id] = $distance;
 
                     // If you want to store the distance in the $laundrySepatu model, you can do so here
-                    $laundrySepatu->update(['distance' => $distance]);
+                    // $laundrySepatu->update(['distance' => $distance]);
                 } else {
                     // Handle the case where the expected keys are not present
                     // echo "Invalid response structure for user: $user->displayName\n";
@@ -128,7 +138,4 @@ class MapsController extends Controller
 
         return view('your_view', compact('calculatedDistances'));
     }
-
-
 }
-

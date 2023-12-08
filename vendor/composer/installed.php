@@ -37,6 +37,15 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'carbonphp/carbon-doctrine-types' => array(
+            'pretty_version' => '3.0.0',
+            'version' => '3.0.0.0',
+            'reference' => '49856fbc09fe91b5433381faec60e3620ad364ad',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../carbonphp/carbon-doctrine-types',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'cocur/slugify' => array(
             'pretty_version' => 'v4.5.1',
             'version' => '4.5.1.0',
@@ -587,9 +596,9 @@
             'dev_requirement' => true,
         ),
         'nesbot/carbon' => array(
-            'pretty_version' => '2.71.0',
-            'version' => '2.71.0.0',
-            'reference' => '98276233188583f2ff845a0f992a235472d9466a',
+            'pretty_version' => '2.72.0',
+            'version' => '2.72.0.0',
+            'reference' => 'a6885fcbad2ec4360b0e200ee0da7d9b7c90786b',
             'type' => 'library',
             'install_path' => __DIR__ . '/../nesbot/carbon',
             'aliases' => array(),
