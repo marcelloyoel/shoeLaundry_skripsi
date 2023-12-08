@@ -36,32 +36,32 @@ class MapsController extends Controller
 
     public function calculateDistance(Request $request)
     {
-        $ip = $request->getClientIp();
+        // $ip = $request->getClientIp();
         // $ip = $request->ip();
         // $ip = $_SERVER['REMOTE_ADDR'];
         // $ip = '49.35.41.195'; // contoh ip address public
-        $currentUserInfo = Location::get($ip);
+        // $currentUserInfo = Location::get($ip);
 
         // Get the latitude and longitude from the request
-        $latitudeTest = $request->input('latitude');
-        $longitudeTest = $request->input('longitude');
-        $latitude = json_encode($latitudeTest);
-        $longitude = json_encode($longitudeTest);
+        $latitude = $request->input('latitude');
+        $longitude = $request->input('longitude');
+        // $latitude = json_encode($latitude);
+        // $longitude = json_encode($longitude);
 
-        dd($latitude, $longitude, $latitudeTest, $longitudeTest);
+        dd($latitude, $longitude);
 
         // $users = User::all();
         $user = auth()->user();
         if ($user) {
 
-            if ($currentUserInfo === false) {
+            // if ($currentUserInfo === false) {
                 // if ip address is private
-                $origin = session('temp_address') ?? $user->address;
-            } else {
+                // $origin = session('temp_address') ?? $user->address;
+            // } else {
                 // if ip address is public
                 // $origin = session('temp_address') ?? $currentUserInfo->latitude . ', ' . $currentUserInfo->longitude;
                 $origin = session('temp_address') ?? $latitude . ', ' . $longitude;
-            }
+            // }
 
             // echo "Logged-in User Address: $origin";
         } else {
