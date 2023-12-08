@@ -1,4 +1,4 @@
-console.log('test home js');
+console.log('masuk home js');
 const x = document.getElementById("demo");
 
 function getLocation() {
@@ -14,7 +14,7 @@ function showPosition(position) {
     var latitudeTest = JSON.stringify(position.coords.latitude);
     var longitudeTest = JSON.stringify(position.coords.longitude);
 
-    // console.log("Coords User: " + latitude + ',' + longitude);
+    console.log("Coords User: " + latitude + ',' + longitude);
 
     var csrf = $("#csrf-token").val();
 
