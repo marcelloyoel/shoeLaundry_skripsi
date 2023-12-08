@@ -11,10 +11,13 @@ function getLocation() {
 
 function showPosition(position) {
     console.log(position);
-    var latitudeTest = JSON.stringify(position.coords.latitude);
-    var longitudeTest = JSON.stringify(position.coords.longitude);
-
-    console.log("Coords User: " + latitudeTest + ',' + longitudeTest);
+    var latitudeTest = position.coords.latitude;
+    var longitudeTest = position.coords.longitude;
+    var objectTitude = {
+        latitude: latitudeTest,
+        longtitude: longitudeTest
+    }
+    // console.log("Coords User: " + latitudeTest + ',' + longitudeTest);
 
     var csrf = $("#csrf-token").val();
 
@@ -23,8 +26,9 @@ function showPosition(position) {
         url: "/getLocation",
         data: {
             _token:         csrf,
-            latitude: latitudeTest,
-            longitude: longitudeTest
+            // latitude: latitudeTest,
+            // longitude: longitudeTest,
+            titude: JSON.stringify(objectTitude)
         },
         success: function(ajax) {
             console.log($.ajax);
