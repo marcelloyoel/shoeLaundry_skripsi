@@ -37,6 +37,6 @@ function showPosition(position) {
     });
 }
 
-window.onload = function() {
-    getLocation();
-};
+// window.onload = function() {
+//     getLocation();
+// };
