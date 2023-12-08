@@ -8,4 +8,3 @@ deployment:
     - /bin/cp -R public/favicon.ico $DEPLOYPATH
     - /bin/cp -R public/index.php $DEPLOYPATH
     - /bin/cp -R public/robot.txt $DEPLOYPATH
-    - /bin/cp -R public/assets $DEPLOYPATH
