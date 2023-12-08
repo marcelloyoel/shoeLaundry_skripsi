@@ -46,19 +46,19 @@ class MapsController extends Controller
         $latitude = json_decode($request->input('latitude'));
         $longitude = json_decode($request->input('longitude'));
 
-        dd($request->input('latitude'));
+        // dd($request->input('latitude'));
 
         // $users = User::all();
         $user = auth()->user();
         if ($user) {
 
             // if ($currentUserInfo === false) {
-                // if ip address is private
-                // $origin = session('temp_address') ?? $user->address;
+            // if ip address is private
+            // $origin = session('temp_address') ?? $user->address;
             // } else {
-                // if ip address is public
-                // $origin = session('temp_address') ?? $currentUserInfo->latitude . ', ' . $currentUserInfo->longitude;
-                $origin = session('temp_address') ?? $latitude . ', ' . $longitude;
+            // if ip address is public
+            // $origin = session('temp_address') ?? $currentUserInfo->latitude . ', ' . $currentUserInfo->longitude;
+            $origin = session('temp_address') ?? $latitude . ', ' . $longitude;
             // }
 
             // echo "Logged-in User Address: $origin";
