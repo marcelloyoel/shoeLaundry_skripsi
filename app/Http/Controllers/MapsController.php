@@ -48,7 +48,7 @@ class MapsController extends Controller
         $latitude = json_encode($latitudeTest);
         $longitude = json_encode($longitudeTest);
 
-        dd($latitude, $longitude);
+        dd($latitude, $longitude, $latitudeTest, $longitudeTest);
 
         // $users = User::all();
         $user = auth()->user();
