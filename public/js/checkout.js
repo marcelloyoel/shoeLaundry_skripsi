@@ -1,3 +1,4 @@
+console.log('test');
 let subTotalContent = document.getElementById('subtotal');
 // subTotalContent.textContent = subTotal;
 let subTotalMoney = Number(subTotalContent.textContent);
@@ -41,11 +42,62 @@ function alertMain(alertText){
 //         alertMain(validasi);
 //     }
 // }
+let totalHargaAjax = document.getElementById('totalJs').value;
+var tokenHasil = "";
+function generateToken() {
+
+    $.ajax({
+        url: '/generateToken',
+        type: 'POST',
+        data: {
+            price: totalHargaAjax
+        },
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        success: function(response) {
+            tokenHasil = response;
+            window.snap.pay(tokenHasil, {
+                onSuccess: function(result){
+                  /* You may add your own implementation here */
+                    alert("payment success!"); console.log(result);
+                    document.getElementById('orderButton').disabled=true;
+                    document.getElementById('submitForm').submit();
+                },
+                onPending: function(result){
+                  /* You may add your own implementation here */
+                    alert("wating your payment!"); console.log(result);
+                },
+                onError: function(result){
+                  /* You may add your own implementation here */
+                    alert("payment failed!"); console.log(result);
+                },
+                onClose: function(){
+                  /* You may add your own implementation here */
+                    alert('you closed the popup without finishing the payment');
+                }
+            })
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            console.log(jqXHR);
+            alert('There was an error generating the transaction token.');
+            // token = 0;
+        }
+    });
+
+    // return token;
+}
+
 
 document.getElementById('orderButton').addEventListener('click', function(){
     var validasi = validasiForm();
+    // var validasi = true;
     if(validasi == true){
-        document.getElementById('submitForm').submit();
+        generateToken();
+        // console.log('ini tokennya');
+        // console.log(tokenHasil);
+        // asalajayangpentinggagal();
+        // document.getElementById('submitForm').submit();
     }else{
         alertMain(validasi);
     }

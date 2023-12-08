@@ -67,6 +67,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('/updateCartIncreaseQuantity', [CartController::class, 'increaseCart']);
         Route::get('/deleteCart/{id}/{idUser}', [CartController::class, 'deleteItem']);
         Route::post('/checkout', [CartController::class, 'checkoutPage']);
+        Route::post('/generateToken', [CartController::class, 'generateToken']);
         Route::post('/makeOrder', [CartController::class, 'makeOrder']);
         Route::post('/buyNow', [CartController::class, 'buyNow']);
         Route::post('/getLocation', [MapsController::class, 'calculateDistance']);

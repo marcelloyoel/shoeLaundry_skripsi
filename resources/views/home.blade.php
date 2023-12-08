@@ -3,6 +3,16 @@
     @include('partials.sidebar')
 @endsection
 @section('container')
+    @if (session()->has('submitted'))
+        <div class="alert alert-success" role="alert">
+            {{ session('submitted') }}
+        </div>
+    @endif
+    @if (session()->has('update'))
+        <div class="alert alert-success" role="alert">
+            {{ session('update') }}
+        </div>
+    @endif
     <div>
         <input type="hidden" name="csrf-token" id="csrf-token" value="{{ csrf_token() }}">
         <p id="demo"></p>
