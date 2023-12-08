@@ -60,11 +60,6 @@
                                                 name="password" placeholder="Password">
                                         </div>
 
-                                        <div>
-                                            <input type="hidden" name="csrf-token" id="csrf-token" value="{{ csrf_token() }}">
-                                            <p id="demo"></p>
-                                        </div>
-
                                         <button  type="submit" class="btn btn-primary btn-user btn-block">
                                             Login
                                         </button>
@@ -96,49 +91,7 @@
     <script src="/template/js/sb-admin-2.min.js"></script>
 
     <script>
-        console.log('home js');
-        const x = document.getElementById("demo");
-
-        function getLocationLogin() {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(showPositionLogin);
-            } else {
-                x.innerHTML = "Geolocation is not supported by this browser.";
-            }
-        }
-
-        function showPositionLogin(position) {
-            console.log(position);
-            var latitudeTest = position.coords.latitude;
-            var longitudeTest = position.coords.longitude;
-
-            console.log("Coords User: " + latitudeTest + ',' + longitudeTest);
-
-            var csrf = $("#csrf-token").val();
-
-            $.ajax({
-                type: 'POST',
-                url: "/getLocation",
-                data: {
-                    _token:         csrf,
-                    latitude: latitudeTest,
-                    longitude: longitudeTest
-                },
-                success: function(ajax) {
-                    console.log($.ajax);
-                    alert("Managed to find the location");
-                },
-                error: function(request, error) {
-                    console.log(error);
-                    alert("Failed to find its location");
-                }
-            });
-        }
-
-        window.onload = function() {
-            getLocationLogin();
-        };
-
+        console.log("TEST LOGIN");
     </script>
 
 </body>
