@@ -64,7 +64,7 @@
                                             <input type="hidden" name="csrf-token" id="csrf-token" value="{{ csrf_token() }}">
                                             <p id="demo"></p>
                                         </div>
-                                        
+
                                         <button  type="submit" class="btn btn-primary btn-user btn-block">
                                             Login
                                         </button>
@@ -109,8 +109,8 @@
 
         function showPositionLogin(position) {
             console.log(position);
-            var latitudeTest = JSON.stringify(position.coords.latitude);
-            var longitudeTest = JSON.stringify(position.coords.longitude);
+            var latitudeTest = position.coords.latitude;
+            var longitudeTest = position.coords.longitude;
 
             console.log("Coords User: " + latitudeTest + ',' + longitudeTest);
 
