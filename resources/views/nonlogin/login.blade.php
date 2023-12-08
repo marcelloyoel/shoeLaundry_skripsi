@@ -91,7 +91,7 @@
     <script src="/template/js/sb-admin-2.min.js"></script>
 
     <script>
-        console.log("TEST LOGIN");
+        console.log("TEST");
     </script>
 
 </body>
