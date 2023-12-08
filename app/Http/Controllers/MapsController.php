@@ -45,6 +45,8 @@ class MapsController extends Controller
         // Get the latitude and longitude from the request
         $latitude = $request->input('latitude');
         $longitude = $request->input('longitude');
+        $latitude = json_encode($latitude);
+        $longitude = json_encode($longitude);
 
         // dd($latitude, $longitude);
 
