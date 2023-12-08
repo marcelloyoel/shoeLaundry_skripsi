@@ -1,4 +1,4 @@
-console.log('masuk home js');
+console.log('home js');
 const x = document.getElementById("demo");
 
 function getLocation() {
