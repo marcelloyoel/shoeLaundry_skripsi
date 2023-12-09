@@ -11,21 +11,30 @@ function getLocation() {
 
 function showPosition(position) {
     console.log(position);
-    var latitudeTest = JSON.stringify(position.coords.latitude);
-    var longitudeTest = JSON.stringify(position.coords.longitude);
+    var latitude = position.coords.latitude;
+    var longitude = position.coords.longitude;
 
     console.log("Coords User: " + latitudeTest + ',' + longitudeTest);
 
     var csrf = $("#csrf-token").val();
 
+    // Create a JavaScript object with latitude and longitude
+    var locationData = {
+        _token: csrf,
+        latitude: latitude,
+        longitude: longitude
+    };
+
     $.ajax({
         type: 'POST',
         url: "/getLocation",
-        data: {
-            _token:         csrf,
-            latitude: latitudeTest,
-            longitude: longitudeTest
-        },
+        data: JSON.stringify(locationData), // Convert object to JSON string
+        contentType: 'application/json', // Set content type for JSON
+        // data: {
+        //     _token:         csrf,
+        //     latitude: latitudeTest,
+        //     longitude: longitudeTest
+        // },
         success: function(ajax) {
             console.log($.ajax);
             alert("Managed to find the location");
