@@ -28,13 +28,13 @@ function showPosition(position) {
     $.ajax({
         type: 'POST',
         url: "/getLocation",
-        data: JSON.stringify(locationData), // Convert object to JSON string
-        contentType: 'application/json', // Set content type for JSON
-        // data: {
-        //     _token:         csrf,
-        //     latitude: latitudeTest,
-        //     longitude: longitudeTest
-        // },
+        // data: JSON.stringify(locationData), // Convert object to JSON string
+        // contentType: 'application/json', // Set content type for JSON
+        data: {
+            _token:         csrf,
+            latitude: latitude,
+            longitude: longitude
+        },
         success: function(ajax) {
             console.log($.ajax);
             alert("Managed to find the location");
