@@ -21,7 +21,10 @@ class LoginController extends Controller
         $latitude = $request->input('latitude');
         $longitude = $request->input('longitude');
 
-        return view('showLatLongView', [
+        info('Received Latitude: ' . $latitude);
+        info('Received Longitude: ' . $longitude);
+
+        return response()->json([
             'latitude' => $latitude,
             'longitude' => $longitude
         ]);
