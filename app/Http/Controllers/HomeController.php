@@ -47,7 +47,7 @@ class HomeController extends Controller
                 'title' => 'Halaman Home',
                 'calculatedDistances' => $calculatedDistances,
                 'laundries' => $paginatedLaundries,
-                'javascript'    => 'home.js'
+                // 'javascript'    => 'home.js'
             ]);
         } else if (Auth::user()->group_id == 2) {
             $user = Auth::user();
@@ -57,7 +57,7 @@ class HomeController extends Controller
                 'title' => 'Halaman Home',
                 'laundry'   => $laundry,
                 'services' => $services,
-                'javascript'    => 'home.js'
+                // 'javascript'    => 'home.js'
             ]);
         } else {
             return view('homeAdmin', [

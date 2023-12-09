@@ -15,6 +15,18 @@ class LoginController extends Controller
             'title' => 'Halaman Login'
         ]);
     }
+
+    public function showLatLong(Request $request)
+    {
+        $latitude = $request->input('latitude');
+        $longitude = $request->input('longitude');
+
+        return view('showLatLongView', [
+            'latitude' => $latitude,
+            'longitude' => $longitude
+        ]);
+    }
+
     public function authenticate(Request $request)
     {
         $credentials = $request->validate([
