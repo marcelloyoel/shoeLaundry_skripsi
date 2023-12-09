@@ -43,8 +43,8 @@ class MapsController extends Controller
         // $currentUserInfo = Location::get($ip);
 
         // Get the latitude and longitude from the request
-        $latitude = $request->input('latitude');
-        $longitude = $request->input('longitude');
+        // $latitude = $request->input('latitude');
+        // $longitude = $request->input('longitude');
 
         info('Received Latitude in Maps: ' . $latitude);
         info('Received Longitude in Maps: ' . $longitude);
