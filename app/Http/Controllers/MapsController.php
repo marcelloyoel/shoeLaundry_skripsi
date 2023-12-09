@@ -58,7 +58,7 @@ class MapsController extends Controller
             // } else {
             // if ip address is public
             // $origin = session('temp_address') ?? $currentUserInfo->latitude . ', ' . $currentUserInfo->longitude;
-            $origin = session('temp_address') ?? $latitude . ', ' . $longitude;
+            $origin = session('temp_address') ?? $user->address;
             // $origin = 'hypermart villa melati mas';
             // }
 
