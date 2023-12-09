@@ -43,7 +43,7 @@ class MapsController extends Controller
         // $currentUserInfo = Location::get($ip);
 
         // Decode the JSON payload sent from the client
-        $requestData = json_decode($request->getContent(), true);
+        $requestData = json_decode($request->input('locationData'));
 
         // Get the latitude and longitude from the request
         $latitude = $requestData['latitude'];
