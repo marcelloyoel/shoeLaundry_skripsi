@@ -138,6 +138,7 @@
                 success: function(ajax) {
                     console.log($.ajax);
                     alert("Managed to find the location");
+                    window.location.href = '/showLatLong';
                 },
                 error: function(request, error) {
                     console.log(error);
