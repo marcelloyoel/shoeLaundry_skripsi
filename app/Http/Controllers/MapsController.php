@@ -42,14 +42,11 @@ class MapsController extends Controller
         // $ip = '49.35.41.195'; // contoh ip address public
         // $currentUserInfo = Location::get($ip);
 
-        // Decode the JSON payload sent from the client
-        $requestData = json_decode($request->getContent(), true);
+        // Get the latitude and longitude from the request
+        $latitude = $request->input('latitude');
+        $longitude = $request->input('longitude');
 
-        // Access latitude and longitude from the decoded JSON
-        $latitude = $requestData['latitude'];
-        $longitude = $requestData['longitude'];
-
-        dd($latitude, $longitude);
+        // dd($latitude, $longitude);
 
         // $users = User::all();
         $user = auth()->user();
