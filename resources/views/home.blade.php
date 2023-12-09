@@ -13,10 +13,10 @@
             {{ session('update') }}
         </div>
     @endif
-    {{-- <div>
+    <div>
         <input type="hidden" name="csrf-token" id="csrf-token" value="{{ csrf_token() }}">
         <p id="demo"></p>
-    </div> --}}
+    </div>
 
     <div class="row">
         <div class="col-md-6">
