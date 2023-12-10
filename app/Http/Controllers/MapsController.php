@@ -60,8 +60,8 @@ class MapsController extends Controller
         $latitude = session('latitude');
         $longitude = session('longitude');
 
-        info('calculate distance new: ' . $latitude);
-        info('calculate distance new: ' . $longitude);
+        info('calculate distance: ' . $latitude);
+        info('calculate distance: ' . $longitude);
 
         // $users = User::all();
         $user = auth()->user();
