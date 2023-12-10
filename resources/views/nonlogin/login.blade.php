@@ -69,10 +69,10 @@
                                         <a class="small" href="/register">Create an Account!</a>
                                     </div>
 
-                                    <div>
+                                    {{-- <div>
                                         <input type="hidden" name="csrf-token" id="csrf-token" value="{{ csrf_token() }}">
                                         <p id="demo"></p>
-                                    </div>
+                                    </div> --}}
 
                                 </div>
                             </div>
@@ -97,7 +97,7 @@
     <script src="/template/js/sb-admin-2.min.js"></script>
 
     <!-- Get Location in Login -->
-    <script>
+    {{-- <script>
         console.log('login js');
         const x = document.getElementById("demo");
 
@@ -150,7 +150,7 @@
             getLocation();
         };
 
-    </script>
+    </script> --}}
 
 </body>
 

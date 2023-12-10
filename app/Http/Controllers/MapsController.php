@@ -33,26 +33,26 @@ class MapsController extends Controller
         }
     }
 
-    // public function dataLatLong(Request $request)
-    // {
-    //     $latitude = $request->input('latitude');
-    //     $longitude = $request->input('longitude');
+    public function dataLatLong(Request $request)
+    {
+        $latitude = $request->input('latitude');
+        $longitude = $request->input('longitude');
 
-    //     $request->session()->forget('latitude');
-    //     $request->session()->forget('longitude');
+        $request->session()->forget('latitude');
+        $request->session()->forget('longitude');
 
-    //     session(['latitude' => $latitude]);
-    //     session(['longitude' => $longitude]);
+        session(['latitude' => $latitude]);
+        session(['longitude' => $longitude]);
 
-    //     info('\n');
-    //     info('data lat long: ' . $latitude);
-    //     info('data lat long: ' . $longitude);
+        info('\n');
+        info('data lat long: ' . $latitude);
+        info('data lat long: ' . $longitude);
 
-    //     // return response()->json([
-    //     //     'latitude' => $latitude,
-    //     //     'longitude' => $longitude
-    //     // ]);
-    // }
+        // return response()->json([
+        //     'latitude' => $latitude,
+        //     'longitude' => $longitude
+        // ]);
+    }
 
     public function calculateDistance(Request $request)
     {
