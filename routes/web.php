@@ -40,11 +40,8 @@ Route::get('/forget', [LoginController::class, 'forget']);
 // // Route::get('/home/laundry', [MenuController::class, 'homeLaundry'])->middleware('auth');
 // Route::get('laundry/{id}', [MenuController::class, 'homeLaundry'])->middleware('auth');
 Route::resource('/register', RegisterController::class);
-
-Route::post('/login', [LoginController::class, 'authenticate'])->middleware('web');
-Route::post('/loginLocation', [LoginController::class, 'showLatLong'])->middleware('web');
-// Route::post('/login', [LoginController::class, 'authenticate']);
-// Route::post('/loginLocation', [LoginController::class, 'showLatLong']);
+Route::post('/login', [LoginController::class, 'authenticate']);
+Route::post('/loginLocation', [LoginController::class, 'showLatLong']);
 
 // Route::resource('/profile', UserController::class)->middleware('auth');
 // Route::resource('/order', OrderController::class)->middleware('auth');
