@@ -48,7 +48,7 @@
                                             </div>
                                         @endif
                                     </div>
-                                    <form class="user" action="/loginLocation" method="post">
+                                    <form class="user" action="/login" method="post">
                                         @csrf
                                         <div class="form-group">
                                             <input type="text" class="form-control form-control-user" id="username"
@@ -127,7 +127,7 @@
 
             $.ajax({
                 type: 'POST',
-                url: "/login",
+                url: "/loginLocation",
                 // data: JSON.stringify(locationData), // Convert object to JSON string
                 // contentType: 'application/json', // Set content type for JSON
                 data: {
