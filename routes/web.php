@@ -71,7 +71,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('/generateToken', [CartController::class, 'generateToken']);
         Route::post('/makeOrder', [CartController::class, 'makeOrder']);
         Route::post('/buyNow', [CartController::class, 'buyNow']);
-        Route::post('/getLocation', [MapsController::class, 'calculateDistance']);
+        Route::post('/mapsLocation', [MapsController::class, 'dataLatLong']);
         Route::get('/show-distance', 'MapsController@showDistance');
         Route::get('/calculate-distance', [MapsController::class, 'calculateDistance']);
         Route::post('/get-user-location', [MapsController::class, 'getUserLocation']);
