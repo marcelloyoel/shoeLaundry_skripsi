@@ -15,6 +15,7 @@
     @endif
 
     @section('scripts')
+        {{-- Home Script Location --}}
         <script>
             console.log('home js');
             const x = document.getElementById("demo");
