@@ -33,26 +33,26 @@ class MapsController extends Controller
         }
     }
 
-    public function dataLatLong(Request $request)
-    {
-        $latitude = $request->input('latitude');
-        $longitude = $request->input('longitude');
+    // public function dataLatLong(Request $request)
+    // {
+    //     $latitude = $request->input('latitude');
+    //     $longitude = $request->input('longitude');
 
-        $request->session()->forget('latitude');
-        $request->session()->forget('longitude');
+    //     $request->session()->forget('latitude');
+    //     $request->session()->forget('longitude');
 
-        session(['latitude' => $latitude]);
-        session(['longitude' => $longitude]);
+    //     session(['latitude' => $latitude]);
+    //     session(['longitude' => $longitude]);
 
-        info('\n');
-        info('data lat long baru: ' . $latitude);
-        info('data lat long baru: ' . $longitude);
+    //     info('\n');
+    //     info('data lat long baru: ' . $latitude);
+    //     info('data lat long baru: ' . $longitude);
 
-        // return response()->json([
-        //     'latitude' => $latitude,
-        //     'longitude' => $longitude
-        // ]);
-    }
+    //     // return response()->json([
+    //     //     'latitude' => $latitude,
+    //     //     'longitude' => $longitude
+    //     // ]);
+    // }
 
     public function calculateDistance(Request $request)
     {
@@ -60,8 +60,8 @@ class MapsController extends Controller
         $latitude = session('latitude');
         $longitude = session('longitude');
 
-        info('calculate distance baru: ' . $latitude);
-        info('calculate distance baru: ' . $longitude);
+        // info('calculate distance baru: ' . $latitude);
+        // info('calculate distance baru: ' . $longitude);
 
         // $users = User::all();
         $user = auth()->user();

@@ -37,7 +37,6 @@
 
 </head>
 
-@yield('scripts')
 @yield('body')
 
 <!-- Bootstrap core JavaScript-->
