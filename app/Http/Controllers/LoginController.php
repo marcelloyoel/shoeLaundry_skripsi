@@ -40,8 +40,8 @@ class LoginController extends Controller
             'password' => ['required']
         ]);
 
-        $latitude = session('latitude');
-        $longitude = session('longitude');
+        // $latitude = session('latitude');
+        // $longitude = session('longitude');
 
         // info('Auth func 1: ' . $latitude);
         // info('Auth func 1: ' . $longitude);
@@ -72,10 +72,10 @@ class LoginController extends Controller
                 }
             }
 
-            $user = Auth::user();
-            $user->latitude = $latitude;
-            $user->longitude = $longitude;
-            $user->save();
+            // $user = Auth::user();
+            // $user->latitude = $latitude;
+            // $user->longitude = $longitude;
+            // $user->save();
 
             return redirect()->intended('/home');
             //code di atas supaya ngeredirect tapi lewat middleware dulu

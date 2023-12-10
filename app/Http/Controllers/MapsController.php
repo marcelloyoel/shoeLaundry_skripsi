@@ -51,6 +51,9 @@ class MapsController extends Controller
 
         // dd($latitude, $longitude);
 
+        $latitude = session('latitude');
+        $longitude = session('longitude');
+
         // $users = User::all();
         $user = auth()->user();
         if ($user) {
@@ -61,7 +64,7 @@ class MapsController extends Controller
             // } else {
             // if ip address is public
             // $origin = session('temp_address') ?? $currentUserInfo->latitude . ', ' . $currentUserInfo->longitude;
-            $origin = session('temp_address') ?? $user->latitude . ', ' . $user->longitude;
+            $origin = session('temp_address') ?? $latitude . ', ' . $longitude;
             // $origin = 'hypermart villa melati mas';
             // }
 
