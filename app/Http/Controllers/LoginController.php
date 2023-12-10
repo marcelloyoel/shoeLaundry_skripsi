@@ -24,8 +24,8 @@ class LoginController extends Controller
         session(['latitude' => $latitude]);
         session(['longitude' => $longitude]);
 
-        info('Received Latitude when Login: ' . $latitude);
-        info('Received Longitude when Login: ' . $longitude);
+        info('showLatLong func: ' . $latitude);
+        info('showLatLong func: ' . $longitude);
 
         // return response()->json([
         //     'latitude' => $latitude,
@@ -43,8 +43,8 @@ class LoginController extends Controller
         $latitude = session('latitude');
         $longitude = session('longitude');
 
-        info('Received Latitude when Login in Auth func: ' . $latitude);
-        info('Received Longitude when Login in Auth func: ' . $longitude);
+        info('Auth func: ' . $latitude);
+        info('Auth func: ' . $longitude);
 
         // return response()->json([
         //     'latitude' => $latitude,
