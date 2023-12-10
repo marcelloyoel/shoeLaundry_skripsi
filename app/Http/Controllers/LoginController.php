@@ -21,8 +21,6 @@ class LoginController extends Controller
         $latitude = $request->input('latitude');
         $longitude = $request->input('longitude');
 
-        dd("test");
-
         session(['latitude' => $latitude]);
         session(['longitude' => $longitude]);
 
@@ -37,7 +35,6 @@ class LoginController extends Controller
 
     public function authenticate(Request $request)
     {
-        dd("test 2");
         $credentials = $request->validate([
             'username' => ['required'],
             'password' => ['required']
