@@ -24,8 +24,8 @@ class LoginController extends Controller
         session(['latitude' => $latitude]);
         session(['longitude' => $longitude]);
 
-        info('showLatLong func 1: ' . $latitude);
-        info('showLatLong func 1: ' . $longitude);
+        // info('showLatLong func 1: ' . $latitude);
+        // info('showLatLong func 1: ' . $longitude);
 
         // return response()->json([
         //     'latitude' => $latitude,
@@ -43,8 +43,8 @@ class LoginController extends Controller
         $latitude = session('latitude');
         $longitude = session('longitude');
 
-        info('Auth func 1: ' . $latitude);
-        info('Auth func 1: ' . $longitude);
+        // info('Auth func 1: ' . $latitude);
+        // info('Auth func 1: ' . $longitude);
 
         // return response()->json([
         //     'latitude' => $latitude,
@@ -71,6 +71,12 @@ class LoginController extends Controller
                     ]);
                 }
             }
+
+            $user = Auth::user();
+            $user->latitude = $latitude;
+            $user->longitude = $longitude;
+            $user->save();
+
             return redirect()->intended('/home');
             //code di atas supaya ngeredirect tapi lewat middleware dulu
         }
