@@ -21,9 +21,6 @@ class LoginController extends Controller
         $latitude = $request->input('latitude');
         $longitude = $request->input('longitude');
 
-        $request->session()->forget('latitude');
-        $request->session()->forget('longitude');
-
         session(['latitude' => $latitude]);
         session(['longitude' => $longitude]);
 
@@ -102,6 +99,8 @@ class LoginController extends Controller
     public function logout(Request $request)
     {
         Auth::logout();
+        $request->session()->forget('latitude');
+        $request->session()->forget('longitude');
         $request->session()->invalidate();
         $request->session()->regenerateToken();
         return redirect('/');

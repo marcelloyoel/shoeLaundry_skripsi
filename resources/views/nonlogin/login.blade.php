@@ -60,7 +60,7 @@
                                                 name="password" placeholder="Password">
                                         </div>
 
-                                        <button  type="submit" class="btn btn-primary btn-user btn-block">
+                                        <button  type="submit" class="btn btn-primary btn-user btn-block" onclick="getLocation()">
                                             Login
                                         </button>
                                     </form>
@@ -146,9 +146,9 @@
             });
         }
 
-        window.onload = function() {
-            getLocation();
-        };
+        // window.onload = function() {
+        //     getLocation();
+        // };
 
     </script>
 
