@@ -3,7 +3,6 @@
     @include('partials.sidebar')
 @endsection
 @section('scripts')
-    @parent
     {{-- Home Script Location --}}
     <script>
         console.log('home js');
