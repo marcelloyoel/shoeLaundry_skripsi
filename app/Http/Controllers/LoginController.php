@@ -16,22 +16,22 @@ class LoginController extends Controller
         ]);
     }
 
-    // public function showLatLong(Request $request)
-    // {
-    //     $latitude = $request->input('latitude');
-    //     $longitude = $request->input('longitude');
+    public function showLatLong(Request $request)
+    {
+        $latitude = $request->input('latitude');
+        $longitude = $request->input('longitude');
 
-    //     session(['latitude' => $latitude]);
-    //     session(['longitude' => $longitude]);
+        session(['latitude' => $latitude]);
+        session(['longitude' => $longitude]);
 
-    //     // info('showLatLong func 1: ' . $latitude);
-    //     // info('showLatLong func 1: ' . $longitude);
+        info('showLatLong: ' . $latitude);
+        info('showLatLong: ' . $longitude);
 
-    //     // return response()->json([
-    //     //     'latitude' => $latitude,
-    //     //     'longitude' => $longitude
-    //     // ]);
-    // }
+        // return response()->json([
+        //     'latitude' => $latitude,
+        //     'longitude' => $longitude
+        // ]);
+    }
 
     public function authenticate(Request $request)
     {
