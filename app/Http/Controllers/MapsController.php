@@ -45,8 +45,8 @@ class MapsController extends Controller
         session(['longitude' => $longitude]);
 
         info('\n');
-        info('data lat long: ' . $latitude);
-        info('data lat long: ' . $longitude);
+        info('data lat long baru: ' . $latitude);
+        info('data lat long baru: ' . $longitude);
 
         // return response()->json([
         //     'latitude' => $latitude,
@@ -60,8 +60,8 @@ class MapsController extends Controller
         $latitude = session('latitude');
         $longitude = session('longitude');
 
-        info('calculate distance: ' . $latitude);
-        info('calculate distance: ' . $longitude);
+        info('calculate distance baru: ' . $latitude);
+        info('calculate distance baru: ' . $longitude);
 
         // $users = User::all();
         $user = auth()->user();
