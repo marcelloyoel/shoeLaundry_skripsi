@@ -42,10 +42,10 @@ class LoginController extends Controller
         info('Received Latitude when Login in Auth func: ' . $latitude);
         info('Received Longitude when Login in Auth func: ' . $longitude);
 
-        return response()->json([
-            'latitude' => $latitude,
-            'longitude' => $longitude
-        ]);
+        // return response()->json([
+        //     'latitude' => $latitude,
+        //     'longitude' => $longitude
+        // ]);
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();

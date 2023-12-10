@@ -127,7 +127,7 @@
 
             $.ajax({
                 type: 'POST',
-                url: "/loginLocation",
+                url: "/login",
                 // data: JSON.stringify(locationData), // Convert object to JSON string
                 // contentType: 'application/json', // Set content type for JSON
                 data: {
