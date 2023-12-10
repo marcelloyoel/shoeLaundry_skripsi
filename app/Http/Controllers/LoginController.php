@@ -36,6 +36,11 @@ class LoginController extends Controller
             'username' => ['required'],
             'password' => ['required']
         ]);
+        $latitude = $request->input('latitude');
+        $longitude = $request->input('longitude');
+
+        info('Received Latitude when Login in Auth func: ' . $latitude);
+        info('Received Longitude when Login in Auth func: ' . $longitude);
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
             //code di atas cuman untuk membuat website lebih aman
