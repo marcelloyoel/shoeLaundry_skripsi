@@ -121,6 +121,8 @@
                 </nav>
                 <!-- End of Topbar -->
 
+                @yield('scripts')
+
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 

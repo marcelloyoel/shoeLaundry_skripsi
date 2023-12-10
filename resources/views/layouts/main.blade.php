@@ -35,8 +35,6 @@
         $.fn.selectpicker.Constructor.BootstrapVersion = '4.5.2';
     </script>
 
-    @yield('scripts')
-
 </head>
 
 @yield('body')
