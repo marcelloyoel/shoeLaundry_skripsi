@@ -11,6 +11,8 @@
         </ul>
         <!-- End of Sidebar -->
 
+        @yield('scripts')
+
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
 
@@ -120,8 +122,6 @@
 
                 </nav>
                 <!-- End of Topbar -->
-
-                @yield('scripts')
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
