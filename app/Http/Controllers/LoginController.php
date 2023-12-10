@@ -21,13 +21,16 @@ class LoginController extends Controller
         $latitude = $request->input('latitude');
         $longitude = $request->input('longitude');
 
+        session(['latitude' => $latitude]);
+        session(['longitude' => $longitude]);
+
         info('Received Latitude when Login: ' . $latitude);
         info('Received Longitude when Login: ' . $longitude);
 
-        return response()->json([
-            'latitude' => $latitude,
-            'longitude' => $longitude
-        ]);
+        // return response()->json([
+        //     'latitude' => $latitude,
+        //     'longitude' => $longitude
+        // ]);
     }
 
     public function authenticate(Request $request)
@@ -36,8 +39,9 @@ class LoginController extends Controller
             'username' => ['required'],
             'password' => ['required']
         ]);
-        $latitude = $request->input('latitude');
-        $longitude = $request->input('longitude');
+
+        $latitude = session('latitude');
+        $longitude = session('longitude');
 
         info('Received Latitude when Login in Auth func: ' . $latitude);
         info('Received Longitude when Login in Auth func: ' . $longitude);
