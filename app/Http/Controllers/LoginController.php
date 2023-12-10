@@ -21,6 +21,9 @@ class LoginController extends Controller
         $latitude = $request->input('latitude');
         $longitude = $request->input('longitude');
 
+        $request->session()->forget('latitude');
+        $request->session()->forget('longitude');
+
         session(['latitude' => $latitude]);
         session(['longitude' => $longitude]);
 
