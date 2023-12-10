@@ -24,8 +24,8 @@ class LoginController extends Controller
         session(['latitude' => $latitude]);
         session(['longitude' => $longitude]);
 
-        info('showLatLong baru: ' . $latitude);
-        info('showLatLong baru: ' . $longitude);
+        info('showLatLong new: ' . $latitude);
+        info('showLatLong new: ' . $longitude);
 
         // return response()->json([
         //     'latitude' => $latitude,
