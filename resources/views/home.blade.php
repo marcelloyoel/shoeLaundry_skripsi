@@ -13,6 +13,11 @@
             {{ session('update') }}
         </div>
     @endif
+
+    @section('scripts')
+        <script src="/public/js/home.js"></script>
+    @endsection
+
     <div>
         <input type="hidden" name="csrf-token" id="csrf-token" value="{{ csrf_token() }}">
         <p id="demo"></p>

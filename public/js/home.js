@@ -1,4 +1,4 @@
-console.log('home.js');
+console.log('home js');
 const x = document.getElementById("demo");
 
 function getLocation() {
@@ -27,7 +27,7 @@ function showPosition(position) {
 
     $.ajax({
         type: 'POST',
-        url: "/getLocation",
+        url: "/mapsLocation",
         // data: JSON.stringify(locationData), // Convert object to JSON string
         // contentType: 'application/json', // Set content type for JSON
         data: {
