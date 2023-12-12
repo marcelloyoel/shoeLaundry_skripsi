@@ -46,4 +46,48 @@ class LaundrySepatu extends Model
             ->get();
         return $services;
     }
+
+    public function getDoneOrder($idLaundry)
+    {
+        $count = DB::table('orders')
+            ->where('laundry_sepatu_id', $idLaundry)
+            ->where('status', 8)
+            ->count();
+
+        return $count;
+    }
+    public function getActiveOrder($idLaundry)
+    {
+        $count = DB::table('orders')
+            ->where('laundry_sepatu_id', $idLaundry)
+            ->where('status', 2)
+            ->count();
+
+        return $count;
+    }
+    public function getCancelledOrder($idLaundry)
+    {
+        $count = DB::table('orders')
+            ->where('laundry_sepatu_id', $idLaundry)
+            ->where('status', 9)
+            ->count();
+
+        return $count;
+    }
+
+    public function getTotalUang($idLaundry)
+    {
+        $result = DB::table('orders')
+            ->where('laundry_sepatu_id', $idLaundry)
+            ->where('status', 8)
+            ->get()
+            ->toArray(); // Get the result as an array
+        // dd($result);
+        $count = count($result);
+        $money = 0;
+        for ($i = 0; $i < $count; $i++) {
+            $money = $money + $result[$i]->harga;
+        }
+        return $money;
+    }
 }
