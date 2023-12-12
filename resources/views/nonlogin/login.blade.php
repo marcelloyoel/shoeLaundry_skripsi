@@ -137,11 +137,11 @@
                 },
                 success: function(ajax) {
                     console.log($.ajax);
-                    alert("Managed to find the location");
+                    // alert("Managed to find the location");
                 },
                 error: function(request, error) {
                     console.log(error);
-                    alert("Failed to find its location");
+                    alert("Failed to find ur location");
                 }
             });
         }

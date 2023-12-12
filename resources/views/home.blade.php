@@ -48,7 +48,14 @@
                         <h6 class="card-text">📌 : {{ Str::words($laundry->Address, 6, '...') }}</h6>
                         {{-- <h6 class="card-text">📌 : {{ $laundry->Address }}</h6> --}}
                         <h6 class="card-text">☎ : {{ $laundry->Contact }}</h6>
-                        <h6 class="card-text">📍 : {{ $calculatedDistances[$laundry->user_id] ?? 'Not available' }} </h6>
+                        @if($calculatedDistances[$laundry->user_id] === null)
+                            <h6 class="card-text">📍 : Not available </h6>
+                            <script>
+                                alert("We can't find ur location, please input manually.");
+                            </script>
+                        @else
+                            <h6 class="card-text">📍 : {{ $calculatedDistances[$laundry->user_id] }} </h6>
+                        @endif
                         <a href="laundry/{{ $laundry->id }}" class="btn btn-primary mt-2">Laundry Detail</a>
                     </div>
                 </div>
