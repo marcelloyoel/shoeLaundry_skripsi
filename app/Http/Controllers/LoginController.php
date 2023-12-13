@@ -15,43 +15,12 @@ class LoginController extends Controller
             'title' => 'Halaman Login'
         ]);
     }
-
-    public function showLatLong(Request $request)
-    {
-        $latitude = $request->input('latitude');
-        $longitude = $request->input('longitude');
-
-        session(['latitude' => $latitude]);
-        session(['longitude' => $longitude]);
-
-        info('');
-        info('showLatLong: ' . $latitude);
-        info('showLatLong: ' . $longitude);
-
-        // return response()->json([
-        //     'latitude' => $latitude,
-        //     'longitude' => $longitude
-        // ]);
-    }
-
     public function authenticate(Request $request)
     {
         $credentials = $request->validate([
             'username' => ['required'],
             'password' => ['required']
         ]);
-
-        // $latitude = session('latitude');
-        // $longitude = session('longitude');
-
-        // info('Auth func 1: ' . $latitude);
-        // info('Auth func 1: ' . $longitude);
-
-        // return response()->json([
-        //     'latitude' => $latitude,
-        //     'longitude' => $longitude
-        // ]);
-
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
             //code di atas cuman untuk membuat website lebih aman
@@ -73,12 +42,6 @@ class LoginController extends Controller
                     ]);
                 }
             }
-
-            // $user = Auth::user();
-            // $user->latitude = $latitude;
-            // $user->longitude = $longitude;
-            // $user->save();
-
             return redirect()->intended('/home');
             //code di atas supaya ngeredirect tapi lewat middleware dulu
         }
@@ -100,8 +63,6 @@ class LoginController extends Controller
     public function logout(Request $request)
     {
         Auth::logout();
-        $request->session()->forget('latitude');
-        $request->session()->forget('longitude');
         $request->session()->invalidate();
         $request->session()->regenerateToken();
         return redirect('/');
