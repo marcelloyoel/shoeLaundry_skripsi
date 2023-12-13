@@ -105,7 +105,6 @@ class LaundrySepatuController extends Controller
         //
         $rules = [
             'laundrySepatuName' => ['required'],
-            'laundrySepatuSlug' => ['required'],
             'bio' => ['required'],
             'Address' => ['required'],
             'Contact' => ['required'],

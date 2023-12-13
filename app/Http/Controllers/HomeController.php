@@ -12,6 +12,11 @@ use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
 {
+    protected $model;
+    public function __construct()
+    {
+        $this->model = new LaundrySepatu();
+    }
     public function index(Request $request)
     {
         // dd('hello');
@@ -52,12 +57,20 @@ class HomeController extends Controller
         } else if (Auth::user()->group_id == 2) {
             $user = Auth::user();
             $laundry = $user->laundrySepatu;
+            $doneOrder = $this->model->getDoneOrder($laundry->id);
+            $activeOrder = $this->model->getActiveOrder($laundry->id);
+            $cancelledOrder = $this->model->getCancelledOrder($laundry->id);
+            $total = $this->model->getTotalUang($laundry->id);
+            // dd($total);
             $services = Service::where('laundry_sepatu_id', $laundry->id)->get();
             return view('homeLaundry', [
-                'title' => 'Halaman Home',
-                'laundry'   => $laundry,
-                'services' => $services,
-                'javascript'    => 'home.js'
+                'title'         => 'Halaman Home',
+                'laundry'       => $laundry,
+                'services'      => $services,
+                'doneOrder'     => $doneOrder,
+                'activeOrder'   => $activeOrder,
+                'cancelledOrder' => $cancelledOrder,
+                'total'         => $total
             ]);
         } else {
             return view('homeAdmin', [
