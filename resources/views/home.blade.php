@@ -82,8 +82,11 @@
     </div>
     <div>
         <script>
-            @if(session('latitude') === null && session('longitude') === null)
-                alert('We cant find ur location, please input manually!');
+            @if(!Session::has('locationAlertShown'))
+                @if(session('latitude') === null && session('longitude') === null)
+                    alert('We can\'t find your location, please input manually!');
+                @endif
+                {{ Session::put('locationAlertShown', true) }}
             @endif
         </script>
     </div>

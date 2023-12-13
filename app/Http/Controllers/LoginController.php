@@ -80,6 +80,7 @@ class LoginController extends Controller
     public function logout(Request $request)
     {
         Auth::logout();
+        $request->session()->forget('temp_address');
         $request->session()->forget('latitude');
         $request->session()->forget('longitude');
         $request->session()->invalidate();
