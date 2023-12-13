@@ -63,8 +63,28 @@ class LoginController extends Controller
     public function logout(Request $request)
     {
         Auth::logout();
+        $request->session()->forget('latitude');
+        $request->session()->forget('longitude');
         $request->session()->invalidate();
         $request->session()->regenerateToken();
         return redirect('/');
+    }
+
+    public function showLatLong(Request $request)
+    {
+        $latitude = $request->input('latitude');
+        $longitude = $request->input('longitude');
+
+        session(['latitude' => $latitude]);
+        session(['longitude' => $longitude]);
+
+        info('');
+        info('showLatLong: ' . $latitude);
+        info('showLatLong: ' . $longitude);
+
+        // return response()->json([
+        //     'latitude' => $latitude,
+        //     'longitude' => $longitude
+        // ]);
     }
 }
