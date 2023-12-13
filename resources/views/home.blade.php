@@ -80,4 +80,12 @@
         </div>
 
     </div>
+
+    <div>
+        @if ($calculatedDistances[$laundry->user_id] === null)
+            <script>
+                alert("We can't find ur location, please input manually.");
+            </script>
+        @endif
+    </div>
 @endsection
