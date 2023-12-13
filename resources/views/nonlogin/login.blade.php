@@ -146,7 +146,7 @@
                 },
                 error: function(request, error) {
                     console.log(error);
-                    alert("Failed to find your location");
+                    alert("We can't find ur location, please enter manually!");
                 }
             });
         }
