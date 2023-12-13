@@ -1,4 +1,4 @@
-console.log('test home js');
+console.log('home js');
 const x = document.getElementById("demo");
 
 function getLocation() {
@@ -18,21 +18,30 @@ function showPosition(position) {
 
     var csrf = $("#csrf-token").val();
 
+    // Create a JavaScript object with latitude and longitude
+    var locationData = {
+        _token: csrf,
+        latitude: latitude,
+        longitude: longitude
+    };
+
     $.ajax({
         type: 'POST',
-        url: "/getLocation",
+        url: "/mapsLocation",
+        // data: JSON.stringify(locationData), // Convert object to JSON string
+        // contentType: 'application/json', // Set content type for JSON
         data: {
             _token:         csrf,
-            latitude: position.coords.latitude,
-            longitude: position.coords.longitude
+            latitude: latitude,
+            longitude: longitude
         },
         success: function(ajax) {
             console.log($.ajax);
-            alert("Berhasil");
+            alert("Managed to find the location");
         },
         error: function(request, error) {
             console.log(error);
-            alert("Gagal");
+            alert("Failed to find its location");
         }
     });
 }
