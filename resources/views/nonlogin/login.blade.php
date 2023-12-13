@@ -76,7 +76,7 @@
                                     </div>
 
                                     <div>
-                                        <input type="hidden" name="csrf-token" id="csrf-token" value="{{ csrf_token() }}">
+                                        {{-- <input type="hidden" name="csrf-token" id="csrf-token" value="{{ csrf_token() }}"> --}}
                                         <p id="demo"></p>
                                     </div>
 
@@ -146,7 +146,7 @@
                 },
                 error: function(request, error) {
                     console.log(error);
-                    alert("We can't find ur location, please enter manually!");
+                    // alert("We can't find ur location");
                 }
             });
         }
