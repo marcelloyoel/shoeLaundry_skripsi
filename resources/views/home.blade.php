@@ -13,11 +13,6 @@
             {{ session('update') }}
         </div>
     @endif
-    <div>
-        <input type="hidden" name="csrf-token" id="csrf-token" value="{{ csrf_token() }}">
-        <p id="demo"></p>
-    </div>
-
     <div class="row">
         <div class="col-md-6">
             <form action="{{ route('update-address') }}" method="post">
@@ -84,5 +79,13 @@
             </nav>
         </div>
 
+    </div>
+
+    <div>
+        @if ($calculatedDistances[$laundry->user_id] === null)
+            <script>
+                alert("We can't find ur location, please input manually.");
+            </script>
+        @endif
     </div>
 @endsection

@@ -8,12 +8,55 @@ use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
-use Stevebauman\Location\Facades\Location;
-use Illuminate\Support\Facades\Http;
+
 
 class MapsController extends Controller
 {
     public function updateAddress(Request $request)
+<<<<<<< HEAD
+=======
+    {
+        $user = auth()->user();
+
+        if ($user) {
+            try {
+                $updatedAddress = $request->input('address');
+
+                // Store the updated address in the session
+                session(['temp_address' => $updatedAddress]);
+
+                return redirect()->back()->with('success', 'Address updated successfully!');
+            } catch (\Exception $e) {
+                dd($e->getMessage());
+            }
+        } else {
+            return redirect()->back()->with('error', 'User not authenticated');
+        }
+    }
+
+    // public function dataLatLong(Request $request)
+    // {
+    //     $latitude = $request->input('latitude');
+    //     $longitude = $request->input('longitude');
+
+    //     $request->session()->forget('latitude');
+    //     $request->session()->forget('longitude');
+
+    //     session(['latitude' => $latitude]);
+    //     session(['longitude' => $longitude]);
+
+    //     info('\n');
+    //     info('data lat long baru: ' . $latitude);
+    //     info('data lat long baru: ' . $longitude);
+
+    //     // return response()->json([
+    //     //     'latitude' => $latitude,
+    //     //     'longitude' => $longitude
+    //     // ]);
+    // }
+
+    public function calculateDistance(Request $request)
+>>>>>>> updated-payment-gateaway-fix
     {
         $user = auth()->user();
 
@@ -52,6 +95,7 @@ class MapsController extends Controller
         $user = auth()->user();
         if ($user) {
 
+<<<<<<< HEAD
             if ($currentUserInfo === false) {
                 // if ip address is private
                 $origin = session('temp_address') ?? $user->address;
@@ -60,6 +104,19 @@ class MapsController extends Controller
                 // $origin = session('temp_address') ?? $currentUserInfo->latitude . ', ' . $currentUserInfo->longitude;
                 $origin = session('temp_address') ?? $latitude . ', ' . $longitude;
             }
+=======
+            // if ($currentUserInfo === false) {
+            // if ip address is private
+            // $origin = session('temp_address') ?? $user->address;
+            // } else {
+            // if ip address is public
+            // $origin = session('temp_address') ?? $currentUserInfo->latitude . ', ' . $currentUserInfo->longitude;
+            $origin = session('temp_address') ?? $latitude . ', ' . $longitude;
+            // $origin = 'hypermart villa melati mas';
+            // }
+
+            // echo "Logged-in User Address: $origin";
+>>>>>>> updated-payment-gateaway-fix
         } else {
             // echo "User not authenticated";
         }
@@ -106,7 +163,7 @@ class MapsController extends Controller
                     $distances[$user->id] = $distance;
 
                     // If you want to store the distance in the $laundrySepatu model, you can do so here
-                    // $laundrySepatu->update(['distance' => $distance]);
+                    $laundrySepatu->update(['distance' => $distance]);
                 } else {
                     // Handle the case where the expected keys are not present
                     // echo "Invalid response structure for user: $user->displayName\n";
@@ -126,10 +183,17 @@ class MapsController extends Controller
         return response()->json(['message' => 'Distance calculation completed']);
     }
 
+<<<<<<< HEAD
     public function showDistance(Request $request)
     {
         // Call calculateDistance to ensure the distance is calculated
         $this->calculateDistance($request);
+=======
+    public function showDistance()
+    {
+        // Call calculateDistance to ensure the distance is calculated
+        $this->calculateDistance();
+>>>>>>> updated-payment-gateaway-fix
 
         // Retrieve the calculated distances from the session
         $calculatedDistances = Session::get('calculated_distances');

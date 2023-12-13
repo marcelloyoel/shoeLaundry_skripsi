@@ -26,8 +26,8 @@
                 <p>{{ $laundry->Address }}</p>
                 <h6><Strong>Contact</Strong></h6>
                 <p>{{ $laundry->Contact }}</p>
-                {{-- <h6><Strong>Distance</Strong></h6>
-                <p>{{ $laundry->distance }}</p> --}}
+                <h6><Strong>Distance</Strong></h6>
+                <p>{{ $laundry->distance }}</p>
             </div>
             <div class="row1 my-3">
                 <h6><Strong>Services</Strong></h6>
