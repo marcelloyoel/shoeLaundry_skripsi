@@ -40,7 +40,7 @@ class LaundrySepatuSeeder extends Seeder
             'user_id'   => 35,
             'laundrySepatuName' => 'Sneakers Syndicate',
             'bio' => 'SA\'s Exclusive Sneaker & Streetwear Marketplace',
-            'address' => 'Summarecon Mall Serpong',
+            'address' => 'Lobby basement 5 BA 20, Sumarecon Mall Serpong',
             'contact' => '087878649308',
             'picture' => 'SneakerSyndicate.jpg',
         ]);

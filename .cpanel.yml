@@ -9,4 +9,3 @@ deployment:
     - /bin/cp -R public/index.php $DEPLOYPATH
     - /bin/cp -R public/robot.txt $DEPLOYPATH
     - /bin/cp -R public/vendor $DEPLOYPATH
-#

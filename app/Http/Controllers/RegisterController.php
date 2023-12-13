@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\LaundrySepatu;
 use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
@@ -57,7 +58,7 @@ class RegisterController extends Controller
 
         if ($request->input('group_id') == 2) {
             $rules['laundry-laundrySepatuName'] = ['required'];
-            $rules['laundry-laundrySepatuSlug'] = ['required'];
+            // $rules['laundry-laundrySepatuSlug'] = ['required'];
             $rules['laundry-bio'] = ['required'];
             $rules['laundry-address'] = ['required'];
             $rules['laundry-contact'] = ['required'];
@@ -81,7 +82,7 @@ class RegisterController extends Controller
             $laundryData = [
                 'user_id' => $user->id,
                 'laundrySepatuName' => $validatedData['laundry-laundrySepatuName'],
-                'laundrySepatuSlug' => $validatedData['laundry-laundrySepatuSlug'],
+                // 'laundrySepatuSlug' => $validatedData['laundry-laundrySepatuSlug'],
                 'bio' => $validatedData['laundry-bio'],
                 'Address' => $validatedData['laundry-address'],
                 'Contact' => $validatedData['laundry-contact'],
@@ -98,7 +99,9 @@ class RegisterController extends Controller
             LaundrySepatu::create($laundryData);
         }
 
-        return redirect('/');
+        // return redirect('/');
+        Auth::login($user);
+        return redirect('/home');
     }
 
 

@@ -54,8 +54,8 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="username">Username</label>
-                                    <input type="text" class="form-control @error('username') is-invalid @enderror" id="username"
-                                        value="{{ old('username') }}" name="username" required autofocus>
+                                    <input type="text" class="form-control @error('username') is-invalid @enderror"
+                                        id="username" value="{{ old('username') }}" name="username" required autofocus>
                                     @error('username')
                                         <div class="invalid-feedback mb-2">
                                             {{ $message }}
@@ -64,7 +64,8 @@
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="displayName">Display Name</label>
-                                    <input type="displayName" class="form-control @error('displayName') is-invalid @enderror" id="displayName"
+                                    <input type="displayName"
+                                        class="form-control @error('displayName') is-invalid @enderror" id="displayName"
                                         value="{{ old('displayName') }}" name="displayName" required>
                                     @error('displayName')
                                         <div class="invalid-feedback mb-2">
@@ -85,8 +86,8 @@
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="email">Email</label>
-                                    <input type="email" class="form-control @error('email') is-invalid @enderror" id="email"
-                                        value="{{ old('email') }}" name="email">
+                                    <input type="email" class="form-control @error('email') is-invalid @enderror"
+                                        id="email" value="{{ old('email') }}" name="email">
                                     @error('email')
                                         <div class="invalid-feedback mb-2">
                                             {{ $message }}
@@ -97,7 +98,8 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="phoneNumber">Phone Number</label>
-                                    <input type="text" class="form-control @error('phoneNumber') is-invalid @enderror" id="phoneNumber"
+                                    <input type="text"
+                                        class="form-control @error('phoneNumber') is-invalid @enderror" id="phoneNumber"
                                         value="{{ old('phoneNumber') }}" name="phoneNumber">
                                     @error('phoneNumber')
                                         <div class="invalid-feedback mb-2">
@@ -107,15 +109,15 @@
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="password">Password</label>
-                                    <input type="password" class="form-control @error('password') is-invalid @enderror" id="password"
-                                        value="{{ old('password') }}" name="password">
+                                    <input type="password" class="form-control @error('password') is-invalid @enderror"
+                                        id="password" value="{{ old('password') }}" name="password">
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="picture">Profile Picture</label>
-                                    <input type="file" class="form-control @error('picture') is-invalid @enderror" id="picture"
-                                    value="{{ old('picture') }}" name="picture">
+                                    <input type="file" class="form-control @error('picture') is-invalid @enderror"
+                                        id="picture" value="{{ old('picture') }}" name="picture">
                                     @error('picture')
                                         <div class="invalid-feedback mb-2">
                                             {{ $message }}
@@ -140,8 +142,9 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="username">Username</label>
-                                    <input type="text" class="form-control @error('username') is-invalid @enderror" id="username"
-                                        value="{{ old('username') }}" name="username" required autofocus>
+                                    <input type="text" class="form-control @error('username') is-invalid @enderror"
+                                        id="username" value="{{ old('username') }}" name="username" required
+                                        autofocus>
                                     @error('username')
                                         <div class="invalid-feedback mb-2">
                                             {{ $message }}
@@ -150,8 +153,10 @@
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="displayName">Display Name</label>
-                                    <input type="displayName" class="form-control @error('displayName') is-invalid @enderror" id="displayName"
-                                        value="{{ old('displayName') }}" name="displayName" required>
+                                    <input type="displayName"
+                                        class="form-control @error('displayName') is-invalid @enderror"
+                                        id="displayName" value="{{ old('displayName') }}" name="displayName"
+                                        required>
                                     @error('displayName')
                                         <div class="invalid-feedback mb-2">
                                             {{ $message }}
@@ -171,8 +176,8 @@
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="email">Email</label>
-                                    <input type="email" class="form-control @error('email') is-invalid @enderror" id="email"
-                                        value="{{ old('email') }}" name="email">
+                                    <input type="email" class="form-control @error('email') is-invalid @enderror"
+                                        id="email" value="{{ old('email') }}" name="email">
                                     @error('email')
                                         <div class="invalid-feedback mb-2">
                                             {{ $message }}
@@ -183,8 +188,9 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="phoneNumber">Phone Number</label>
-                                    <input type="text" class="form-control @error('phoneNumber') is-invalid @enderror" id="phoneNumber"
-                                        value="{{ old('phoneNumber') }}" name="phoneNumber">
+                                    <input type="text"
+                                        class="form-control @error('phoneNumber') is-invalid @enderror"
+                                        id="phoneNumber" value="{{ old('phoneNumber') }}" name="phoneNumber">
                                     @error('phoneNumber')
                                         <div class="invalid-feedback mb-2">
                                             {{ $message }}
@@ -193,15 +199,16 @@
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="password">Password</label>
-                                    <input type="password" class="form-control @error('password') is-invalid @enderror" id="password"
+                                    <input type="password"
+                                        class="form-control @error('password') is-invalid @enderror" id="password"
                                         value="{{ old('password') }}" name="password">
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="picture">Profile Picture</label>
-                                    <input type="file" class="form-control @error('picture') is-invalid @enderror" id="picture"
-                                    value="{{ old('picture') }}" name="picture">
+                                    <input type="file" class="form-control @error('picture') is-invalid @enderror"
+                                        id="picture" value="{{ old('picture') }}" name="picture">
                                     @error('picture')
                                         <div class="invalid-feedback mb-2">
                                             {{ $message }}
@@ -215,15 +222,17 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="laundry-laundrySepatuName">Laundry Sepatu Name</label>
-                                    <input type="text" class="form-control @error('laundry-laundrySepatuName') is-invalid @enderror" id="laundry-laundrySepatuName"
-                                    value="{{ old('laundry-laundrySepatuName') }}" name="laundry-laundrySepatuName">
+                                    <input type="text"
+                                        class="form-control @error('laundry-laundrySepatuName') is-invalid @enderror"
+                                        id="laundry-laundrySepatuName" value="{{ old('laundry-laundrySepatuName') }}"
+                                        name="laundry-laundrySepatuName">
                                     @error('laundry-laundrySepatuName')
                                         <div class="invalid-feedback mb-2">
                                             {{ $message }}
                                         </div>
                                     @enderror
                                 </div>
-                                <div class="form-group col-md-6">
+                                {{-- <div class="form-group col-md-6">
                                     <label for="laundry-laundrySepatuSlug">Laundry Sepatu Slug</label>
                                     <input type="text" class="form-control @error('laundry-laundrySepatuSlug') is-invalid @enderror" id="laundry-laundrySepatuSlug"
                                     value="{{ old('laundry-laundrySepatuSlug') }}" name="laundry-laundrySepatuSlug">
@@ -232,13 +241,13 @@
                                             {{ $message }}
                                         </div>
                                     @enderror
-                                </div>
+                                </div> --}}
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="laundry-bio">Laundry Sepatu Bio</label>
                                     <textarea class="form-control @error('laundry-bio') is-invalid @enderror" id="laundry-bio"
-                                    value="{{ old('laundry-bio') }}" name="laundry-bio"></textarea>
+                                        value="{{ old('laundry-bio') }}" name="laundry-bio"></textarea>
                                     @error('laundry-bio')
                                         <div class="invalid-feedback mb-2">
                                             {{ $message }}
@@ -248,7 +257,7 @@
                                 <div class="form-group col-md-6">
                                     <label for="laundry-address">Laundry Sepatu Address</label>
                                     <textarea class="form-control @error('laundry-address') is-invalid @enderror" id="laundry-address"
-                                    value="{{ old('laundry-address') }}" name="laundry-address"></textarea>
+                                        value="{{ old('laundry-address') }}" name="laundry-address"></textarea>
                                     @error('laundry-address')
                                         <div class="invalid-feedback mb-2">
                                             {{ $message }}
@@ -259,8 +268,10 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="laundry-contact">Laundry Sepatu Contact</label>
-                                    <input type="text" class="form-control @error('laundry-contact') is-invalid @enderror" id="laundry-contact"
-                                    value="{{ old('laundry-contact') }}" name="laundry-contact">
+                                    <input type="text"
+                                        class="form-control @error('laundry-contact') is-invalid @enderror"
+                                        id="laundry-contact" value="{{ old('laundry-contact') }}"
+                                        name="laundry-contact">
                                     @error('laundry-contact')
                                         <div class="invalid-feedback mb-2">
                                             {{ $message }}
@@ -269,8 +280,10 @@
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="laundry-picture">Laundry Sepatu Picture</label>
-                                    <input type="file" class="form-control @error('laundry-picture') is-invalid @enderror" id="laundry-picture"
-                                    value="{{ old('laundry-picture') }}" name="laundry-picture">
+                                    <input type="file"
+                                        class="form-control @error('laundry-picture') is-invalid @enderror"
+                                        id="laundry-picture" value="{{ old('laundry-picture') }}"
+                                        name="laundry-picture">
                                     @error('laundry-picture')
                                         <div class="invalid-feedback mb-2">
                                             {{ $message }}
@@ -309,7 +322,7 @@
         const buyerForm = document.getElementById('buyer-form');
         const laundryForm = document.getElementById('laundry-form');
 
-        roleDropdown.addEventListener('change', function () {
+        roleDropdown.addEventListener('change', function() {
             const selectedRole = this.value;
 
             if (selectedRole === '1') {

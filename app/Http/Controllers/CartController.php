@@ -194,6 +194,7 @@ class CartController extends Controller
         $id = $request->input('id');
         $itemJson = $request->input('item');
         $item = json_decode($itemJson);
+        dd($item);
 
         Cart::update($item->id, array(
             'quantity' => 1, // so if the current product has a quantity of 4, it will subtract 1 and will result to 3

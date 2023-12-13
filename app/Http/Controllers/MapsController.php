@@ -14,24 +14,24 @@ use Illuminate\Support\Facades\Http;
 class MapsController extends Controller
 {
     public function updateAddress(Request $request)
-    {
-        $user = auth()->user();
+{
+    $user = auth()->user();
 
-        if ($user) {
-            try {
-                $updatedAddress = $request->input('address');
+    if ($user) {
+        try {
+            $updatedAddress = $request->input('address');
 
-                // Store the updated address in the session
-                session(['temp_address' => $updatedAddress]);
+            // Store the updated address in the session
+            session(['temp_address' => $updatedAddress]);
 
-                return redirect()->back()->with('success', 'Address updated successfully!');
-            } catch (\Exception $e) {
-                dd($e->getMessage());
-            }
-        } else {
-            return redirect()->back()->with('error', 'User not authenticated');
+            return redirect()->back()->with('success', 'Address updated successfully!');
+        } catch (\Exception $e) {
+            dd($e->getMessage());
         }
+    } else {
+        return redirect()->back()->with('error', 'User not authenticated');
     }
+}
 
     // public function dataLatLong(Request $request)
     // {
@@ -54,7 +54,7 @@ class MapsController extends Controller
     //     // ]);
     // }
 
-    public function calculateDistance(Request $request)
+public function calculateDistance(Request $request)
     {
 
         $latitude = session('latitude');
@@ -66,7 +66,6 @@ class MapsController extends Controller
         // $users = User::all();
         $user = auth()->user();
         if ($user) {
-
             // if ($currentUserInfo === false) {
             // if ip address is private
             // $origin = session('temp_address') ?? $user->address;
@@ -134,23 +133,24 @@ class MapsController extends Controller
                 // echo "User: $user->name does not have associated LaundrySepatu.\n";
             }
         }
-
-        // dd($data, $distance, $distances);
-
-        // Store the distances in the session or perform other actions
-        Session::put('calculated_distances', $distances);
-
-        // If you want to return a response after processing all users, you can do it here
-        return response()->json(['message' => 'Distance calculation completed']);
     }
 
-    public function showDistance(Request $request)
-    {
-        // Call calculateDistance to ensure the distance is calculated
-        $this->calculateDistance($request);
+    // dd($data, $distance, $distances);
 
-        // Retrieve the calculated distances from the session
-        $calculatedDistances = Session::get('calculated_distances');
+    // Store the distances in the session or perform other actions
+    Session::put('calculated_distances', $distances);
+
+    // If you want to return a response after processing all users, you can do it here
+    return response()->json(['message' => 'Distance calculation completed']);
+}
+
+public function showDistance()
+{
+    // Call calculateDistance to ensure the distance is calculated
+    $this->calculateDistance();
+
+    // Retrieve the calculated distances from the session
+    $calculatedDistances = Session::get('calculated_distances');
 
         return view('your_view', compact('calculatedDistances'));
     }
