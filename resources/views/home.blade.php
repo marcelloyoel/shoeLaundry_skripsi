@@ -82,9 +82,9 @@
     </div>
     <div>
         <script>
-            if(session('latitude') === null && session('longitude') === null) {
+            @if(session('latitude') === null && session('longitude') === null)
                 alert('We cant find ur location, please input manually!');
-            }
+            @endif
         </script>
     </div>
 @endsection
