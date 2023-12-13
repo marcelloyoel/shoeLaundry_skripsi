@@ -80,7 +80,6 @@
         </div>
 
     </div>
-    <?php dd($calculatedDistances); ?>
     {{-- <div>
         @if ($calculatedDistances[$laundry->user_id] === null)
             <script>
