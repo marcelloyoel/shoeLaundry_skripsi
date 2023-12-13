@@ -20,7 +20,8 @@ class RegisterController extends Controller
     public function index()
     {
         return view('nonlogin.register', [
-            'title' => 'Halaman Register'
+            'title' => 'Halaman Register',
+            'javascript'    => 'register.js'
         ]);
     }
 

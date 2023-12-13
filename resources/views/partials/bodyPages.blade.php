@@ -182,36 +182,22 @@
             </div>
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
-        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
-    <!-- Include DataTables library -->
-    <script src="//cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-    <script>
-        let table = new DataTable('#myTable');
-    </script>
-    {{-- openai --}}
-    {{-- <script src="/vendor/snapappointments/bootstrap-select/dist/js/bootstrap-select.min.js"></script> --}}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/js/bootstrap-select.min.js"></script>
     @if (isset($javascript))
         <script src="/js/{{ $javascript }}"></script>
     @endif
 
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+
+    <!-- Include DataTables library -->
+    <script src="//cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
     <script>
-        const roleDropdown = document.getElementById('role');
-        const buyerForm = document.getElementById('buyer-form');
-        const laundryForm = document.getElementById('laundry-form');
-
-        roleDropdown.addEventListener('change', function() {
-            const selectedRole = this.value;
-
-            if (selectedRole === '1') {
-                buyerForm.style.display = 'block';
-                laundryForm.style.display = 'none';
-            } else if (selectedRole === '2') {
-                buyerForm.style.display = 'none';
-                laundryForm.style.display = 'block';
-            }
-        });
+        let table = new DataTable('#myTable');
     </script>
+
+    {{-- openai --}}
+    {{-- <script src="/vendor/snapappointments/bootstrap-select/dist/js/bootstrap-select.min.js"></script> --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/js/bootstrap-select.min.js"></script>
 
 </body>
