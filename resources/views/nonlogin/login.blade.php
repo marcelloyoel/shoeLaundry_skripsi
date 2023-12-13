@@ -75,10 +75,10 @@
                                         <a class="small" href="/register">Create an Account!</a>
                                     </div>
 
-                                    {{-- <div>
+                                    <div>
                                         <input type="hidden" name="csrf-token" id="csrf-token" value="{{ csrf_token() }}">
                                         <p id="demo"></p>
-                                    </div> --}}
+                                    </div>
 
                                 </div>
                             </div>
@@ -146,7 +146,7 @@
                 },
                 error: function(request, error) {
                     console.log(error);
-                    alert("We can't find ur location");
+                    // alert("We can't find ur location");
                 }
             });
         }
