@@ -75,10 +75,10 @@
                                         <a class="small" href="/register">Create an Account!</a>
                                     </div>
 
-                                    <div>
-                                        {{-- <input type="hidden" name="csrf-token" id="csrf-token" value="{{ csrf_token() }}"> --}}
+                                    {{-- <div>
+                                        <input type="hidden" name="csrf-token" id="csrf-token" value="{{ csrf_token() }}">
                                         <p id="demo"></p>
-                                    </div>
+                                    </div> --}}
 
                                 </div>
                             </div>
