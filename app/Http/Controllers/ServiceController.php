@@ -133,8 +133,8 @@ class ServiceController extends Controller
             $uploadedPicture->storeAs('images', $pictureFileName, 'public');
             $validatedData['servicePicture'] = $pictureFileName;
         } else {
-            dd("11");
             $validatedData = $request->validate($rules);
+            dd("11");
         }
 
         // $validatedData = $request->validate($rules);
