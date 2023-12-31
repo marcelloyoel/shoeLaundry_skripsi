@@ -120,16 +120,16 @@ class ServiceController extends Controller
             'serviceSlug' => ['required'],
             'servicePicture' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ];
-
+        dd("1");
         $validatedData = $request->validate($rules);
-
+        dd("2");
         if ($request->hasFile('servicePicture')) {
             $uploadedFile = $request->file('servicePicture');
             $fileName = $uploadedFile->getClientOriginalName();
             $uploadedFile->storeAs('images', $fileName, 'public');
             $validatedData['servicePicture'] = $fileName;
         }
-        dd('helo');
+        dd('3');
         Service::where('id', $laundryservice->id)->update($validatedData);
         return redirect('/laundryservice')->with('update', 'Data berhasil diupdate!');
     }
