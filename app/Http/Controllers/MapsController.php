@@ -33,27 +33,6 @@ class MapsController extends Controller
         }
     }
 
-    // public function dataLatLong(Request $request)
-    // {
-    //     $latitude = $request->input('latitude');
-    //     $longitude = $request->input('longitude');
-
-    //     $request->session()->forget('latitude');
-    //     $request->session()->forget('longitude');
-
-    //     session(['latitude' => $latitude]);
-    //     session(['longitude' => $longitude]);
-
-    //     info('\n');
-    //     info('data lat long baru: ' . $latitude);
-    //     info('data lat long baru: ' . $longitude);
-
-    //     // return response()->json([
-    //     //     'latitude' => $latitude,
-    //     //     'longitude' => $longitude
-    //     // ]);
-    // }
-
     public function calculateDistance(Request $request)
     {
 
@@ -67,25 +46,12 @@ class MapsController extends Controller
         $user = auth()->user();
         if ($user) {
 
-            // if ($currentUserInfo === false) {
-            // if ip address is private
-            // $origin = session('temp_address') ?? $user->address;
-            // } else {
-            // if ip address is public
-            // $origin = session('temp_address') ?? $currentUserInfo->latitude . ', ' . $currentUserInfo->longitude;
             $origin = session('temp_address') ?? $latitude . ', ' . $longitude;
-            // $origin = 'hypermart villa melati mas';
-            // }
 
-            // echo "Logged-in User Address: $origin";
         } else {
-            // echo "User not authenticated";
+
         }
 
-        // dd($ip, $currentUserInfo, $currentUserInfo->latitude, $currentUserInfo->longitude, $origin, $latitude, $longitude);
-
-        // $origin = 'Jl. Pintu Air Raya No.2-F, RT.7/RW.1, Ps. Baru, Kecamatan Sawah Besar, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10710';
-        // $origin = 'Jl. Jalur Sutera Bar. No.Kav. 21, RT.001/RW.004, Panunggangan, Kec. Pinang, Kota Tangerang, Banten 15143';
         $users = User::whereHas('laundrySepatu', function ($query) {
             $query->whereNotNull('Address');
         })->get();
@@ -123,19 +89,13 @@ class MapsController extends Controller
                     // Store the distance in the array
                     $distances[$user->id] = $distance;
 
-                    // If you want to store the distance in the $laundrySepatu model, you can do so here
-                    // $laundrySepatu->update(['distance' => $distance]);
                 } else {
-                    // Handle the case where the expected keys are not present
-                    // echo "Invalid response structure for user: $user->displayName\n";
+
                 }
             } else {
-                // Handle the case where LaundrySepatu is not found
-                // echo "User: $user->name does not have associated LaundrySepatu.\n";
+
             }
         }
-
-        // dd($data, $distance, $distances);
 
         // Store the distances in the session or perform other actions
         Session::put('calculated_distances', $distances);
