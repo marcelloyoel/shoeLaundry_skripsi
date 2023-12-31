@@ -113,7 +113,7 @@ class ServiceController extends Controller
     public function update(Request $request, Service $laundryservice)
     {
         $uploadedPicture = $request->file('picture');
-        dd("2");
+        
         $rules = [
             'serviceName'   => ['required'],
             'status'   => ['required'],
