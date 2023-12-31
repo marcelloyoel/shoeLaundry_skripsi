@@ -112,24 +112,36 @@ class ServiceController extends Controller
      */
     public function update(Request $request, Service $laundryservice)
     {
+        $uploadedPicture = $request->file('picture');
+
         $rules = [
             'serviceName'   => ['required'],
             'status'   => ['required'],
             'servicePrice'   => ['required'],
             'serviceDescription'   => ['required'],
             'serviceSlug' => ['required'],
-            'servicePicture' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            // 'servicePicture' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ];
-        
-        $validatedData = $request->validate($rules);
-        dd("2");
-        if ($request->hasFile('servicePicture')) {
-            $uploadedFile = $request->file('servicePicture');
-            $fileName = $uploadedFile->getClientOriginalName();
-            $uploadedFile->storeAs('images', $fileName, 'public');
-            $validatedData['servicePicture'] = $fileName;
+
+        if ($uploadedPicture) {
+            $rules['servicePicture'] = 'image|mimes:jpeg,png,jpg,gif|max:2048';
+            $validatedData = $request->validate($rules);
+            $pictureFileName = $uploadedPicture->getClientOriginalName();
+            $uploadedPicture->storeAs('images', $pictureFileName, 'public');
+            $validatedData['servicePicture'] = $pictureFileName;
+        } else {
+            $validatedData = $request->validate($rules);
         }
-        dd('3');
+
+        // $validatedData = $request->validate($rules);
+
+        // if ($request->hasFile('servicePicture')) {
+        //     $uploadedFile = $request->file('servicePicture');
+        //     $fileName = $uploadedFile->getClientOriginalName();
+        //     $uploadedFile->storeAs('images', $fileName, 'public');
+        //     $validatedData['servicePicture'] = $fileName;
+        // }
+
         Service::where('id', $laundryservice->id)->update($validatedData);
         return redirect('/laundryservice')->with('update', 'Data berhasil diupdate!');
     }
