@@ -120,7 +120,7 @@ class ServiceController extends Controller
             'serviceSlug' => ['required'],
             'servicePicture' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ];
-        dd("1");
+        
         $validatedData = $request->validate($rules);
         dd("2");
         if ($request->hasFile('servicePicture')) {
