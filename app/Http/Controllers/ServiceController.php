@@ -122,17 +122,20 @@ class ServiceController extends Controller
             'serviceSlug' => ['required'],
             // 'servicePicture' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ];
-        
+
         if ($uploadedPicture) {
+            dd("1");
             $rules['servicePicture'] = 'image|mimes:jpeg,png,jpg,gif|max:2048';
+            dd("2");
             $validatedData = $request->validate($rules);
+            dd("3");
             $pictureFileName = $uploadedPicture->getClientOriginalName();
             $uploadedPicture->storeAs('images', $pictureFileName, 'public');
             $validatedData['servicePicture'] = $pictureFileName;
         } else {
             $validatedData = $request->validate($rules);
         }
-        dd("4");
+
         // $validatedData = $request->validate($rules);
 
         // if ($request->hasFile('servicePicture')) {
