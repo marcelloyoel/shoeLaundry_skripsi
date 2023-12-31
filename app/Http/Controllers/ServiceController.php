@@ -112,8 +112,9 @@ class ServiceController extends Controller
      */
     public function update(Request $request, Service $laundryservice)
     {
+        dd("1");
         $uploadedPicture = $request->file('picture');
-
+        dd("2");
         $rules = [
             'serviceName'   => ['required'],
             'status'   => ['required'],
@@ -122,7 +123,7 @@ class ServiceController extends Controller
             'serviceSlug' => ['required'],
             // 'servicePicture' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ];
-
+        dd("3");
         if ($uploadedPicture) {
             $rules['servicePicture'] = 'image|mimes:jpeg,png,jpg,gif|max:2048';
             $validatedData = $request->validate($rules);
@@ -132,7 +133,7 @@ class ServiceController extends Controller
         } else {
             $validatedData = $request->validate($rules);
         }
-
+        dd("4");
         // $validatedData = $request->validate($rules);
 
         // if ($request->hasFile('servicePicture')) {
