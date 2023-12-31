@@ -112,39 +112,45 @@ class ServiceController extends Controller
      */
     public function update(Request $request, Service $laundryservice)
     {
-        $uploadedPicture = $request->file('picture');
-
-        $rules = [
-            'serviceName'   => ['required'],
-            'status'   => ['required'],
-            'servicePrice'   => ['required'],
-            'serviceDescription'   => ['required'],
-            'serviceSlug' => ['required'],
-            // 'servicePicture' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-        ];
-
-        if ($uploadedPicture) {
-            dd("1");
-            $rules['servicePicture'] = 'image|mimes:jpeg,png,jpg,gif|max:2048';
-            dd("2");
-            $validatedData = $request->validate($rules);
-            dd("3");
-            $pictureFileName = $uploadedPicture->getClientOriginalName();
-            $uploadedPicture->storeAs('images', $pictureFileName, 'public');
-            $validatedData['servicePicture'] = $pictureFileName;
-        } else {
-            $validatedData = $request->validate($rules);
-            dd("11");
-        }
+        // $rules = [
+        //     'serviceName'   => ['required'],
+        //     'status'   => ['required'],
+        //     'servicePrice'   => ['required'],
+        //     'serviceDescription'   => ['required'],
+        //     'serviceSlug' => ['required'],
+        //     'servicePicture' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        // ];
 
         // $validatedData = $request->validate($rules);
 
-        // if ($request->hasFile('servicePicture')) {
-        //     $uploadedFile = $request->file('servicePicture');
-        //     $fileName = $uploadedFile->getClientOriginalName();
-        //     $uploadedFile->storeAs('images', $fileName, 'public');
-        //     $validatedData['servicePicture'] = $fileName;
-        // }
+        try {
+            $rules = [
+                'serviceName' => ['required'],
+                'status' => ['required'],
+                'servicePrice' => ['required'],
+                'serviceDescription' => ['required'],
+                'serviceSlug' => ['required'],
+                'servicePicture' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            ];
+
+            $validatedData = $request->validate($rules);
+
+            // Rest of your code here...
+
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            // Handle validation errors
+            return back()->withErrors($e->validator)->withInput();
+        } catch (\Exception $e) {
+            // Handle other exceptions if any
+            return back()->withInput()->withErrors(['error' => 'An error occurred. Please try again.']);
+        }
+
+        if ($request->hasFile('servicePicture')) {
+            $uploadedFile = $request->file('servicePicture');
+            $fileName = $uploadedFile->getClientOriginalName();
+            $uploadedFile->storeAs('images', $fileName, 'public');
+            $validatedData['servicePicture'] = $fileName;
+        }
 
         Service::where('id', $laundryservice->id)->update($validatedData);
         return redirect('/laundryservice')->with('update', 'Data berhasil diupdate!');
