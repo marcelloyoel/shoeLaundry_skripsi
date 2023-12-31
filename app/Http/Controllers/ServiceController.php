@@ -112,38 +112,16 @@ class ServiceController extends Controller
      */
     public function update(Request $request, Service $laundryservice)
     {
-        // $rules = [
-        //     'serviceName'   => ['required'],
-        //     'status'   => ['required'],
-        //     'servicePrice'   => ['required'],
-        //     'serviceDescription'   => ['required'],
-        //     'serviceSlug' => ['required'],
-        //     'servicePicture' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-        // ];
+        $rules = [
+            'serviceName'   => ['required'],
+            'status'   => ['required'],
+            'servicePrice'   => ['required'],
+            'serviceDescription'   => ['required'],
+            // 'serviceSlug' => ['required'],
+            'servicePicture' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ];
 
-        // $validatedData = $request->validate($rules);
-
-        try {
-            $rules = [
-                'serviceName' => ['required'],
-                'status' => ['required'],
-                'servicePrice' => ['required'],
-                'serviceDescription' => ['required'],
-                'serviceSlug' => ['required'],
-                'servicePicture' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            ];
-
-            $validatedData = $request->validate($rules);
-
-            // Rest of your code here...
-
-        } catch (\Illuminate\Validation\ValidationException $e) {
-            // Handle validation errors
-            return back()->withErrors($e->validator)->withInput();
-        } catch (\Exception $e) {
-            // Handle other exceptions if any
-            return back()->withInput()->withErrors(['error' => 'An error occurred. Please try again.']);
-        }
+        $validatedData = $request->validate($rules);
 
         if ($request->hasFile('servicePicture')) {
             $uploadedFile = $request->file('servicePicture');
