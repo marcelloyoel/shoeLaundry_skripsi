@@ -112,7 +112,6 @@ class ServiceController extends Controller
      */
     public function update(Request $request, Service $laundryservice)
     {
-        // dd('hello');
         $rules = [
             'serviceName'   => ['required'],
             'status'   => ['required'],
@@ -130,7 +129,7 @@ class ServiceController extends Controller
             $uploadedFile->storeAs('images', $fileName, 'public');
             $validatedData['servicePicture'] = $fileName;
         }
-
+        dd('helo');
         Service::where('id', $laundryservice->id)->update($validatedData);
         return redirect('/laundryservice')->with('update', 'Data berhasil diupdate!');
     }
