@@ -100,7 +100,7 @@
                                     <label for="phoneNumber">Phone Number</label>
                                     <input type="text"
                                         class="form-control @error('phoneNumber') is-invalid @enderror" id="phoneNumber"
-                                        value="{{ old('phoneNumber') }}" name="phoneNumber">
+                                        value="{{ old('phoneNumber') }}" name="phoneNumber" required>
                                     @error('phoneNumber')
                                         <div class="invalid-feedback mb-2">
                                             {{ $message }}
