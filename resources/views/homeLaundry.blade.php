@@ -3,6 +3,16 @@
     @include('partials.sidebar')
 @endsection
 @section('container')
+    @if (session()->has('submitted'))
+        <div class="alert alert-success" role="alert">
+            {{ session('submitted') }}
+        </div>
+    @endif
+    @if (session()->has('update'))
+        <div class="alert alert-success" role="alert">
+            {{ session('update') }}
+        </div>
+    @endif
     <div class="profile">
         <h2>Profile</h2>
         <div class="row d-flex flex-row">

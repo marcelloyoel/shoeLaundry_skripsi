@@ -112,13 +112,12 @@ class ServiceController extends Controller
      */
     public function update(Request $request, Service $laundryservice)
     {
-        // dd('hello');
         $rules = [
             'serviceName'   => ['required'],
             'status'   => ['required'],
             'servicePrice'   => ['required'],
             'serviceDescription'   => ['required'],
-            'serviceSlug' => ['required'],
+            // 'serviceSlug' => ['required'],
             'servicePicture' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ];
 
