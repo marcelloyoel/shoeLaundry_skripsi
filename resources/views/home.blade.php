@@ -32,6 +32,7 @@
             @php
                 $distance = (float) str_replace(',', '', $calculatedDistances[$laundry->user_id] ?? PHP_INT_MAX);
             @endphp
+            <h1>{{ $distance }}</h1>
             @if ($distance < 25)
                 <div class="col-sm-3">
                     <div class="card mt-3" style="width: 18rem;">
