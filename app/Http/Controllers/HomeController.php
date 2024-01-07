@@ -33,11 +33,17 @@ class HomeController extends Controller
                 return (float) str_replace(',', '', $calculatedDistances[$laundry->user_id] ?? PHP_INT_MAX);
             });
 
+            // Filter laundries with distances less than or equal to 25 km
+            $sortedLaundries = $laundries->filter(function ($laundry) use ($calculatedDistances) {
+                $distance = (float) str_replace(',', '', $calculatedDistances[$laundry->user_id] ?? PHP_INT_MAX);
+                return $distance <= 25;
+            });
+
             // Paginate the sorted laundries with 8 items per page
             $perPage = 8;
             $currentPage = $request->query('page') ?? 1;
             $offset = ($currentPage - 1) * $perPage;
-            $currentPageItems = $laundries->slice($offset, $perPage)->values();
+            $currentPageItems = $sortedLaundries->slice($offset, $perPage)->values();
             $total = $laundries->count();
 
             $paginatedLaundries = new \Illuminate\Pagination\LengthAwarePaginator(
