@@ -31,6 +31,8 @@
                 $distance = (float) str_replace(' km', '', $calculatedDistances[$laundry->user_id] ?? PHP_INT_MAX);
                 return $distance <= 25;
             });
+
+            $paginatedLaundries = \Illuminate\Pagination\LengthAwarePaginator::resolveCurrentPage($sortedLaundries);
         @endphp
 
         @foreach ($sortedLaundries as $laundry)
@@ -59,7 +61,7 @@
                 <ul class="pagination">
 
                     <!-- Previous Page Link -->
-                    @if ($sortedLaundries->onFirstPage())
+                    @if ($paginatedLaundries->onFirstPage())
                         <li class="page-item disabled">
                             <span class="page-link">&laquo; Previous</span>
                         </li>
@@ -71,7 +73,7 @@
                     @endif
 
                     <!-- Next Page Link -->
-                    @if ($sortedLaundries->hasMorePages())
+                    @if ($paginatedLaundries->hasMorePages())
                         <li class="page-item">
                             <a class="page-link" href="{{ $laundries->nextPageUrl() }}" rel="next">Next &raquo;</a>
                         </li>
