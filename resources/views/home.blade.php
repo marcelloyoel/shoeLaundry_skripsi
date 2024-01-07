@@ -65,7 +65,7 @@
                         </li>
                     @else
                         <li class="page-item">
-                            <a class="page-link" href="{{ $laundries->previousPageUrl() }}" rel="prev">&laquo;
+                            <a class="page-link" href="{{ $laundries->appends(['sort' => 'distance'])->previousPageUrl() }}" rel="prev">&laquo;
                                 Previous</a>
                         </li>
                     @endif
@@ -73,7 +73,7 @@
                     <!-- Next Page Link -->
                     @if ($laundries->hasMorePages())
                         <li class="page-item">
-                            <a class="page-link" href="{{ $laundries->nextPageUrl() }}" rel="next">Next &raquo;</a>
+                            <a class="page-link" href="{{ $laundries->appends(['sort' => 'distance'])->nextPageUrl() }}" rel="next">Next &raquo;</a>
                         </li>
                     @else
                         <li class="page-item disabled">
@@ -83,6 +83,7 @@
                 </ul>
             </nav>
         </div>
+
 
     </div>
     <div>
