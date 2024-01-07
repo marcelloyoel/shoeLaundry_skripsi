@@ -26,34 +26,32 @@
         </div>
     </div>
     <div class="row">
-        @php
-            $sortedLaundries = $laundries->filter(function ($laundry) use ($calculatedDistances) {
+        @foreach ($laundries->sortBy(function ($laundry) use ($calculatedDistances) {
+            return (float) str_replace(',', '', $calculatedDistances[$laundry->user_id] ?? PHP_INT_MAX);
+        }) as $laundry)
+            @php
                 $distance = (float) str_replace(' km', '', $calculatedDistances[$laundry->user_id] ?? PHP_INT_MAX);
-                return $distance <= 25;
-            });
-
-            $paginatedLaundries = \Illuminate\Pagination\LengthAwarePaginator::resolveCurrentPage($sortedLaundries);
-        @endphp
-
-        @foreach ($paginatedLaundries as $laundry)
-            <div class="col-sm-3">
-                <div class="card mt-3" style="width: 18rem;">
-                    @if ($laundry->picture)
-                        <img src="{{ asset('images/' . $laundry->picture) }}" class="card-img-top">
-                    @else
-                        <img src="{{ asset('images/shopimagedummy.png') }}" class="card-img-top">
-                    @endif
-                    {{-- <img src={{url('storage/image/shopimagedummy.png')}} class="card-img-top"> --}}
-                    <div class="card-body">
-                        <h5 class="card-title" style="font-weight: bold">{{ $laundry->laundrySepatuName }}</h5>
-                        <h6 class="card-text">📌 : {{ Str::words($laundry->Address, 6, '...') }}</h6>
-                        {{-- <h6 class="card-text">📌 : {{ $laundry->Address }}</h6> --}}
-                        <h6 class="card-text">☎ : {{ $laundry->Contact }}</h6>
-                        <h6 class="card-text">📍 : {{ $calculatedDistances[$laundry->user_id] ?? 'Not available' }} </h6>
-                        <a href="laundry/{{ $laundry->id }}" class="btn btn-primary mt-2">Laundry Detail</a>
+            @endphp
+            @if ($distance <= 25)
+                <div class="col-sm-3">
+                    <div class="card mt-3" style="width: 18rem;">
+                        @if ($laundry->picture)
+                            <img src="{{ asset('images/' . $laundry->picture) }}" class="card-img-top">
+                        @else
+                            <img src="{{ asset('images/shopimagedummy.png') }}" class="card-img-top">
+                        @endif
+                        {{-- <img src={{url('storage/image/shopimagedummy.png')}} class="card-img-top"> --}}
+                        <div class="card-body">
+                            <h5 class="card-title" style="font-weight: bold">{{ $laundry->laundrySepatuName }}</h5>
+                            <h6 class="card-text">📌 : {{ Str::words($laundry->Address, 6, '...') }}</h6>
+                            {{-- <h6 class="card-text">📌 : {{ $laundry->Address }}</h6> --}}
+                            <h6 class="card-text">☎ : {{ $laundry->Contact }}</h6>
+                            <h6 class="card-text">📍 : {{ $calculatedDistances[$laundry->user_id] ?? 'Not available' }} </h6>
+                            <a href="laundry/{{ $laundry->id }}" class="btn btn-primary mt-2">Laundry Detail</a>
+                        </div>
                     </div>
                 </div>
-            </div>
+            @endif
         @endforeach
 
         <div class="col-md-12 d-flex justify-content-center mt-4">
@@ -61,21 +59,21 @@
                 <ul class="pagination">
 
                     <!-- Previous Page Link -->
-                    @if ($paginatedLaundries->onFirstPage())
+                    @if ($laundries->appends(['sort' => 'distance'])->onFirstPage())
                         <li class="page-item disabled">
                             <span class="page-link">&laquo; Previous</span>
                         </li>
                     @else
                         <li class="page-item">
-                            <a class="page-link" href="{{ $paginatedLaundries->previousPageUrl() }}" rel="prev">&laquo;
+                            <a class="page-link" href="{{ $laundries->appends(['sort' => 'distance'])->previousPageUrl() }}" rel="prev">&laquo;
                                 Previous</a>
                         </li>
                     @endif
 
                     <!-- Next Page Link -->
-                    @if ($paginatedLaundries->hasMorePages())
+                    @if ($laundries->appends(['sort' => 'distance'])->hasMorePages())
                         <li class="page-item">
-                            <a class="page-link" href="{{ $paginatedLaundries->nextPageUrl() }}" rel="next">Next &raquo;</a>
+                            <a class="page-link" href="{{ $laundries->appends(['sort' => 'distance'])->nextPageUrl() }}" rel="next">Next &raquo;</a>
                         </li>
                     @else
                         <li class="page-item disabled">
@@ -85,6 +83,7 @@
                 </ul>
             </nav>
         </div>
+
 
     </div>
     <div>
