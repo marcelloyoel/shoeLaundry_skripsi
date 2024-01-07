@@ -87,9 +87,9 @@ class MapsController extends Controller
                     $distance = $data['rows'][0]['elements'][0]['distance']['text'];
 
                     // Store the distance in the array
-                    if ($this->isValidDistance($distance)) {
+                    // if ($this->isValidDistance($distance)) {
                         $distances[$user->id] = $distance;
-                    }
+                    // }
 
                 } else {
 
