@@ -25,10 +25,21 @@
             </form>
         </div>
     </div>
+
+    @php
+        $perPage = 10; // Set the number of items per page as needed
+        $currentPage = \Illuminate\Pagination\LengthAwarePaginator::resolveCurrentPage();
+        $items = $laundries->filter(function ($laundry) use ($calculatedDistances) {
+            $distance = (float) str_replace(' km', '', $calculatedDistances[$laundry->user_id] ?? PHP_INT_MAX);
+            return $distance <= 25;
+        });
+
+        $paginatedLaundries = new \Illuminate\Pagination\LengthAwarePaginator($items->forPage($currentPage, $perPage), $items->count(), $perPage, $currentPage);
+        $paginatedLaundries->withPath(url()->current());
+    @endphp
+
     <div class="row">
-        @foreach ($laundries->sortBy(function ($laundry) use ($calculatedDistances) {
-            return (float) str_replace(',', '', $calculatedDistances[$laundry->user_id] ?? PHP_INT_MAX);
-        }) as $laundry)
+        @foreach ($paginatedLaundries as $laundry)
             @php
                 $distance = (float) str_replace(' km', '', $calculatedDistances[$laundry->user_id] ?? PHP_INT_MAX);
             @endphp
@@ -59,21 +70,21 @@
                 <ul class="pagination">
 
                     <!-- Previous Page Link -->
-                    @if ($laundries->appends(['sort' => 'distance'])->onFirstPage())
+                    @if ($paginatedLaundries->appends(['sort' => 'distance'])->onFirstPage())
                         <li class="page-item disabled">
                             <span class="page-link">&laquo; Previous</span>
                         </li>
                     @else
                         <li class="page-item">
-                            <a class="page-link" href="{{ $laundries->appends(['sort' => 'distance'])->previousPageUrl() }}" rel="prev">&laquo;
+                            <a class="page-link" href="{{ $paginatedLaundries->appends(['sort' => 'distance'])->previousPageUrl() }}" rel="prev">&laquo;
                                 Previous</a>
                         </li>
                     @endif
 
                     <!-- Next Page Link -->
-                    @if ($laundries->appends(['sort' => 'distance'])->hasMorePages())
+                    @if ($paginatedLaundries->appends(['sort' => 'distance'])->hasMorePages())
                         <li class="page-item">
-                            <a class="page-link" href="{{ $laundries->appends(['sort' => 'distance'])->nextPageUrl() }}" rel="next">Next &raquo;</a>
+                            <a class="page-link" href="{{ $paginatedLaundries->appends(['sort' => 'distance'])->nextPageUrl() }}" rel="next">Next &raquo;</a>
                         </li>
                     @else
                         <li class="page-item disabled">
