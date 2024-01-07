@@ -87,7 +87,9 @@ class MapsController extends Controller
                     $distance = $data['rows'][0]['elements'][0]['distance']['text'];
 
                     // Store the distance in the array
-                    $distances[$user->id] = $distance;
+                    if ($this->isValidDistance($distance)) {
+                        $distances[$user->id] = $distance;
+                    }
 
                 } else {
 
@@ -102,6 +104,12 @@ class MapsController extends Controller
 
         // If you want to return a response after processing all users, you can do it here
         return response()->json(['message' => 'Distance calculation completed']);
+    }
+
+    private function isValidDistance($distance)
+    {
+        $distanceValue = (float) str_replace(' km', '', $distance);
+        return $distanceValue < 25;
     }
 
     public function showDistance(Request $request)
