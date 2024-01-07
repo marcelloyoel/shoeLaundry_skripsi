@@ -27,15 +27,19 @@
     </div>
 
     @php
-        $perPage = 10; // Set the number of items per page as needed
-        $currentPage = \Illuminate\Pagination\LengthAwarePaginator::resolveCurrentPage();
-        $items = $laundries->filter(function ($laundry) use ($calculatedDistances) {
+        $perPage = 5; // Adjust the number of items per page as needed
+        $currentPage = request()->get('page', 1);
+        $offset = ($currentPage - 1) * $perPage;
+        $paginatedLaundries = $laundries->filter(function ($laundry) use ($calculatedDistances) {
             $distance = (float) str_replace(' km', '', $calculatedDistances[$laundry->user_id] ?? PHP_INT_MAX);
             return $distance <= 25;
-        });
-
-        $paginatedLaundries = new \Illuminate\Pagination\LengthAwarePaginator($items->forPage($currentPage, $perPage), $items->count(), $perPage, $currentPage);
-        $paginatedLaundries->withPath(url()->current());
+        })->slice($offset, $perPage);
+        $paginatedLaundries = new \Illuminate\Pagination\LengthAwarePaginator(
+            $paginatedLaundries,
+            $laundries->count(),
+            $perPage,
+            $currentPage
+        );
     @endphp
 
     <div class="row">
