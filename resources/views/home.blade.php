@@ -27,15 +27,17 @@
     </div>
     <div class="row">
         @php
-            $sortedLaundries = $laundries->filter(function ($laundry) use ($calculatedDistances) {
+            $perPage = 12;
+            $currentPage = \Illuminate\Pagination\LengthAwarePaginator::resolveCurrentPage();
+            $items = $laundries->filter(function ($laundry) use ($calculatedDistances) {
                 $distance = (float) str_replace(' km', '', $calculatedDistances[$laundry->user_id] ?? PHP_INT_MAX);
                 return $distance <= 25;
             });
 
-            $paginatedLaundries = \Illuminate\Pagination\LengthAwarePaginator::resolveCurrentPage($sortedLaundries);
+            $paginatedLaundries = new \Illuminate\Pagination\LengthAwarePaginator($items->forPage($currentPage, $perPage), $items->count(), $perPage, $currentPage);
         @endphp
 
-        @foreach ($sortedLaundries as $laundry)
+        @foreach ($paginatedLaundries as $laundry)
             <div class="col-sm-3">
                 <div class="card mt-3" style="width: 18rem;">
                     @if ($laundry->picture)
