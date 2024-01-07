@@ -27,14 +27,12 @@
     </div>
     <div class="row">
         @php
-            $perPage = 12;
-            $currentPage = \Illuminate\Pagination\LengthAwarePaginator::resolveCurrentPage();
-            $items = $laundries->filter(function ($laundry) use ($calculatedDistances) {
+            $sortedLaundries = $laundries->filter(function ($laundry) use ($calculatedDistances) {
                 $distance = (float) str_replace(' km', '', $calculatedDistances[$laundry->user_id] ?? PHP_INT_MAX);
                 return $distance <= 25;
             });
 
-            $paginatedLaundries = new \Illuminate\Pagination\LengthAwarePaginator($items->forPage($currentPage, $perPage), $items->count(), $perPage, $currentPage);
+            $paginatedLaundries = \Illuminate\Pagination\LengthAwarePaginator::resolveCurrentPage($sortedLaundries);
         @endphp
 
         @foreach ($paginatedLaundries as $laundry)
