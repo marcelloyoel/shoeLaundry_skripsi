@@ -69,7 +69,7 @@
                         </li>
                     @else
                         <li class="page-item">
-                            <a class="page-link" href="{{ $laundries->previousPageUrl() }}" rel="prev">&laquo;
+                            <a class="page-link" href="{{ $paginatedLaundries->previousPageUrl() }}" rel="prev">&laquo;
                                 Previous</a>
                         </li>
                     @endif
@@ -77,7 +77,7 @@
                     <!-- Next Page Link -->
                     @if ($paginatedLaundries->hasMorePages())
                         <li class="page-item">
-                            <a class="page-link" href="{{ $laundries->nextPageUrl() }}" rel="next">Next &raquo;</a>
+                            <a class="page-link" href="{{ $paginatedLaundries->nextPageUrl() }}" rel="next">Next &raquo;</a>
                         </li>
                     @else
                         <li class="page-item disabled">
