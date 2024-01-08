@@ -40,24 +40,24 @@ class HomeController extends Controller
             });
 
             // Paginate the sorted laundries with 8 items per page
-            $perPage = 8;
-            $currentPage = $request->query('page') ?? 1;
-            $offset = ($currentPage - 1) * $perPage;
-            $currentPageItems = $sortedLaundries->slice($offset, $perPage)->values();
-            $total = $laundries->count();
+            // $perPage = 8;
+            // $currentPage = $request->query('page') ?? 1;
+            // $offset = ($currentPage - 1) * $perPage;
+            // $currentPageItems = $sortedLaundries->slice($offset, $perPage)->values();
+            // $total = $laundries->count();
 
-            $paginatedLaundries = new \Illuminate\Pagination\LengthAwarePaginator(
-                $currentPageItems,
-                $total,
-                $perPage,
-                $currentPage,
-                ['path' => $request->url()]
-            );
+            // $paginatedLaundries = new \Illuminate\Pagination\LengthAwarePaginator(
+            //     $currentPageItems,
+            //     $total,
+            //     $perPage,
+            //     $currentPage,
+            //     ['path' => $request->url()]
+            // );
 
             return view('home', [
                 'title' => 'Halaman Home',
                 'calculatedDistances' => $calculatedDistances,
-                'laundries' => $paginatedLaundries,
+                'laundries' => $sortedLaundries,
             ]);
         } else if (Auth::user()->group_id == 2) {
             $user = Auth::user();

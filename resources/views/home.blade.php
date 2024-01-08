@@ -52,7 +52,7 @@
             {{-- @endif --}}
         @endforeach
 
-        <div class="col-md-12 d-flex justify-content-center mt-4">
+        {{-- <div class="col-md-12 d-flex justify-content-center mt-4">
             <nav aria-label="Page navigation">
                 <ul class="pagination">
 
@@ -80,7 +80,7 @@
                     @endif
                 </ul>
             </nav>
-        </div>
+        </div> --}}
 
     </div>
     <div>
