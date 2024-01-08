@@ -35,72 +35,61 @@ class MapsController extends Controller
 
     public function calculateDistance(Request $request)
     {
+        public function calculateDistance(Request $request)
+        {
+            $latitude = session('latitude');
+            $longitude = session('longitude');
 
-        $latitude = session('latitude');
-        $longitude = session('longitude');
+            info('calculate distance: ' . $latitude);
+            info('calculate distance: ' . $longitude);
 
-        info('calculate distance: ' . $latitude);
-        info('calculate distance: ' . $longitude);
+            $user = auth()->user();
 
-        // $users = User::all();
-        $user = auth()->user();
-        if ($user) {
-
-            $origin = session('temp_address') ?? $latitude . ', ' . $longitude;
-
-        } else {
-
-        }
-
-        $users = User::whereHas('laundrySepatu', function ($query) {
-            $query->whereNotNull('Address');
-        })->get();
-
-        $apiKey = 'jh5AUrRs2p3fHyW8x50CKcHhbHwYLGhstZbBW43CeHCMn16JlyyJ7TmuMFVdXE7l';
-        $client = new Client();
-        $distances = [];
-
-        foreach ($users as $user) {
-            // Retrieve the associated LaundrySepatu for the current user
-            $laundrySepatu = LaundrySepatu::where('user_id', $user->id)->first();
-
-            // If a LaundrySepatu is found, get the associated address
-            if ($laundrySepatu) {
-                $address = $laundrySepatu->Address;
-                $destination = $address;
-                // Output or use the $destination as needed
-                // echo "User: $user->displayName, Address: $address\n";
-                $url = 'https://api.distancematrix.ai/v1/distancematrix';
-                $url .= '?origins=' . $origin;
-                $url .= '&destinations=' . $destination;
-                $url .= '&key=' . $apiKey;
-
-                $response = $client->get($url);
-
-                $data = json_decode($response->getBody(), true);
-
-                // Check if the necessary keys exist
-                if (isset($data['rows'][0]['elements'][0]['distance']['text'])) {
-                    // Handle the response
-                    $distance = $data['rows'][0]['elements'][0]['distance']['text'];
-
-                    // Store the distance in the array
-                    $distances[$user->id] = $distance;
-
-                } else {
-
-                }
+            if ($user) {
+                $origin = session('temp_address') ?? $latitude . ',' . $longitude;
             } else {
-
+                return response()->json(['error' => 'User not authenticated']);
             }
+
+            $users = User::whereHas('laundrySepatu', function ($query) {
+                $query->whereNotNull('Address');
+            })->get();
+
+            $apiKey = 'jh5AUrRs2p3fHyW8x50CKcHhbHwYLGhstZbBW43CeHCMn16JlyyJ7TmuMFVdXE7l'; // Replace with your distancematrix.ai API key
+            $client = new Client();
+            $distances = [];
+
+            foreach ($users as $user) {
+                $laundrySepatu = LaundrySepatu::where('user_id', $user->id)->first();
+
+                if ($laundrySepatu) {
+                    $address = urlencode($laundrySepatu->Address);
+                    $destination = $address;
+
+                    $url = 'https://api.distancematrix.ai/v1/distancematrix';
+                    $url .= '?origins=' . urlencode($origin);
+                    $url .= '&destinations=' . $destination;
+                    $url .= '&key=' . $apiKey;
+
+                    $response = $client->get($url);
+
+                    $data = json_decode($response->getBody(), true);
+
+                    if (isset($data['rows'][0]['elements'][0]['distance']['text'])) {
+                        $distance = $data['rows'][0]['elements'][0]['distance']['text'];
+                        $distances[$user->id] = $distance;
+                    } else {
+                        // Handle the case where distance information is not available
+                    }
+                } else {
+                    // Handle the case where LaundrySepatu is not found for the user
+                }
+            }
+
+            Session::put('calculated_distances', $distances);
+
+            return response()->json(['message' => 'Distance calculation completed']);
         }
-
-        // Store the distances in the session or perform other actions
-        Session::put('calculated_distances', $distances);
-
-        // If you want to return a response after processing all users, you can do it here
-        return response()->json(['message' => 'Distance calculation completed']);
-    }
 
     public function showDistance(Request $request)
     {
