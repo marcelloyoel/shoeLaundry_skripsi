@@ -35,8 +35,6 @@ class MapsController extends Controller
 
     public function calculateDistance(Request $request)
     {
-        public function calculateDistance(Request $request)
-        {
             $latitude = session('latitude');
             $longitude = session('longitude');
 
