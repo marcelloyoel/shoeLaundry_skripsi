@@ -71,7 +71,7 @@ class MapsController extends Controller
                 // Output or use the $destination as needed
                 // echo "User: $user->displayName, Address: $address\n";
 
-                $response = $client->get('https://api.distancematrix.ai/v1/distancematrix', [
+                $response = $client->get('https://api.distancematrix.ai/maps/api/distancematrix/json?origins=51.4822656,-0.1933769&destinations=51.4994794,-0.1269979&key=jh5AUrRs2p3fHyW8x50CKcHhbHwYLGhstZbBW43CeHCMn16JlyyJ7TmuMFVdXE7l', [
                     'query' => [
                         'origins' => $origin,
                         'destinations' => $destination,
