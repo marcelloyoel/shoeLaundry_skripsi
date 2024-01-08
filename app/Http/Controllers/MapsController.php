@@ -56,7 +56,7 @@ class MapsController extends Controller
             $query->whereNotNull('Address');
         })->get();
 
-        $apiKey = 'AIzaSyAU6fB6SZ4eAQUMyMyXsVgcJzkRMjXNbeQ';
+        $apiKey = 'jh5AUrRs2p3fHyW8x50CKcHhbHwYLGhstZbBW43CeHCMn16JlyyJ7TmuMFVdXE7l';
         $client = new Client();
         $distances = [];
 
@@ -71,7 +71,7 @@ class MapsController extends Controller
                 // Output or use the $destination as needed
                 // echo "User: $user->displayName, Address: $address\n";
 
-                $response = $client->get('https://maps.googleapis.com/maps/api/distancematrix/json', [
+                $response = $client->get('https://api.distancematrix.ai/v1/distancematrix', [
                     'query' => [
                         'origins' => $origin,
                         'destinations' => $destination,
