@@ -12,6 +12,7 @@
         </div>
         <form action="/makeOrder" method="POST" enctype="multipart/form-data" id="submitForm">
             @csrf
+            <input type="hidden" name="paymentStatus" id="paymentStatus-hidden" />
             <div class="card-body alertNih">
                 <?php $jumlahToko = 0; ?>
                 <script>

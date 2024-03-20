@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreignId('laundry_sepatu_id');
             $table->timestamps();
             $table->integer('status')->default('1');
-            //1 = waiting, 2 = acc, 3 = proses, 4 = done, 5 = ditolak
+            //1 = waiting, 2 = acc, 3 = proses, 4 = done, 5 = ditolak, -1 = nunggu payment, -99 = cancel
             $table->string('phoneNumber');
             $table->string('address');
             $table->string('jenisSepatu');

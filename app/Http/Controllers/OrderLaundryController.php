@@ -20,7 +20,7 @@ class OrderLaundryController extends Controller
         $laundrySepatu = $user->laundrySepatu;
         // dd($laundrySepatu);
         if ($laundrySepatu) {
-            $orders = Order::where('laundry_sepatu_id', $laundrySepatu->id)->get();
+            $orders = Order::where('laundry_sepatu_id', $laundrySepatu->id)->where('status', '>', 0)->get();
             // dd($orders);
             return view('laundry.orderlist.index', [
                 'title' => 'Order List',

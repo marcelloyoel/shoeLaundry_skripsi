@@ -5,14 +5,17 @@
 @section('container')
     <h2>Order Detail</h2>
     <hr>
-    <form method="POST" action="/admin/order/{{ $order->id }}" enctype="multipart/form-data">
+    <form method="POST" action="/orderlist/{{ $order->id }}" enctype="multipart/form-data" id="submitForm">
         @method('put')
         @csrf
+        <input type="hidden" name="paymentStatus" id="paymentStatus-hidden" />
+        <input type="hidden" value="{{ $order->harga }}" name="price">
+        <input type="hidden" value="{{ $order->id }}" name="orderId">
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="username">Ordered By</label>
-                <input type="text" class="form-control" id="username" value="{{ $order->user->username }}" name="username"
-                    disabled>
+                <input type="text" class="form-control" id="username" value="{{ $order->user->username }}"
+                    name="username" disabled>
             </div>
             <div class="form-group col-md-6">
                 <label for="timestamp">Tanggal Berlaku Sampai</label>
@@ -70,12 +73,13 @@
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="totalHarga">Total Harga</label>
-                <input type="text" class="form-control" id="totalHarga" value="{{ $order->harga }}" name="totalHarga"
+                <input type="text" class="form-control" id="totalHarga" value="{{ $order->harga }}" name="price"
                     disabled>
             </div>
             <div class="form-group col-md-6">
                 <label for="status">Status</label>
                 <select class="form-control" id="group_id" name="group_id" disabled>
+                    <option value="9" {{ $order->status == -1 ? 'selected' : '' }}>Waiting for Payment</option>
                     <option value="1" {{ $order->status == 1 ? 'selected' : '' }}>Waiting</option>
                     <option value="2" {{ $order->status == 2 ? 'selected' : '' }}>Accepted</option>
                     <option value="3" {{ $order->status == 3 ? 'selected' : '' }}>Brushing Sole</option>
@@ -89,10 +93,18 @@
                 </select>
             </div>
         </div>
-        <div class="form-row mt-4">
-            <div class="col-12 ngetest">
-                <button type="button" onclick="window.history.back()" id="btnSubmit" class="btn btn-primary">Back</button>
+        @if ($order->status != -1)
+            <div class="form-row mt-4">
+                <div class="col-12 ngetest">
+                    <button type="button" onclick="window.history.back()" id="btnSubmit"
+                        class="btn btn-primary">Back</button>
+                </div>
             </div>
-        </div>
+        @else
+            <div class="d-flex justify-content-center mt-4">
+                <button type="button" id="btnPayment" class="btn btn-primary">Payment</button> &nbsp;
+                <button type="button" id="btnCancel" onclick="cancelOrder()" class="btn btn-danger">Cancel Order</button>
+            </div>
+        @endif
     </form>
 @endsection

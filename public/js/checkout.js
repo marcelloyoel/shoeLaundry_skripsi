@@ -62,19 +62,30 @@ function generateToken() {
                   /* You may add your own implementation here */
                     alert("payment success!"); console.log(result);
                     document.getElementById('orderButton').disabled=true;
+                    document.getElementById('paymentStatus-hidden').value=1;
                     document.getElementById('submitForm').submit();
                 },
                 onPending: function(result){
                   /* You may add your own implementation here */
-                    alert("wating your payment!"); console.log(result);
+                    alert("wating your payment!");
+                    console.log(result);
+                    document.getElementById('orderButton').disabled=true;
+                    document.getElementById('paymentStatus-hidden').value=-1;
+                    document.getElementById('submitForm').submit();
                 },
                 onError: function(result){
                   /* You may add your own implementation here */
                     alert("payment failed!"); console.log(result);
+                    document.getElementById('orderButton').disabled=true;
+                    document.getElementById('paymentStatus-hidden').value=-1;
+                    document.getElementById('submitForm').submit();
                 },
                 onClose: function(){
                   /* You may add your own implementation here */
                     alert('you closed the popup without finishing the payment');
+                    document.getElementById('orderButton').disabled=true;
+                    document.getElementById('paymentStatus-hidden').value=-1;
+                    document.getElementById('submitForm').submit();
                 }
             })
         },

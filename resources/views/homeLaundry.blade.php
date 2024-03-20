@@ -146,4 +146,35 @@
             </div>
         </div>
     </div>
+    <div class="withdraw">
+        <h2>Withdraw Information</h2>
+        <br>
+        <div class="card shadow mb-4">
+            <!-- Card Header - Accordion -->
+            <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse" role="button"
+                aria-expanded="true" aria-controls="collapseCardExample">
+                <h6 class="m-0 font-weight-bold text-primary">Withdraw</h6>
+            </a>
+            <!-- Card Content - Collapse -->
+            <div class="collapse show" id="collapseCardExample">
+                <div class="card-body">
+                    Informasi Penarikan Dana:
+                    <ul>
+                        <li>Dana akan dikirimkan setiap awal bulan pada tanggal 5</li>
+                        <li>Dana yang dikirim berupa total order pada bulan sebelumnya yang telah selesai</li>
+                        <li>Pihak laundry harus mengirimkan nomer rekening melalui nomor WhatsApp Nyepatu:
+                            <strong>0896-1573-6938</strong>
+                        </li>
+                        <li>Pihak laundry hanya perlu mengirimkan nomer rekening sekali saja, tidak setiap bulan</li>
+                        <li>Apabila laundry belum mengirimkan nomer rekening sampai awal bulan, maka dana akan dikirimkan
+                            pada
+                            bulan depan apabila telah mengirimkan nomer rekening melalui WhatsApp Nyepatu:
+                            <strong>0896-1573-6938</strong>
+                        </li>
+                        <li>Apabila ada kendala dapat menghubungi <strong>0896-1573-6938</strong></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
