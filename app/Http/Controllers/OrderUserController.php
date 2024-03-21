@@ -13,6 +13,17 @@ class OrderUserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    // private $serverKey;
+    // private $isProduction;
+    // private $isSanitized;
+    // private $is3ds;
+    // public function __construct()
+    // {
+    //     $this->serverKey = config('midtrans.serverKey');
+    //     $this->isProduction = config('midtrans.isProduction');
+    //     $this->isSanitized = config('midtrans.isSanitized');
+    //     $this->is3ds = config('midtrans.is3ds');
+    // }
     public function index()
     {
         $user = Auth::user();
@@ -118,6 +129,7 @@ class OrderUserController extends Controller
             'title' => 'View Order',
             'services'  => $services,
             'allService' => $laundrySepatu
+            // 'javascript' => 'paymentDiOrder.js'
         ]);
     }
 
@@ -141,7 +153,13 @@ class OrderUserController extends Controller
      */
     public function update(Request $request, Order $order)
     {
-        //
+        $orderId = intval($request->input('orderId'));
+        $validatedData = [
+            'status'    => intval($request->input('paymentStatus'))
+        ];
+        // dd($validatedData);
+        Order::where('id', $orderId)->update($validatedData);
+        return redirect('/home')->with('update', 'Data berhasil diupdate!');
     }
 
     /**

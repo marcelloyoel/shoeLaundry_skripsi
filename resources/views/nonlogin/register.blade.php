@@ -19,6 +19,7 @@
 
     <!-- Custom styles for this template-->
     <link href="/template/css/sb-admin-2.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 </head>
 
@@ -107,10 +108,44 @@
                                         </div>
                                     @enderror
                                 </div>
-                                <div class="form-group col-md-6">
+                                {{-- <div class="form-group col-md-6">
                                     <label for="password">Password</label>
                                     <input type="password" class="form-control @error('password') is-invalid @enderror"
                                         id="password" value="{{ old('password') }}" name="password">
+                                </div> --}}
+                                <div class="form-group col-md-6">
+                                    <label for="password">Password</label>
+                                    <div class="input-group">
+                                        <input type="password"
+                                            class="form-control @error('password') is-invalid @enderror" id="password"
+                                            value="{{ old('password') }}" name="password">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">
+                                                <i class="fas fa-eye" id="togglePassword"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    @error('password')
+                                        <div class="invalid-feedback mb-2">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                    <script>
+                                        $(document).ready(function() {
+                                            $('#togglePassword').click(function() {
+                                                const passwordField = $('#password');
+                                                const passwordFieldType = passwordField.attr('type');
+                                                if (passwordFieldType === 'password') {
+                                                    passwordField.attr('type', 'text');
+                                                    $(this).removeClass('fa-eye').addClass('fa-eye-slash');
+                                                } else {
+                                                    passwordField.attr('type', 'password');
+                                                    $(this).removeClass('fa-eye-slash').addClass('fa-eye');
+                                                }
+                                            });
+                                        });
+                                    </script>
+
                                 </div>
                             </div>
                             <div class="form-row">
@@ -306,12 +341,12 @@
         </div>
     </div>
 
-    <!-- Bootstrap core JavaScript-->
+    {{-- <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script> --}}
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>

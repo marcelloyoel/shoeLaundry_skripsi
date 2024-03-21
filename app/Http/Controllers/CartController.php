@@ -264,6 +264,7 @@ class CartController extends Controller
             for ($i = 1; $i <= $jumlahToko; $i++) {
                 $phoneNumber = Auth::user()->phoneNumber;
                 $address = $request->input('address-' . $i);
+                $status = $request->input('paymentStatus');
                 $merkSepatu = $request->input('merkSepatu-' . $i);
                 $jenisSepatu = $request->input('jenisSepatu-' . $i);
                 $jsonServiceId = $request->input('service_ids-' . $i);
@@ -275,7 +276,7 @@ class CartController extends Controller
                 $orderArray = array(
                     'user_id' => $user_id,
                     'laundry_sepatu_id' => $laundrySepatuId,
-                    'status'    => 1,
+                    'status'    => $status,
                     'phoneNumber'   => $phoneNumber,
                     'address'   => $address,
                     'jenisSepatu' => $jenisSepatu,
@@ -293,6 +294,14 @@ class CartController extends Controller
                     );
                     OrderToService::create($orderToService);
                     Cart::remove($service_ids[$j]);
+                    // ModelsCart::where('user_id', $user_id)->where('service_id', $service_ids[$j])->first()->delete();
+                    $itemInTheCart = ModelsCart::where('user_id', $user_id)
+                        ->where('service_id', $service_ids[$j])
+                        ->first();
+
+                    if ($itemInTheCart) {
+                        $itemInTheCart->delete();
+                    }
                 }
             }
             DB::commit();

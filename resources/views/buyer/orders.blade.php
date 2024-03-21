@@ -40,24 +40,28 @@
                                         <td>{{ $order->created_at->addWeek()->format('Y-m-d') }}</td>
                                         <td>
                                             @if ($order->status == 1)
-                                            {{ 'Waiting' }}
-                                        @elseif ($order->status == 2)
-                                            {{ 'Accepted' }}
-                                        @elseif ($order->status == 3)
-                                            {{ 'Brushing Sole' }}
-                                        @elseif ($order->status == 4)
-                                            {{ 'Brushing Insole and Shoelace' }}
-                                        @elseif ($order->status == 5)
-                                            {{ 'Removing Stains' }}
-                                        @elseif ($order->status == 6)
-                                            {{ 'Quality Control' }}
-                                        @elseif ($order->status == 7)
-                                            {{ 'Awaiting Pickup' }}
-                                        @elseif ($order->status == 8)
-                                            {{ 'Finished' }}
-                                        @elseif ($order->status == 9)
-                                            {{ 'Rejected' }}
-                                        @endif
+                                                {{ 'Waiting' }}
+                                            @elseif ($order->status == 2)
+                                                {{ 'Accepted' }}
+                                            @elseif ($order->status == 3)
+                                                {{ 'Brushing Sole' }}
+                                            @elseif ($order->status == 4)
+                                                {{ 'Brushing Insole and Shoelace' }}
+                                            @elseif ($order->status == 5)
+                                                {{ 'Removing Stains' }}
+                                            @elseif ($order->status == 6)
+                                                {{ 'Quality Control' }}
+                                            @elseif ($order->status == 7)
+                                                {{ 'Awaiting Pickup' }}
+                                            @elseif ($order->status == 8)
+                                                {{ 'Finished' }}
+                                            @elseif ($order->status == 9)
+                                                {{ 'Rejected' }}
+                                            @elseif ($order->status == -1)
+                                                <b style="color: yellowgreen">{{ 'Waiting for Payment' }}</b>
+                                            @elseif ($order->status == -99)
+                                                <span style="color: red">{{ 'Cancelled Order' }}</span>
+                                            @endif
                                         </td>
                                         <td class="text-center">
                                             <a href="/orderlist/{{ $order->id }}"
