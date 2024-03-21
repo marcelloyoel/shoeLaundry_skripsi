@@ -128,8 +128,8 @@ class OrderUserController extends Controller
             'order' => $orderlist,
             'title' => 'View Order',
             'services'  => $services,
-            'allService' => $laundrySepatu,
-            'javascript' => 'paymentDiOrder.js'
+            'allService' => $laundrySepatu
+            // 'javascript' => 'paymentDiOrder.js'
         ]);
     }
 

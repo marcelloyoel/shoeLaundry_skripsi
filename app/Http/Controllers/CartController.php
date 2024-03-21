@@ -294,7 +294,14 @@ class CartController extends Controller
                     );
                     OrderToService::create($orderToService);
                     Cart::remove($service_ids[$j]);
-                    ModelsCart::where('user_id', $user_id)->where('service_id', $service_ids[$j])->first()->delete();
+                    // ModelsCart::where('user_id', $user_id)->where('service_id', $service_ids[$j])->first()->delete();
+                    $itemInTheCart = ModelsCart::where('user_id', $user_id)
+                        ->where('service_id', $service_ids[$j])
+                        ->first();
+
+                    if ($itemInTheCart) {
+                        $itemInTheCart->delete();
+                    }
                 }
             }
             DB::commit();
