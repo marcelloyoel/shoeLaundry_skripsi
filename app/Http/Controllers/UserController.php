@@ -92,7 +92,7 @@ class UserController extends Controller
             if ($request->hasFile('laundry-picture')) {
                 $uploadedLaundryPicture = $request->file('laundry-picture');
                 $laundryPictureFileName = $uploadedLaundryPicture->getClientOriginalName();
-                $uploadedLaundryPicture->storeAs('images', $laundryPictureFileName, 'public');
+                $uploadedLaundryPicture->storeAs('public_html/images', $laundryPictureFileName);
                 $laundryData['picture'] = $laundryPictureFileName;
             }
 
@@ -153,7 +153,7 @@ class UserController extends Controller
             $rules['picture'] = 'image|mimes:jpeg,png,jpg,gif|max:2048';
             $validatedData = $request->validate($rules);
             $pictureFileName = $uploadedPicture->getClientOriginalName();
-            $uploadedPicture->storeAs('images', $pictureFileName, 'public');
+            $uploadedPicture->storeAs('public_html/images', $pictureFileName);
             $validatedData['picture'] = $pictureFileName;
         } else {
             $validatedData = $request->validate($rules);
