@@ -13,7 +13,7 @@ class FileController extends Controller
         if (!Storage::exists('public/' . $filename)) {
             abort(404);
         }
-
+        dd($filePath);
         return response()->file($filePath);
     }
 }
