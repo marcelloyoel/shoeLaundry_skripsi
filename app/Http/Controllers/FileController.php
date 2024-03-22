@@ -10,7 +10,7 @@ class FileController extends Controller
     {
         $filePath = storage_path('app/public/' . $filename);
 
-        if (!Storage::exists($filePath)) {
+        if (!Storage::exists('public/' . $filename)) {
             abort(404);
         }
 
