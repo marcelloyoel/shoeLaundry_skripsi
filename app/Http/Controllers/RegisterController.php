@@ -70,8 +70,10 @@ class RegisterController extends Controller
 
         if ($request->hasFile('picture')) {
             $uploadedPicture = $request->file('picture');
-            $pictureFileName = $uploadedPicture->getClientOriginalName();
-            $uploadedPicture->storeAs('images', $pictureFileName, 'public');
+            // $pictureFileName = $uploadedPicture->getClientOriginalName();
+            // $uploadedPicture->storeAs('images', $pictureFileName, 'public');
+            $pictureFileName = $uploadedPicture->hashName(); // Generate a unique filename
+            $uploadedPicture->storeAs('public/images', $pictureFileName); // Store in storage/app/public/images
             $validatedData['picture'] = $pictureFileName;
         }
 
