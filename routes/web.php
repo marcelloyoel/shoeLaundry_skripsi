@@ -56,6 +56,7 @@ Route::post('/update-address', [MapsController::class, 'updateAddress'])->name('
 // Route::resource('/laundryservice', ServiceController::class)->middleware('auth');
 
 Route::group(['middleware' => 'auth'], function () {
+    Route::get('storage/{filename}', 'FileController@show')->where('filename', '.*');
     Route::post('/logout', [LoginController::class, 'logout']);
     Route::get('/home', [HomeController::class, 'index']);
     // Route::get('/editprofile', [UpdateController::class, 'index']);
