@@ -1,4 +1,4 @@
-console.log('test');
+console.log('test halo min');
 let subTotalContent = document.getElementById('subtotal');
 // subTotalContent.textContent = subTotal;
 let subTotalMoney = Number(subTotalContent.textContent);
